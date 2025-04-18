@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Bali Paragliding & Uluwatu Sunset Tour | Bali Paradise Getaway
+        </title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="../../../css/style.css" />
+        <style>
+            /* Destination-specific styles - Copied from Mount Batur */
+            .destination-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 3rem var(--container-padding);
+            }
+
+            .destination-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+                color: var(--dark);
+                margin-bottom: 1.5rem;
+            }
+
+            .destination-title span {
+                color: var(--primary);
+            }
+
+            .destination-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .info-card {
+                flex: 1;
+                min-width: 200px;
+                background-color: var(--white);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .info-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+
+            .destination-description {
+                line-height: 1.8;
+                margin-bottom: 2rem;
+            }
+
+            .destination-description p {
+                margin-bottom: 1.5rem;
+            }
+
+            .highlight-list {
+                margin-bottom: 2rem;
+            }
+
+            .highlight-list li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .highlight-list li::before {
+                content: "•";
+                color: var(--primary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--primary);
+                color: var(--white);
+                padding: 1rem 2rem;
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 600;
+                transition: all var(--transition-standard);
+                margin-top: 1rem;
+            }
+
+            .cta-button:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                transition: transform var(--transition-standard);
+            }
+
+            .gallery-image:hover {
+                transform: scale(1.05);
+            }
+
+            .tour-details {
+                background-color: var(--gray-100);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                margin-bottom: 2rem;
+            }
+
+            .tour-details h3 {
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+
+            .tour-details ul {
+                list-style: none;
+                margin-bottom: 1.5rem;
+            }
+
+            .tour-details ul li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .tour-details ul li::before {
+                content: "✓";
+                color: var(--secondary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .tour-details .note {
+                font-style: italic;
+                color: var(--gray-700);
+                font-size: 0.9rem;
+            }
+
+            @media (max-width: 767px) {
+                .info-card {
+                    min-width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="hero destination-hero" id="home">
+            <img
+                src="https://images.unsplash.com/photo-1588499756007-ded3f865871f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Paragliding over Bali coastline"
+                class="hero-bg"
+            />
+            <div class="image-credit">Photo credit: Unsplash</div>
+            <div class="hero-content">
+                <h1>Soar & Sunset: Bali Paragliding & Uluwatu Tour</h1>
+                <p>
+                    Experience the thrill of tandem paragliding over stunning
+                    cliffs, visit Pandawa Beach, and witness the magical Uluwatu
+                    sunset.
+                </p>
+            </div>
+        </section>
+
+        <!-- Destination Content -->
+        <div class="destination-content">
+            <h2 class="destination-title">
+                Fly High, End with <span>Magic</span>
+            </h2>
+
+            <div class="destination-info">
+                <div class="info-card">
+                    <h3>Locations</h3>
+                    <address
+                        class="card-location"
+                        id="destination-location"
+                        style="
+                            cursor: pointer;
+                            text-decoration: underline;
+                            color: var(--primary);
+                        "
+                    >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Timbis Beach</span>
+                    </address>
+                </div>
+                <div class="info-card">
+                    <h3>Duration</h3>
+                    <p>Approx. 6-8 hours (Private Tour)</p>
+                </div>
+                <div class="info-card">
+                    <h3>Best Experience</h3>
+                    <p>Afternoon for flight & sunset</p>
+                </div>
+            </div>
+
+            <div class="destination-description">
+                <p>
+                    Prepare for a day blending pure adrenaline with serene
+                    beauty on this exclusive private tour. Feel the ultimate
+                    freedom as you take to the skies on a tandem paragliding
+                    adventure! Launching from the stunning cliffs of Bali's
+                    southern peninsula (typically Timbis Beach), you'll soar
+                    like an eagle, harnessed securely with a professional
+                    instructor. Drink in the magnificent, panoramic views of
+                    turquoise waters, hidden beaches, and dramatic coastline
+                    from a perspective few ever witness. It's an exhilarating
+                    experience you'll never forget!
+                </p>
+                <p>
+                    After your flight, unwind on the pristine white sands of the
+                    famous Pandawa Beach, often called Bali's 'Secret Beach'.
+                    Enjoy the beautiful scenery and perhaps take a refreshing
+                    dip in the ocean.
+                </p>
+                <p>
+                    As the day draws to a close, we'll escort you to the iconic
+                    Uluwatu Temple, perched dramatically on a cliff edge 70
+                    meters above the crashing waves. Explore this sacred sea
+                    temple, home to mischievous monkeys, and find the perfect
+                    spot to witness one of Bali's most breathtaking sunsets.
+                    Watch as the sky transforms into a fiery masterpiece,
+                    casting a golden glow over the temple and the vast Indian
+                    Ocean – a truly magical end to an adventurous day. This
+                    worry-free private tour includes comfortable hotel
+                    transfers.
+                </p>
+            </div>
+
+            <div class="tour-details">
+                <h3>Tour Highlights</h3>
+                <ul>
+                    <li>
+                        Experience the thrill of Tandem Paragliding with a
+                        professional instructor.
+                    </li>
+                    <li>
+                        Enjoy breathtaking aerial views of Bali's southern
+                        coastline.
+                    </li>
+                    <li>
+                        Relax on the beautiful white sands of Pandawa Beach.
+                    </li>
+                    <li>
+                        Explore the sacred Uluwatu Temple, perched on dramatic
+                        cliffs.
+                    </li>
+                    <li>Witness a spectacular sunset over the Indian Ocean.</li>
+                    <li>
+                        Enjoy the convenience and comfort of a private tour with
+                        hotel transfers.
+                    </li>
+                    <li>All safety equipment for paragliding is provided.</li>
+                </ul>
+
+                <h3>What's Included</h3>
+                <ul>
+                    <li>Private hotel pickup and drop-off (selected areas)</li>
+                    <li>Private air-conditioned vehicle</li>
+                    <li>English-speaking driver/guide</li>
+                    <li>Tandem Paragliding flight (approx. 15-20 minutes)</li>
+                    <li>Professional Paragliding Instructor</li>
+                    <li>All necessary safety equipment</li>
+                    <li>Entrance fees to Pandawa Beach and Uluwatu Temple</li>
+                    <li>Bottled water</li>
+                    <li>Parking fees</li>
+                    <li>Insurance coverage</li>
+                </ul>
+
+                <p class="note">
+                    <strong>Important:</strong> Paragliding is
+                    weather-dependent. Flights may be rescheduled or cancelled
+                    in case of unsafe conditions (full refund or alternative
+                    activity offered). Weight restrictions may apply for
+                    paragliding (typically around 20-110kg, please inquire).
+                    Wear comfortable clothing and secure footwear. Bring
+                    sunglasses and sunscreen.
+                </p>
+            </div>
+
+            <h3>Essential Experiences</h3>
+            <ul class="highlight-list">
+                <li>
+                    Feel the unique sensation of flying freely over Bali's
+                    coast.
+                </li>
+                <li>
+                    Capture incredible photos from the sky and the cliff tops.
+                </li>
+                <li>Discover the beauty of Pandawa Beach's hidden cove.</li>
+                <li>Experience the spiritual atmosphere of Uluwatu Temple.</li>
+                <li>
+                    Be mesmerized by the changing colors of a Balinese sunset.
+                </li>
+                <li>
+                    Enjoy a seamless and personalized private tour experience.
+                </li>
+                <li>Combine adventure with iconic sightseeing.</li>
+            </ul>
+
+            <div class="gallery">
+                <img
+                    src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Uluwatu Temple Sunset"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1590523740917-c4d176c62f76?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Pandawa Beach"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1506974748274-f5769f5a8fea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Paragliding action"
+                    class="gallery-image"
+                />
+            </div>
+
+            <a href="#" class="cta-button" id="booking_button"
+                >Book Your Paragliding & Sunset Tour</a
+            >
+        </div>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Google Maps Modal -->
+        <div class="map-modal" id="map-modal">
+            <div class="map-container">
+                <div class="map-close" id="map-close">
+                    <i class="fas fa-times"></i>
+                </div>
+                <iframe
+                    id="map-iframe"
+                    class="map-iframe"
+                    src=""
+                    allowfullscreen=""
+                    loading="lazy"
+                >
+                </iframe>
+            </div>
+        </div>
+    </body>
+    <!-- Link to external JavaScript file -->
+    <script src="../../../js/main.js"></script>
+</html>

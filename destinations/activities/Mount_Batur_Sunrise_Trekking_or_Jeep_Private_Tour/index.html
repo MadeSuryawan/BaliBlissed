@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Mount Batur Sunrise Trekking or Jeep Private Tour | Bali Paradise
+            Getaway
+        </title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="../../../css/style.css" />
+        <style>
+            /* Destination-specific styles */
+            .destination-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 3rem var(--container-padding);
+            }
+
+            .destination-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+                color: var(--dark);
+                margin-bottom: 1.5rem;
+            }
+
+            .destination-title span {
+                color: var(--primary);
+            }
+
+            .destination-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .info-card {
+                flex: 1;
+                min-width: 200px;
+                background-color: var(--white);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .info-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+
+            .destination-description {
+                line-height: 1.8;
+                margin-bottom: 2rem;
+            }
+
+            .destination-description p {
+                margin-bottom: 1.5rem;
+            }
+
+            .highlight-list {
+                margin-bottom: 2rem;
+            }
+
+            .highlight-list li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .highlight-list li::before {
+                content: "•";
+                color: var(--primary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--primary);
+                color: var(--white);
+                padding: 1rem 2rem;
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 600;
+                transition: all var(--transition-standard);
+                margin-top: 1rem;
+            }
+
+            .cta-button:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                transition: transform var(--transition-standard);
+            }
+
+            .gallery-image:hover {
+                transform: scale(1.05);
+            }
+
+            .tour-details {
+                background-color: var(--gray-100);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                margin-bottom: 2rem;
+            }
+
+            .tour-details h3 {
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+
+            .tour-details ul {
+                list-style: none;
+                margin-bottom: 1.5rem;
+            }
+
+            .tour-details ul li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .tour-details ul li::before {
+                content: "✓";
+                color: var(--secondary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .tour-details .note {
+                font-style: italic;
+                color: var(--gray-700);
+                font-size: 0.9rem;
+            }
+
+            @media (max-width: 767px) {
+                .info-card {
+                    min-width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="hero destination-hero" id="home">
+            <img
+                src="https://images.unsplash.com/photo-1573790387438-4da905039392?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Mount Batur Sunrise"
+                class="hero-bg"
+            />
+            <div class="image-credit">Photo credit: Unsplash</div>
+            <div class="hero-content">
+                <h1>Mount Batur Sunrise Trekking or Jeep Private Tour</h1>
+                <p>
+                    Choose your adventure: Conquer the summit on foot or enjoy
+                    the comfort of a 4WD jeep to witness Bali's most spectacular
+                    sunrise
+                </p>
+            </div>
+        </section>
+
+        <!-- Destination Content -->
+        <div class="destination-content">
+            <h2 class="destination-title">Explore <span>Mount Batur</span></h2>
+
+            <div class="destination-info">
+                <div class="info-card">
+                    <h3>Location</h3>
+                    <address
+                        class="card-location"
+                        id="destination-location"
+                        style="
+                            cursor: pointer;
+                            text-decoration: underline;
+                            color: var(--primary);
+                        "
+                    >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mount Batur</span>
+                    </address>
+                </div>
+                <div class="info-card">
+                    <h3>Price</h3>
+                    <p>From $75 / person</p>
+                </div>
+                <div class="info-card">
+                    <h3>Best Time to Visit</h3>
+                    <p>April to October (Dry Season)</p>
+                </div>
+            </div>
+
+            <div class="destination-description">
+                <p>
+                    Standing majestically at 1,717 meters (5,633 feet) above sea
+                    level, Mount Batur offers one of Bali's most awe-inspiring
+                    natural spectacles—a sunrise that transforms the sky into a
+                    canvas of gold, crimson, and violet hues while illuminating
+                    the volcanic landscape and serene Lake Batur below. Our
+                    exclusive tour gives you the freedom to choose your
+                    preferred way to experience this magical moment: either
+                    challenge yourself with an exhilarating pre-dawn trek to the
+                    summit or enjoy the comfort of our private 4WD jeep that
+                    delivers you to premium viewpoints without the physical
+                    demands of hiking.
+                </p>
+                <p>
+                    For adventure seekers who choose the trekking option, your
+                    journey begins in the quiet darkness of early morning as our
+                    experienced local guides lead you along ancient paths up the
+                    volcano's slopes. The moderately challenging two-hour ascent
+                    is rewarded with unparalleled panoramic views as you reach
+                    the summit just in time for nature's greatest light show.
+                    Feel the sense of accomplishment as you stand atop an active
+                    volcano, watching the first golden rays break across the
+                    horizon, illuminating Mount Agung and the surrounding
+                    landscape in an ethereal glow that photographers and nature
+                    lovers find simply mesmerizing.
+                </p>
+                <p>
+                    If you prefer comfort without sacrificing the experience,
+                    our 4WD jeep option provides a more relaxed journey to
+                    specially selected viewpoints that rival the summit's
+                    vistas. This option is perfect for families with children,
+                    seniors, or anyone who wants to witness the spectacular
+                    sunrise without the physical exertion of pre-dawn hiking.
+                    Whichever option you choose, our tour continues with a
+                    delicious breakfast served with Bali's famous coffee while
+                    you soak in the morning views. The adventure doesn't end
+                    with sunrise—you'll have the opportunity to explore
+                    fascinating volcanic features, visit a traditional coffee
+                    plantation, and even add exciting activities like ATV
+                    riding, white-water rafting, or visits to Instagram-worthy
+                    cafés and rice terraces to complete your perfect Bali day.
+                </p>
+            </div>
+
+            <div class="tour-details">
+                <h3>Tour Highlights</h3>
+                <ul>
+                    <li>
+                        Choose between an exhilarating trek or comfortable 4WD
+                        jeep ride to witness a spectacular sunrise
+                    </li>
+                    <li>
+                        Experience breathtaking panoramic views of Lake Batur,
+                        Mount Abang, and Mount Agung
+                    </li>
+                    <li>
+                        Enjoy a delicious breakfast with freshly brewed Balinese
+                        coffee at the summit or viewpoint
+                    </li>
+                    <li>
+                        Explore volcanic features including steam vents and
+                        ancient lava fields
+                    </li>
+                    <li>
+                        Visit a traditional coffee plantation and sample
+                        authentic Balinese coffee
+                    </li>
+                    <li>
+                        Customize your day with additional activities like ATV
+                        riding, rafting, or rice terrace visits
+                    </li>
+                    <li>
+                        Capture stunning photos with an optional professional
+                        photographer add-on
+                    </li>
+                </ul>
+
+                <h3>What's Included</h3>
+                <ul>
+                    <li>Hotel pickup and drop-off from major areas in Bali</li>
+                    <li>
+                        English-speaking guide with local expertise and safety
+                        training
+                    </li>
+                    <li>
+                        Trekking equipment (for hiking option) or 4WD jeep
+                        transport
+                    </li>
+                    <li>Breakfast with coffee/tea</li>
+                    <li>Entrance fees and permits</li>
+                    <li>Bottled water</li>
+                    <li>Insurance coverage</li>
+                </ul>
+
+                <p class="note">
+                    <strong>Tip:</strong> Before you travel to Bali, download
+                    WhatsApp as this is the main way local operators will
+                    connect with you. For trekkers, wear comfortable hiking
+                    shoes and bring a light jacket as temperatures at the summit
+                    can be cool before sunrise. For the best photos, consider
+                    booking the package with a professional photographer who
+                    knows exactly how to capture the magical light conditions.
+                </p>
+            </div>
+
+            <h3>Essential Experiences</h3>
+            <ul class="highlight-list">
+                <li>
+                    Witness the magical moment when first light breaks over the
+                    eastern horizon
+                </li>
+                <li>
+                    Capture stunning photos of Lake Batur reflecting the morning
+                    light
+                </li>
+                <li>
+                    Feel the warmth of volcanic steam vents—a reminder of Mount
+                    Batur's active status
+                </li>
+                <li>
+                    Learn about Balinese culture and the spiritual significance
+                    of mountains from local guides
+                </li>
+                <li>
+                    Sample authentic Balinese coffee at a traditional plantation
+                </li>
+                <li>
+                    Enjoy the camaraderie of fellow travelers sharing a unique
+                    sunrise experience
+                </li>
+                <li>
+                    Visit Instagram-worthy cafés with spectacular views
+                    (optional add-on)
+                </li>
+                <li>
+                    Experience the thrill of ATV riding through volcanic
+                    landscapes (optional add-on)
+                </li>
+            </ul>
+
+            <div class="gallery">
+                <img
+                    src="https://images.unsplash.com/photo-1604608567430-70d48e6d36f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Mount Batur Sunrise"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="4WD Jeep Tour"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1592364395653-83e648b20cc2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Balinese Coffee"
+                    class="gallery-image"
+                />
+            </div>
+
+            <a href="#" class="cta-button" id="booking_button"
+                >Book Your Mount Batur Adventure</a
+            >
+        </div>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Google Maps Modal -->
+        <div class="map-modal" id="map-modal">
+            <div class="map-container">
+                <div class="map-close" id="map-close">
+                    <i class="fas fa-times"></i>
+                </div>
+                <iframe
+                    id="map-iframe"
+                    class="map-iframe"
+                    src=""
+                    allowfullscreen=""
+                    loading="lazy"
+                >
+                </iframe>
+            </div>
+        </div>
+    </body>
+    <!-- Link to external JavaScript file -->
+    <script src="../../../js/main.js"></script>
+</html>

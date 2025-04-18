@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Ubud Highlights And Lempuyang Gate Of Heaven Tour | Bali Paradise
+            Getaway
+        </title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="../../../css/style.css" />
+        <style>
+            /* Destination-specific styles */
+            .destination-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 3rem var(--container-padding);
+            }
+
+            .destination-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+                color: var(--dark);
+                margin-bottom: 1.5rem;
+            }
+
+            .destination-title span {
+                color: var(--primary);
+            }
+
+            .destination-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .info-card {
+                flex: 1;
+                min-width: 200px;
+                background-color: var(--white);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .info-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+
+            .destination-description {
+                line-height: 1.8;
+                margin-bottom: 2rem;
+            }
+
+            .destination-description p {
+                margin-bottom: 1.5rem;
+            }
+
+            .highlight-list {
+                margin-bottom: 2rem;
+            }
+
+            .highlight-list li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .highlight-list li::before {
+                content: "•";
+                color: var(--primary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--primary);
+                color: var(--white);
+                padding: 1rem 2rem;
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 600;
+                transition: all var(--transition-standard);
+                margin-top: 1rem;
+            }
+
+            .cta-button:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                transition: transform var(--transition-standard);
+            }
+
+            .gallery-image:hover {
+                transform: scale(1.05);
+            }
+
+            .tour-details {
+                background-color: var(--gray-100);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                margin-bottom: 2rem;
+            }
+
+            .tour-details h3 {
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+
+            .tour-details ul {
+                list-style: none;
+                margin-bottom: 1.5rem;
+            }
+
+            .tour-details ul li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .tour-details ul li::before {
+                content: "✓";
+                color: var(--secondary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .tour-details .note {
+                font-style: italic;
+                color: var(--gray-700);
+                font-size: 0.9rem;
+            }
+
+            @media (max-width: 767px) {
+                .info-card {
+                    min-width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="hero destination-hero" id="home">
+            <img
+                src="https://images.unsplash.com/photo-1604999333679-b86d54738315?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Lempuyang Gate of Heaven"
+                class="hero-bg"
+            />
+            <div class="image-credit">Photo credit: Unsplash</div>
+            <div class="hero-content">
+                <h1>Ubud Highlights And Lempuyang Gate Of Heaven Tour</h1>
+                <p>
+                    Experience the magic of Bali's most iconic cultural sites
+                    and capture the perfect sunset at the famous Gate of Heaven
+                </p>
+            </div>
+        </section>
+
+        <!-- Destination Content -->
+        <div class="destination-content">
+            <h2 class="destination-title">
+                Discover <span>Bali's Cultural Treasures</span>
+            </h2>
+
+            <div class="destination-info">
+                <div class="info-card">
+                    <h3>Location</h3>
+                    <address
+                        class="card-location"
+                        id="destination-location"
+                        style="
+                            cursor: pointer;
+                            text-decoration: underline;
+                            color: var(--primary);
+                        "
+                    >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Lempuyang Temple</span>
+                    </address>
+                </div>
+                <div class="info-card">
+                    <h3>Price</h3>
+                    <p>From $85 / person</p>
+                </div>
+                <div class="info-card">
+                    <h3>Best Time to Visit</h3>
+                    <p>March to October (Dry Season)</p>
+                </div>
+            </div>
+
+            <div class="destination-description">
+                <p>
+                    Embark on an unforgettable journey through Bali's cultural
+                    heart with our exclusive Ubud Highlights and Lempuyang Gate
+                    of Heaven Sunset Tour. This carefully crafted experience
+                    combines the artistic charm of Ubud with the spiritual
+                    magnificence of eastern Bali's most photogenic temple. Our
+                    tour is designed to showcase the island's diverse
+                    beauty—from cascading waterfalls hidden in lush jungles to
+                    ancient royal water palaces and the emerald expanses of
+                    terraced rice fields that have made Bali famous worldwide.
+                </p>
+                <p>
+                    The crown jewel of this experience is undoubtedly the sunset
+                    visit to Pura Lempuyang, home to the iconic "Gate of
+                    Heaven." As the day's final golden rays filter through this
+                    perfectly positioned stone archway, you'll witness one of
+                    Bali's most breathtaking vistas—Mount Agung framed
+                    majestically in the background, creating what has become one
+                    of the most sought-after photographs in Indonesia. Our
+                    expert guides know exactly how to help you capture this
+                    magical moment, ensuring you leave with both memories and
+                    images that will last a lifetime.
+                </p>
+                <p>
+                    Throughout the day, you'll be enchanted by the mesmerizing
+                    beauty of Tukad Cepung Waterfall, where sunlight creates
+                    ethereal beams through a natural rock opening above the
+                    falls. At Tirta Gangga Water Palace, you'll wander through
+                    the former royal retreat with its ornate fountains, lush
+                    gardens, and stone sculptures surrounded by koi-filled
+                    pools. The tour also includes a visit to the
+                    UNESCO-recognized Tegalalang Rice Terrace, where
+                    centuries-old farming techniques have sculpted the landscape
+                    into a living work of art. For the adventurous, an optional
+                    jungle swing experience offers a thrilling way to soar above
+                    the tropical canopy with panoramic views that epitomize
+                    Bali's natural splendor.
+                </p>
+            </div>
+
+            <div class="tour-details">
+                <h3>Tour Highlights</h3>
+                <ul>
+                    <li>
+                        Witness a spectacular sunset at Lempuyang Temple's
+                        famous Gate of Heaven with Mount Agung as backdrop
+                    </li>
+                    <li>
+                        Explore the hidden beauty of Tukad Cepung Waterfall with
+                        its unique cave setting and magical light beams
+                    </li>
+                    <li>
+                        Wander through the royal water gardens of Tirta Gangga
+                        with its ornate fountains and stepping stones
+                    </li>
+                    <li>
+                        Marvel at the UNESCO-recognized Tegalalang Rice Terrace
+                        with its stunning stepped landscape
+                    </li>
+                    <li>
+                        Experience the thrill of soaring above the jungle canopy
+                        on an optional Bali swing
+                    </li>
+                    <li>
+                        Enjoy personalized attention from your private guide who
+                        will help capture perfect photos at each location
+                    </li>
+                    <li>
+                        Learn about Balinese culture, traditions, and spiritual
+                        practices from knowledgeable local experts
+                    </li>
+                </ul>
+
+                <h3>What's Included</h3>
+                <ul>
+                    <li>
+                        Private air-conditioned transportation with hotel pickup
+                        and drop-off
+                    </li>
+                    <li>
+                        English-speaking guide and driver throughout the tour
+                    </li>
+                    <li>
+                        All entrance fees to temples, attractions, and sites
+                        listed in the itinerary
+                    </li>
+                    <li>Bottled water throughout the day</li>
+                    <li>
+                        Professional photography assistance at key photo spots
+                    </li>
+                    <li>Insurance coverage</li>
+                    <li>
+                        Lunch at a local restaurant with authentic Balinese
+                        cuisine
+                    </li>
+                </ul>
+
+                <p class="note">
+                    <strong>Tip:</strong> Wear comfortable walking shoes and
+                    bring a light jacket for the evening at Lempuyang Temple. A
+                    sarong will be provided at the temple, but women should
+                    dress modestly with shoulders covered. The jungle swing is
+                    an optional activity with an additional fee paid directly at
+                    the location. For the best photos at the Gate of Heaven,
+                    wear bright, solid colors that stand out against the stone
+                    archway and sky.
+                </p>
+            </div>
+
+            <h3>Essential Experiences</h3>
+            <ul class="highlight-list">
+                <li>
+                    Capture the perfect silhouette photo at the Gate of Heaven
+                    during golden hour
+                </li>
+                <li>
+                    Feel the refreshing mist of Tukad Cepung Waterfall in its
+                    hidden cave setting
+                </li>
+                <li>
+                    Walk across the stepping stones at Tirta Gangga surrounded
+                    by ornate fountains and koi ponds
+                </li>
+                <li>
+                    Witness traditional farmers tending to their crops at
+                    Tegalalang Rice Terrace
+                </li>
+                <li>
+                    Taste authentic Balinese coffee at a local plantation
+                    (optional stop)
+                </li>
+                <li>
+                    Soar through the air on the famous Bali jungle swing with
+                    panoramic views (optional activity)
+                </li>
+                <li>
+                    Learn about the spiritual significance of Balinese Hindu
+                    temples from your knowledgeable guide
+                </li>
+                <li>
+                    Sample traditional Balinese cuisine during lunch at a scenic
+                    local restaurant
+                </li>
+            </ul>
+
+            <div class="gallery">
+                <img
+                    src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Tegalalang Rice Terrace"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Tirta Gangga Water Palace"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1592364395653-83e648b20cc2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Tukad Cepung Waterfall"
+                    class="gallery-image"
+                />
+            </div>
+
+            <a href="#" class="cta-button" id="booking_button"
+                >Book Your Ubud & Lempuyang Adventure</a
+            >
+        </div>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Google Maps Modal -->
+        <div class="map-modal" id="map-modal">
+            <div class="map-container">
+                <div class="map-close" id="map-close">
+                    <i class="fas fa-times"></i>
+                </div>
+                <iframe
+                    id="map-iframe"
+                    class="map-iframe"
+                    src=""
+                    allowfullscreen=""
+                    loading="lazy"
+                >
+                </iframe>
+            </div>
+        </div>
+    </body>
+    <!-- Link to external JavaScript file -->
+    <script src="../../../js/main.js"></script>
+</html>
