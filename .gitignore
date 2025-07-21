@@ -81,3 +81,9 @@ temp/
 
 # Live Server
 .live-server/
+
+# Local Netlify folder
+.netlify
+
+.pixi
+.pixi/envs
