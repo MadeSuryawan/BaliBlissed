@@ -1482,6 +1482,30 @@ footer {
     text-decoration: underline; /* Optional: Add underline on hover */
 }
 
+/* Business Hours */
+.business-hours {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.business-hours h4 {
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.business-hours ul {
+    list-style: none;
+    padding: 0;
+}
+
+.business-hours li {
+    margin-bottom: 0.4rem;
+    opacity: 0.8;
+    font-size: 0.85rem;
+}
+
 /* .footer-grid .footer-about .footer-link-col {
     padding-right: 6rem;
 } */
