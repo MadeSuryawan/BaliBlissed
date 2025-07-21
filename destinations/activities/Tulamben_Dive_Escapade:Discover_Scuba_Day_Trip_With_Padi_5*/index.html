@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Tulamben Dive Escapade: Discover Scuba Day Trip with PADI 5* | Bali
+            Paradise Getaway
+        </title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="../../../css/style.css" />
+        <style>
+            /* Destination-specific styles */
+            .destination-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 3rem var(--container-padding);
+            }
+
+            .destination-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+                color: var(--dark);
+                margin-bottom: 1.5rem;
+            }
+
+            .destination-title span {
+                color: var(--primary);
+            }
+
+            .destination-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .info-card {
+                flex: 1;
+                min-width: 200px;
+                background-color: var(--white);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .info-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+
+            .destination-description {
+                line-height: 1.8;
+                margin-bottom: 2rem;
+            }
+
+            .destination-description p {
+                margin-bottom: 1.5rem;
+            }
+
+            .highlight-list {
+                margin-bottom: 2rem;
+            }
+
+            .highlight-list li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .highlight-list li::before {
+                content: "•";
+                color: var(--primary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--primary);
+                color: var(--white);
+                padding: 1rem 2rem;
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 600;
+                transition: all var(--transition-standard);
+                margin-top: 1rem;
+            }
+
+            .cta-button:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                transition: transform var(--transition-standard);
+            }
+
+            .gallery-image:hover {
+                transform: scale(1.05);
+            }
+
+            .tour-details {
+                background-color: var(--gray-100);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                margin-bottom: 2rem;
+            }
+
+            .tour-details h3 {
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+
+            .tour-details ul {
+                list-style: none;
+                margin-bottom: 1.5rem;
+            }
+
+            .tour-details ul li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .tour-details ul li::before {
+                content: "✓";
+                color: var(--secondary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .tour-details .note {
+                font-style: italic;
+                color: var(--gray-700);
+                font-size: 0.9rem;
+            }
+
+            @media (max-width: 767px) {
+                .info-card {
+                    min-width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="hero destination-hero" id="home">
+            <img
+                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Tulamben Dive Experience"
+                class="hero-bg"
+            />
+            <div class="image-credit">Photo credit: Unsplash</div>
+            <div class="hero-content">
+                <h1>
+                    Tulamben Dive Escapade: Discover Scuba Day Trip with PADI 5*
+                </h1>
+                <p>
+                    Take your first breath underwater and explore Bali's
+                    legendary USAT Liberty shipwreck with expert guidance from a
+                    PADI 5-Star Dive Center
+                </p>
+            </div>
+        </section>
+
+        <!-- Destination Content -->
+        <div class="destination-content">
+            <h2 class="destination-title">
+                Discover <span>Underwater Wonders</span>
+            </h2>
+
+            <div class="destination-info">
+                <div class="info-card">
+                    <h3>Location</h3>
+                    <address
+                        class="card-location"
+                        id="destination-location"
+                        style="
+                            cursor: pointer;
+                            text-decoration: underline;
+                            color: var(--primary);
+                        "
+                    >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Tulamben</span>
+                    </address>
+                </div>
+                <div class="info-card">
+                    <h3>Price</h3>
+                    <p>From $95 / person</p>
+                </div>
+                <div class="info-card">
+                    <h3>Best Time to Visit</h3>
+                    <p>April to November (Calm Seas)</p>
+                </div>
+            </div>
+
+            <div class="destination-description">
+                <p>
+                    Imagine floating weightlessly through crystal-clear waters,
+                    surrounded by vibrant coral gardens and colorful fish, while
+                    exploring one of the world's most accessible shipwrecks.
+                    Welcome to Tulamben, home to the legendary USAT Liberty
+                    wreck—a World War II cargo ship transformed into a thriving
+                    underwater ecosystem that offers an unparalleled diving
+                    experience for beginners and experienced divers alike. Our
+                    Discover Scuba Day Trip provides the perfect opportunity for
+                    non-divers to experience the magic of breathing underwater
+                    in one of Bali's premier dive destinations.
+                </p>
+                <p>
+                    Your adventure begins with a comprehensive pool session led
+                    by certified PADI instructors who prioritize both safety and
+                    fun. In the controlled environment of a swimming pool in
+                    either Sanur or Tulamben, you'll learn essential diving
+                    skills and gain confidence before venturing into the open
+                    ocean. Feel the initial thrill of breathing underwater and
+                    experience the sensation of weightlessness that makes diving
+                    so addictive. Our patient instructors ensure you're
+                    comfortable with the equipment and basic techniques before
+                    moving to the next stage of your journey.
+                </p>
+                <p>
+                    After mastering the fundamentals, you'll embark on two
+                    guided ocean dives in the stunning waters of Tulamben. The
+                    first dive typically explores the shallow coral gardens,
+                    where you'll encounter a kaleidoscope of marine life—from
+                    tiny, inquisitive clownfish darting among anemones to
+                    graceful sea turtles gliding through the water. Your second
+                    dive often includes parts of the USAT Liberty wreck, where
+                    you'll witness how nature has transformed this historic
+                    vessel into a living artificial reef teeming with marine
+                    biodiversity. Throughout both dives, your instructor remains
+                    by your side, ensuring your safety while helping you spot
+                    fascinating underwater creatures you might otherwise miss.
+                </p>
+                <p>
+                    This Discover Scuba experience requires no prior diving
+                    knowledge and is specifically designed for beginners aged 10
+                    and above. It's the perfect way to sample the underwater
+                    world without committing to a full certification course.
+                    Many participants find themselves so captivated by the
+                    experience that they continue their diving journey with
+                    additional courses. Whether you're seeking a unique
+                    adventure during your Bali vacation or considering diving as
+                    a new hobby, our Tulamben Discover Scuba Day Trip offers an
+                    unforgettable introduction to the wonders beneath the waves.
+                </p>
+            </div>
+
+            <div class="tour-details">
+                <h3>Tour Highlights</h3>
+                <ul>
+                    <li>
+                        Experience the unforgettable sensation of breathing
+                        underwater for the first time
+                    </li>
+                    <li>
+                        Dive into Tulamben's world-class underwater environment,
+                        including the famous USAT Liberty shipwreck
+                    </li>
+                    <li>
+                        Learn essential diving skills in a safe, controlled pool
+                        environment before ocean dives
+                    </li>
+                    <li>
+                        Enjoy two guided ocean dives with personalized attention
+                        from certified PADI instructors
+                    </li>
+                    <li>
+                        Encounter vibrant coral gardens and diverse marine life
+                        in their natural habitat
+                    </li>
+                    <li>
+                        Receive professional guidance from a PADI 5-Star Dive
+                        Center with excellent safety records
+                    </li>
+                    <li>
+                        Take the first step toward becoming a certified diver if
+                        you choose to continue
+                    </li>
+                </ul>
+
+                <h3>What's Included</h3>
+                <ul>
+                    <li>Hotel pickup and drop-off from major areas in Bali</li>
+                    <li>
+                        Professional PADI-certified instructors with extensive
+                        local knowledge
+                    </li>
+                    <li>
+                        Complete diving equipment (BCD, regulator, wetsuit,
+                        mask, fins, tanks)
+                    </li>
+                    <li>Pool training session prior to ocean dives</li>
+                    <li>Two guided ocean dives in Tulamben</li>
+                    <li>Refreshments and light meals between dives</li>
+                    <li>
+                        Underwater photos of your experience (digital copies)
+                    </li>
+                    <li>Dive insurance coverage</li>
+                </ul>
+
+                <p class="note">
+                    <strong>Tip:</strong> Bring swimwear, a towel, sunscreen,
+                    and a change of clothes. Avoid flying within 24 hours after
+                    diving. For the best visibility, morning dives are
+                    recommended. If you wear glasses, contact lenses can be worn
+                    under your mask, or prescription masks are available upon
+                    request with advance notice.
+                </p>
+            </div>
+
+            <h3>Essential Experiences</h3>
+            <ul class="highlight-list">
+                <li>
+                    Feel the exhilaration of your first underwater breath in a
+                    controlled pool environment
+                </li>
+                <li>
+                    Witness the incredible biodiversity of Tulamben's coral
+                    gardens up close
+                </li>
+                <li>
+                    Explore sections of the USAT Liberty shipwreck, accessible
+                    even to beginners
+                </li>
+                <li>
+                    Encounter fascinating marine creatures from colorful reef
+                    fish to graceful sea turtles
+                </li>
+                <li>
+                    Experience the sensation of weightlessness and
+                    three-dimensional movement underwater
+                </li>
+                <li>
+                    Learn about marine conservation and the importance of
+                    protecting coral reef ecosystems
+                </li>
+                <li>
+                    Capture unforgettable underwater moments with professional
+                    photos of your dive
+                </li>
+                <li>
+                    Connect with fellow adventure seekers sharing this unique
+                    underwater experience
+                </li>
+            </ul>
+
+            <div class="gallery">
+                <img
+                    src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Coral Reef Diving"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1682687982501-1e58ab814714?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Shipwreck Diving"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Marine Life"
+                    class="gallery-image"
+                />
+            </div>
+
+            <a href="#" class="cta-button" id="booking_button"
+                >Book Your Underwater Adventure</a
+            >
+        </div>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Google Maps Modal -->
+        <div class="map-modal" id="map-modal">
+            <div class="map-container">
+                <div class="map-close" id="map-close">
+                    <i class="fas fa-times"></i>
+                </div>
+                <iframe
+                    id="map-iframe"
+                    class="map-iframe"
+                    src=""
+                    allowfullscreen=""
+                    loading="lazy"
+                >
+                </iframe>
+            </div>
+        </div>
+    </body>
+    <!-- Link to external JavaScript file -->
+    <script src="../../../js/main.js"></script>
+</html>
