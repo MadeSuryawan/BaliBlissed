@@ -1,19 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Google Tag Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    "gtm.start": new Date().getTime(),
+                    event: "gtm.js",
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != "dataLayer" ? "&l=" + l : "";
+                j.async = true;
+                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", "GTM-XXXXXXX");
+        </script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "GA_MEASUREMENT_ID");
+        </script>
+        <!-- End Google Analytics -->
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
-            content="Discover magical Bali with Bali Paradise Getaway. We offer luxury vacation packages, private tours, car charters, and unique experiences like Mount Batur sunrise treks, snorkeling, and cultural tours."
+            content="Experience the authentic heart of Bali with BaliBlissed, your local Balinese travel partner. Luxury vacation packages, private tours, car charters, and unique experiences like Mount Batur sunrise treks, snorkeling, and cultural tours."
         />
-        <!-- Add this link tag for the favicon -->
+        <meta
+            name="keywords"
+            content="Bali tours, Bali vacation packages, Mount Batur sunrise, Nusa Penida tours, private car charter Bali, Bali travel agency, luxury Bali tours, Bali snorkeling, Bali cultural tours"
+        />
+        <meta name="author" content="BaliBlissed Travel Agency" />
+        <meta name="robots" content="index, follow" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://baliblissed.com/" />
+        <meta
+            property="og:title"
+            content="BaliBlissed | Authentic Bali Travel Experiences"
+        />
+        <meta
+            property="og:description"
+            content="Experience the authentic heart of Bali with BaliBlissed, your local Balinese travel partner. Luxury vacation packages, private tours, and unique cultural experiences."
+        />
+        <meta
+            property="og:image"
+            content="https://baliblissed.com/images/hero/IMG_7508_DxO.webp"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="BaliBlissed" />
+        <meta property="og:locale" content="en_US" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://baliblissed.com/" />
+        <meta
+            property="twitter:title"
+            content="BaliBlissed | Authentic Bali Travel Experiences"
+        />
+        <meta
+            property="twitter:description"
+            content="Experience the authentic heart of Bali with BaliBlissed, your local Balinese travel partner. Luxury vacation packages, private tours, and unique cultural experiences."
+        />
+        <meta
+            property="twitter:image"
+            content="https://baliblissed.com/images/hero/IMG_7508_DxO.webp"
+        />
+
+        <!-- Favicon -->
         <link
             rel="icon"
             type="image/x-icon"
             href="icons/Favicons_(logo)/favicon-192.png"
         />
-        <title>Bali Blissed | Luxury Tropical Vacations</title>
+        <link
+            rel="apple-touch-icon"
+            sizes="192x192"
+            href="icons/Favicons_(logo)/favicon-192.png"
+        />
+
+        <title>
+            BaliBlissed | Authentic Bali Travel Experiences & Luxury Tours
+        </title>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -26,28 +110,30 @@
         <!-- Link to external CSS file -->
         <link rel="stylesheet" href="css/style.css" />
 
-        <!-- Add JSON-LD Structured Data for TravelAgency -->
+        <!-- JSON-LD Structured Data for TravelAgency -->
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "TravelAgency",
-                "name": "Bali Paradise Getaway",
-                "image": "URL_to_your_logo.jpg", // Replace with actual logo URL
-                "@id": "URL_of_your_homepage", // Replace with your homepage URL
-                "url": "URL_of_your_homepage", // Replace with your homepage URL
-                "telephone": "+623611234567",
+                "name": "BaliBlissed",
+                "alternateName": "Bali Blissed Travel Agency",
+                "image": "https://baliblissed.com/icons/Favicons_(logo)/favicon-192.png",
+                "@id": "https://baliblissed.com",
+                "url": "https://baliblissed.com",
+                "telephone": "+6285847006743",
+                "email": "hello@baliblissed.com",
                 "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "Jl. Raya Uluwatu No.1",
-                    "addressLocality": "South Kuta", // Or more specific locality if known
+                    "addressLocality": "South Kuta",
                     "addressRegion": "Bali",
-                    "postalCode": "80361", // Replace with actual postal code if available
+                    "postalCode": "80361",
                     "addressCountry": "ID"
                 },
                 "geo": {
                     "@type": "GeoCoordinates",
-                    "latitude": -8.8166, // Replace with actual latitude
-                    "longitude": 115.1667 // Replace with actual longitude
+                    "latitude": -8.8166,
+                    "longitude": 115.1667
                 },
                 "openingHoursSpecification": {
                     "@type": "OpeningHoursSpecification",
@@ -61,17 +147,102 @@
                         "Sunday"
                     ],
                     "opens": "00:00",
-                    "closes": "23:59" // Indicates 24/7
+                    "closes": "23:59"
                 },
-                "priceRange": "$$$", // Optional: Adjust based on your pricing (e.g., $, $$, $$$$)
-                "description": "Luxury Bali vacation packages, private tours, car charters, and unique experiences like Mount Batur sunrise treks, snorkeling, and cultural tours.",
-                // Add reviews here later if desired (see step 5)
-                "review": [] // Placeholder for reviews
+                "priceRange": "$$$",
+                "description": "Experience the authentic heart of Bali with BaliBlissed, your local Balinese travel partner. We offer luxury vacation packages, private tours, car charters, and unique experiences like Mount Batur sunrise treks, snorkeling, and cultural tours.",
+                "serviceType": [
+                    "Travel Agency",
+                    "Tour Operator",
+                    "Car Charter Service"
+                ],
+                "areaServed": {
+                    "@type": "Place",
+                    "name": "Bali, Indonesia"
+                },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Bali Travel Services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "TouristTrip",
+                                "name": "Mount Batur Sunrise Tours"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "TouristTrip",
+                                "name": "Nusa Penida Day Tours"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Private Car Charter"
+                            }
+                        }
+                    ]
+                },
+                "sameAs": [
+                    "https://www.facebook.com/madesuryawan12/",
+                    "https://www.instagram.com/suryawankusuma"
+                ]
+            }
+        </script>
+
+        <!-- Additional Schema Markup for Services -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "BaliBlissed",
+                "url": "https://baliblissed.com",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://baliblissed.com/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            }
+        </script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "BaliBlissed",
+                "url": "https://baliblissed.com",
+                "logo": "https://baliblissed.com/icons/Favicons_(logo)/favicon-192.png",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+6285847006743",
+                    "contactType": "customer service",
+                    "availableLanguage": ["English", "Indonesian"],
+                    "areaServed": "ID"
+                },
+                "sameAs": [
+                    "https://www.facebook.com/madesuryawan12/",
+                    "https://www.instagram.com/suryawankusuma"
+                ]
             }
         </script>
         <!-- End JSON-LD -->
     </head>
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+                height="0"
+                width="0"
+                style="display: none; visibility: hidden"
+            ></iframe
+        ></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
         <!-- Header placeholder -->
         <div id="header-placeholder"></div>
 
@@ -81,8 +252,10 @@
             <section class="hero" id="home">
                 <img
                     src="/images/hero/IMG_7508_DxO.webp"
-                    alt="Bali Culture"
+                    alt="Traditional Balinese cultural scene showcasing the authentic beauty and heritage of Bali"
                     class="hero-bg"
+                    loading="eager"
+                    decoding="async"
                 />
                 <div class="image-credit">Photo credit: Made Suryawan</div>
                 <div class="hero-content">
@@ -132,9 +305,12 @@
                             <article class="destination-card">
                                 <div class="card-image-container">
                                     <img
-                                        src="#"
-                                        alt="ATV Riding in Ubud"
+                                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3C/svg%3E"
+                                        data-src="#"
+                                        alt="ATV Riding adventure in Ubud - Experience thrilling quad bike tours through Bali's scenic landscapes"
                                         class="card-image"
+                                        loading="lazy"
+                                        decoding="async"
                                     />
                                 </div>
                                 <div class="card-content">
@@ -1219,7 +1395,7 @@
                             <div class="testimonial-card">
                                 <p class="testimonial-text">
                                     "Our Bali vacation was absolutely magical
-                                    thanks to BaliParadise. They arranged
+                                    thanks to BaliBlissed. They arranged
                                     everything perfectly - from the stunning
                                     villa to the most amazing tours. Can't wait
                                     to come back!"
@@ -1262,7 +1438,7 @@
                             <div class="testimonial-card">
                                 <p class="testimonial-text">
                                     "As a solo traveler, I was nervous about
-                                    visiting Bali, but BaliParadise made me feel
+                                    visiting Bali, but BaliBlissed made me feel
                                     completely safe and taken care of. Their
                                     local guides were knowledgeable and
                                     friendly."
@@ -1283,7 +1459,7 @@
                             <!-- Testimonial 4  -->
                             <div class="testimonial-card">
                                 <p class="testimonial-text">
-                                    "The cultural experiences BaliParadise
+                                    "The cultural experiences BaliBlissed
                                     arranged were authentic and eye-opening. We
                                     participated in a traditional cooking class
                                     and visited temples with a knowledgeable
@@ -1306,7 +1482,7 @@
                             <div class="testimonial-card">
                                 <p class="testimonial-text">
                                     "We celebrated our 25th anniversary in Bali
-                                    with BaliParadise's help. The sunset cruise
+                                    with BaliBlissed's help. The sunset cruise
                                     they arranged was breathtaking, and our
                                     villa had the most incredible views. Their
                                     team went above and beyond!"
@@ -1330,7 +1506,7 @@
                                     "The wellness retreat package exceeded all
                                     expectations. Daily yoga, traditional
                                     Balinese spa treatments, and healthy cuisine
-                                    in a serene setting. BaliParadise truly
+                                    in a serene setting. BaliBlissed truly
                                     understands what rejuvenation means."
                                 </p>
                                 <div class="testimonial-author">
@@ -1350,10 +1526,10 @@
                             <div class="testimonial-card">
                                 <p class="testimonial-text">
                                     "The photography tour arranged by
-                                    BaliParadise was perfect for capturing
-                                    Bali's beauty. Our guide knew all the best
-                                    spots for sunrise shots at the rice terraces
-                                    and helped us avoid tourist crowds."
+                                    BaliBlissed was perfect for capturing Bali's
+                                    beauty. Our guide knew all the best spots
+                                    for sunrise shots at the rice terraces and
+                                    helped us avoid tourist crowds."
                                 </p>
                                 <div class="testimonial-author">
                                     <img
@@ -1372,8 +1548,8 @@
                             <div class="testimonial-card">
                                 <p class="testimonial-text">
                                     "Traveling with three kids can be
-                                    challenging, but BaliParadise made our
-                                    family vacation stress-free. The villa was
+                                    challenging, but BaliBlissed made our family
+                                    vacation stress-free. The villa was
                                     child-friendly and the customized day trips
                                     kept everyone from toddler to teenager
                                     happy!"
@@ -1395,7 +1571,7 @@
                             <div class="testimonial-card">
                                 <p class="testimonial-text">
                                     "As adventure seekers, we wanted more than
-                                    just beaches. BaliParadise arranged white
+                                    just beaches. BaliBlissed arranged white
                                     water rafting, volcano hiking, and jungle
                                     trekking. The local guides were professional
                                     and safety-conscious throughout."
@@ -1417,11 +1593,11 @@
                             <div class="testimonial-card">
                                 <p class="testimonial-text">
                                     "I celebrated my 40th birthday in Bali and
-                                    BaliParadise made it unforgettable. They
+                                    BaliBlissed made it unforgettable. They
                                     organized a surprise beachfront dinner with
                                     traditional dancers and a cake. Their
-                                    attention to personal details is worth to
-                                    mention"
+                                    attention to personal details is worth
+                                    mentioning!"
                                 </p>
                                 <div class="testimonial-author">
                                     <img
@@ -1440,7 +1616,7 @@
                             <div class="testimonial-card">
                                 <p class="testimonial-text">
                                     "We were concerned about sustainable
-                                    tourism, and BaliParadise exceeded our
+                                    tourism, and BaliBlissed exceeded our
                                     expectations. They partnered with
                                     eco-friendly accommodations and arranged
                                     visits to local conservation projects. A
@@ -1484,29 +1660,208 @@
             </div>
         </main>
 
-        <!-- Welcome/Promo Modal -->
-        <div class="modal welcome-modal" id="welcome-modal">
-            <div class="modal-content welcome-modal-content">
-                <span class="modal-close welcome-modal-close">&times;</span>
-                <div class="welcome-modal-body">
-                    <h2>Welcome to BaliBlissed Shufang!</h2>
-                    <!-- <p>
-                        Discover exclusive deals and start planning your dream
-                        Bali getaway today.
-                    </p> -->
+        <!-- Newsletter Signup Modal -->
+        <div class="modal newsletter-modal" id="newsletter-modal">
+            <div class="modal-content newsletter-modal-content">
+                <span class="modal-close newsletter-modal-close">&times;</span>
+                <div class="newsletter-modal-body">
+                    <h2>Stay Updated with BaliBlissed!</h2>
                     <p>
-                        The website is still in development, take have a look,
-                        and give me your feedback, please.
+                        Get exclusive deals, travel tips, and insider
+                        information about the best Bali experiences delivered to
+                        your inbox.
                     </p>
-                    <p style="font-size: 45px">&#128536;&nbsp;&#128150;</p>
-                    <!-- Optional: Add a button or link -->
-                    <a href="#" class="modal-button welcome-modal-button"
-                        ><p>Thank You</p>
-                        <span>&nbsp;&#x1F64F;</span></a
-                    >
+                    <form class="newsletter-form" id="newsletter-form">
+                        <div class="form-group">
+                            <input
+                                type="email"
+                                id="newsletter-email"
+                                placeholder="Enter your email address"
+                                required
+                            />
+                            <button type="submit" class="newsletter-submit-btn">
+                                Subscribe
+                            </button>
+                        </div>
+                        <p class="newsletter-disclaimer">
+                            We respect your privacy. Unsubscribe at any time.
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
+        <div class="modal-overlay newsletter-modal-overlay"></div>
+
+        <!-- Contact Form Section -->
+        <section class="section contact-section" id="contact-form">
+            <div class="container">
+                <h2 class="section-title">Get In <span>Touch</span></h2>
+                <p class="section-subtitle">
+                    Ready to start your Bali adventure? Send us a message and
+                    we'll help you plan the perfect trip.
+                </p>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>
+                                    <a href="tel:+6285847006743"
+                                        >+62 858 4700 6743</a
+                                    >
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>
+                                    <a href="mailto:hello@baliblissed.com"
+                                        >hello@baliblissed.com</a
+                                    >
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>
+                                    Jl. Raya Uluwatu No.1<br />Bali, Indonesia
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Response Time</h4>
+                                <p>
+                                    WhatsApp: Instant (24/7)<br />Email: Within
+                                    2 hours
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name *</label>
+                                <input
+                                    type="text"
+                                    id="contact-name"
+                                    name="name"
+                                    required
+                                    autocomplete="name"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email"
+                                    >Email Address *</label
+                                >
+                                <input
+                                    type="email"
+                                    id="contact-email"
+                                    name="email"
+                                    autocomplete="email"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-phone">Phone Number</label>
+                                <input
+                                    type="tel"
+                                    id="contact-phone"
+                                    name="phone"
+                                    autocomplete="tel"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-travelers"
+                                    >Number of Travelers</label
+                                >
+                                <select id="contact-travelers" name="travelers">
+                                    <option value="">Select...</option>
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3-5">3-5 People</option>
+                                    <option value="6-10">6-10 People</option>
+                                    <option value="10+">10+ People</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-service"
+                                >Service Interest</label
+                            >
+                            <select id="contact-service" name="service">
+                                <option value="">Select a service...</option>
+                                <option value="private-tour">
+                                    Private Tours
+                                </option>
+                                <option value="car-charter">Car Charter</option>
+                                <option value="mount-batur">
+                                    Mount Batur Tours
+                                </option>
+                                <option value="nusa-penida">
+                                    Nusa Penida Tours
+                                </option>
+                                <option value="snorkeling">
+                                    Snorkeling & Diving
+                                </option>
+                                <option value="cultural">
+                                    Cultural Experiences
+                                </option>
+                                <option value="adventure">
+                                    Adventure Activities
+                                </option>
+                                <option value="custom">Custom Package</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-dates"
+                                >Preferred Travel Dates</label
+                            >
+                            <input
+                                type="text"
+                                id="contact-dates"
+                                name="dates"
+                                placeholder="e.g., March 15-22, 2025"
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-message">Message *</label>
+                            <textarea
+                                id="contact-message"
+                                name="message"
+                                rows="5"
+                                placeholder="Tell us about your dream Bali experience..."
+                                required
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="contact-submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+
+                        <p class="form-disclaimer">
+                            We'll respond within 2 hours during business hours.
+                            For immediate assistance, contact us via WhatsApp.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
 
         <!-- Footer placeholder -->
         <div id="footer-placeholder"></div>

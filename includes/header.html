@@ -9,12 +9,23 @@
         <!-- Add this image tag -->
         Bali<span>Blissed</span>
     </a>
-    <nav class="navigation">
-        <a href="index.html#home">Home</a>
-        <a href="index.html#destinations">Destinations</a>
-        <a href="#" class="about-link">About</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="#" class="book-now">Book Now</a>
+    <nav class="navigation" role="navigation" aria-label="Main navigation">
+        <a href="index.html#home" aria-label="Go to homepage">Home</a>
+        <a href="index.html#destinations" aria-label="Browse our destinations"
+            >Destinations</a
+        >
+        <a href="pages/about.html" aria-label="Learn about BaliBlissed"
+            >About</a
+        >
+        <a href="index.html#contact-form" aria-label="Contact us">Contact</a>
+        <a
+            href="https://wa.me/6285847006743"
+            class="book-now"
+            aria-label="Book now via WhatsApp"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Book Now</a
+        >
     </nav>
     <div
         class="menu-toggle"
@@ -27,17 +38,31 @@
 </header>
 
 <!-- Mobile Menu -->
-<div class="overlay"></div>
-<div class="mobile-menu" id="mobile-menu-container">
-    <div class="close-btn">
-        <i class="fas fa-bars"></i>
-    </div>
-    <a href="index.html#home">Home</a>
-    <a href="index.html#destinations">Destinations</a>
-    <a href="#" class="about-link">About</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="#" class="book-now">Book Now</a>
-</div>
+<div class="overlay" aria-hidden="true"></div>
+<nav
+    class="mobile-menu"
+    id="mobile-menu-container"
+    role="navigation"
+    aria-label="Mobile navigation menu"
+>
+    <button class="close-btn" aria-label="Close mobile menu">
+        <i class="fas fa-times"></i>
+    </button>
+    <a href="index.html#home" aria-label="Go to homepage">Home</a>
+    <a href="index.html#destinations" aria-label="Browse our destinations"
+        >Destinations</a
+    >
+    <a href="pages/about.html" aria-label="Learn about BaliBlissed">About</a>
+    <a href="index.html#contact-form" aria-label="Contact us">Contact</a>
+    <a
+        href="https://wa.me/6285847006743"
+        class="book-now"
+        aria-label="Book now via WhatsApp"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Book Now</a
+    >
+</nav>
 
 <!-- Floating Action Buttons -->
 <div class="floating-home">

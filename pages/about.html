@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about BaliBlissed - Your authentic local Balinese travel partner. Discover our story, mission, and commitment to providing unforgettable Bali experiences.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://baliblissed.com/pages/about.html">
+    <meta property="og:title" content="About BaliBlissed | Your Local Balinese Travel Partner">
+    <meta property="og:description" content="Learn about BaliBlissed - Your authentic local Balinese travel partner committed to providing unforgettable and sustainable Bali experiences.">
+    <meta property="og:image" content="https://baliblissed.com/images/hero/IMG_7508_DxO.webp">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://baliblissed.com/pages/about.html">
+    <meta property="twitter:title" content="About BaliBlissed | Your Local Balinese Travel Partner">
+    <meta property="twitter:description" content="Learn about BaliBlissed - Your authentic local Balinese travel partner committed to providing unforgettable and sustainable Bali experiences.">
+    <meta property="twitter:image" content="https://baliblissed.com/images/hero/IMG_7508_DxO.webp">
+    
+    <title>About BaliBlissed | Your Local Balinese Travel Partner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .about-page {
+            margin-top: 100px;
+            margin-bottom: 2rem;
+        }
+        
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 4rem var(--container-padding);
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            font-size: var(--text-xxxl);
+            margin-bottom: 1rem;
+        }
+        
+        .about-hero p {
+            font-size: var(--text-lg);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem var(--container-padding);
+        }
+        
+        .about-section {
+            margin-bottom: 4rem;
+        }
+        
+        .about-section h2 {
+            color: var(--primary);
+            font-size: var(--text-xxl);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .about-section h3 {
+            color: var(--dark);
+            font-size: var(--text-xl);
+            margin-bottom: 1rem;
+        }
+        
+        .about-section p {
+            color: var(--gray-700);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: var(--text-md);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .value-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+        
+        .value-card i {
+            color: var(--primary);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card h4 {
+            color: var(--dark);
+            font-size: var(--text-lg);
+            margin-bottom: 1rem;
+        }
+        
+        .value-card p {
+            color: var(--gray-600);
+            font-size: var(--text-sm);
+        }
+        
+        .team-section {
+            background: var(--gray-100);
+            padding: 4rem var(--container-padding);
+            margin: 4rem 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .team-member {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        
+        .team-member h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .team-member p {
+            color: var(--gray-600);
+            font-size: var(--text-sm);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-darker) 100%);
+            color: var(--white);
+            padding: 4rem var(--container-padding);
+            text-align: center;
+        }
+        
+        .cta-section h3 {
+            font-size: var(--text-xxl);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: var(--text-lg);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            background: var(--white);
+            color: var(--secondary-dark);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: var(--text-lg);
+            transition: var(--transition-fast);
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main class="about-page">
+        <section class="about-hero">
+            <h1>About BaliBlissed</h1>
+            <p>Your authentic local Balinese travel partner, committed to creating unforgettable experiences while supporting our beautiful island community.</p>
+        </section>
+        
+        <div class="about-content">
+            <section class="about-section">
+                <h2>Our Story</h2>
+                <p>
+                    BaliBlissed was born from a deep love for Bali and a passion for sharing its authentic beauty with the world. Founded by local Balinese entrepreneurs, we understand that true travel experiences come from genuine connections with local culture, people, and traditions.
+                </p>
+                <p>
+                    What started as a small family business has grown into a trusted travel partner, but we've never forgotten our roots. Every tour we organize, every experience we curate, and every relationship we build is guided by our commitment to authenticity and respect for our island home.
+                </p>
+                <p>
+                    We believe that travel should be transformative – not just for our guests, but for our local communities as well. That's why we work exclusively with local guides, support family-owned businesses, and ensure that tourism benefits the people who call Bali home.
+                </p>
+            </section>
+            
+            <section class="about-section">
+                <h2>Our Mission</h2>
+                <p>
+                    To provide authentic, sustainable, and unforgettable Bali experiences that create lasting memories for our guests while preserving and celebrating the rich cultural heritage of our island. We strive to be the bridge between curious travelers and the heart of Bali.
+                </p>
+            </section>
+            
+            <section class="about-section">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fas fa-heart"></i>
+                        <h4>Authenticity</h4>
+                        <p>We showcase the real Bali, beyond the tourist facade, connecting you with genuine local experiences and traditions.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Sustainability</h4>
+                        <p>We're committed to responsible tourism that protects Bali's environment and supports local communities.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Community</h4>
+                        <p>We work with local families and businesses, ensuring tourism benefits the people who make Bali special.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <i class="fas fa-star"></i>
+                        <h4>Excellence</h4>
+                        <p>We're dedicated to providing exceptional service and creating experiences that exceed your expectations.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <section class="team-section">
+            <div class="about-content">
+                <h2>Meet Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Made Suryawan">
+                        <h4>Made Suryawan</h4>
+                        <div class="role">Founder & Lead Guide</div>
+                        <p>Born and raised in Bali, Made has been sharing his island's beauty with travelers for over 10 years. His passion for Balinese culture and fluent English make him the perfect guide for authentic experiences.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" alt="Kadek Sari">
+                        <h4>Kadek Sari</h4>
+                        <div class="role">Cultural Experience Coordinator</div>
+                        <p>Kadek specializes in organizing cultural experiences and temple visits. Her deep knowledge of Balinese traditions ensures respectful and meaningful cultural exchanges.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Wayan Agus">
+                        <h4>Wayan Agus</h4>
+                        <div class="role">Adventure Activities Specialist</div>
+                        <p>Wayan leads our adventure tours including Mount Batur sunrise treks and water sports. His expertise in outdoor activities ensures safe and exciting adventures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="about-content">
+            <section class="about-section">
+                <h2>Why Choose BaliBlissed?</h2>
+                <h3>Local Expertise</h3>
+                <p>
+                    As locals, we know Bali's hidden gems, best-kept secrets, and authentic experiences that guidebooks can't capture. Our insider knowledge ensures you see Bali through local eyes.
+                </p>
+                
+                <h3>Personalized Service</h3>
+                <p>
+                    We don't believe in one-size-fits-all tourism. Every itinerary is customized to your interests, budget, and travel style, ensuring a unique experience tailored just for you.
+                </p>
+                
+                <h3>Responsible Tourism</h3>
+                <p>
+                    We're committed to sustainable tourism practices that preserve Bali's natural beauty and cultural heritage for future generations while providing economic benefits to local communities.
+                </p>
+                
+                <h3>24/7 Support</h3>
+                <p>
+                    From the moment you contact us until you return home, we're here to support you. Our team is available around the clock to ensure your Bali experience is seamless and memorable.
+                </p>
+            </section>
+        </div>
+        
+        <section class="cta-section">
+            <h3>Ready to Discover Authentic Bali?</h3>
+            <p>Let us create an unforgettable experience that connects you with the heart and soul of our beautiful island.</p>
+            <a href="https://wa.me/6285847006743" class="cta-button" target="_blank">Start Planning Your Journey</a>
+        </section>
+    </main>
+
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

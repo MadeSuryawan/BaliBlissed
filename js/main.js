@@ -14,7 +14,7 @@
     const CONFIG = {
         WHATSAPP_NUMBER: "+6285847006743",
         WHATSAPP_DEFAULT_MESSAGE:
-            "Hello BaliParadise! I'm interested in booking a vacation. Can you provide more information?",
+            "Hello BaliBlissed! I'm interested in booking a vacation. Can you provide more information?",
         HEADER_SCROLL_THRESHOLD: 100,
         BUTTON_COLLAPSE_TIMEOUT: 1000,
         HOVER_DELAY: 600,
@@ -238,9 +238,11 @@
             const isDestinationPage = path.includes("/destinations/");
             const isActivityPage = path.includes("/destinations/activities/");
             const isServicePage = path.includes("/services/");
+            const isPagesPage = path.includes("/pages/");
             let basePath = "";
             if (isActivityPage) basePath = "../../../";
             else if (isDestinationPage || isServicePage) basePath = "../../";
+            else if (isPagesPage) basePath = "../";
 
             const headerPlaceholder = Utils.getElement("#header-placeholder");
             const footerPlaceholder = Utils.getElement("#footer-placeholder");
@@ -255,7 +257,8 @@
                               basePath,
                               isDestinationPage,
                               isActivityPage,
-                              isServicePage
+                              isServicePage,
+                              isPagesPage
                           );
                           // Initialize header-specific JS immediately after loading
                           NavigationController.init(); // Depends on header elements
@@ -276,7 +279,8 @@
                               basePath,
                               isDestinationPage,
                               isActivityPage,
-                              isServicePage
+                              isServicePage,
+                              isPagesPage
                           );
                           // Footer specific JS initialization could go here if needed
                       })
@@ -293,11 +297,17 @@
             basePath,
             isDestinationPage,
             isActivityPage,
-            isServicePage
+            isServicePage,
+            isPagesPage
         ) {
-            if (isDestinationPage || isActivityPage || isServicePage) {
+            if (
+                isDestinationPage ||
+                isActivityPage ||
+                isServicePage ||
+                isPagesPage
+            ) {
                 const links = container.querySelectorAll(
-                    'a:not([href^="http"]):not([href^="#"]):not([href^="mailto"]):not([href^="tel"])'
+                    'a:not([href^="http"]):not([href^="mailto"]):not([href^="tel"])'
                 );
                 const images = container.querySelectorAll(
                     'img:not([src^="http"]):not([src^="/"])'
@@ -305,13 +315,29 @@
 
                 links.forEach((link) => {
                     const href = link.getAttribute("href");
+
+                    // Handle anchor-only links (like #contact-form)
+                    if (href && href.startsWith("#")) {
+                        // Contact form links are handled by event delegation, skip processing
+                        if (href === "#contact-form") {
+                            return;
+                        }
+                        // Other anchor links stay as-is since they're for current page
+                        return;
+                    }
+
                     // Adjust relative paths like 'index.html' or 'services/...'
                     if (
                         href &&
                         !href.startsWith("../") &&
                         !href.startsWith("/")
                     ) {
-                        link.setAttribute("href", basePath + href);
+                        // Special handling for contact form links - skip processing entirely
+                        if (href.includes("#contact-form")) {
+                            return;
+                        } else {
+                            link.setAttribute("href", basePath + href);
+                        }
                     }
                 });
                 images.forEach((img) => {
@@ -328,6 +354,158 @@
             // Initialize controllers that might depend on elements in header OR footer
             // Ensure ModalController runs after footer is loaded because About modal content is there
             ModalController.init();
+
+            // Initialize contact form redirect handlers with a longer delay to ensure header is fully loaded
+            setTimeout(() => {
+                this.initContactRedirectHandlers();
+            }, 500);
+        },
+
+        initContactRedirectHandlers() {
+            // Prevent duplicate initialization
+            if (this.contactHandlersInitialized) {
+                console.log("Contact handlers already initialized, skipping");
+                return;
+            }
+
+            console.log("Initializing contact redirect handlers");
+            this.contactHandlersInitialized = true;
+
+            // Handle contact form redirects from subpages
+            let isNavigating = false; // Prevent multiple rapid clicks
+
+            // Create the contact click handler
+            this.contactClickHandler = (e) => {
+                // Check if the clicked element or its parent is a contact link
+                const link = e.target.closest("a");
+                if (!link) {
+                    // Check if it's a contact-related click
+                    if (
+                        e.target.textContent &&
+                        e.target.textContent.toLowerCase().includes("contact")
+                    ) {
+                        console.log(
+                            "Contact text clicked but no link found:",
+                            e.target
+                        );
+                    }
+                    return;
+                }
+
+                const href = link.getAttribute("href");
+                const linkText = link.textContent.toLowerCase().trim();
+
+                // Check if it's a contact link - look for contact-form in href or "Contact" text
+                const isContactLink =
+                    (href && href.includes("contact-form")) ||
+                    linkText === "contact";
+
+                if (!isContactLink) {
+                    return;
+                }
+
+                console.log(
+                    `Contact link clicked: href="${href}", text="${linkText}"`
+                );
+
+                e.preventDefault();
+
+                // Prevent multiple rapid clicks
+                if (isNavigating) return;
+
+                const basePath = this.determineBasePath();
+
+                // Check if we're already on the main page
+                const currentPath = window.location.pathname;
+                const isMainPage =
+                    currentPath === "/" ||
+                    currentPath === "/index.html" ||
+                    currentPath === "/BaliBlissed/" ||
+                    currentPath === "/BaliBlissed/index.html" ||
+                    (currentPath.endsWith("/") &&
+                        !currentPath.includes("/destinations/") &&
+                        !currentPath.includes("/services/") &&
+                        !currentPath.includes("/pages/"));
+
+                console.log(
+                    `Contact click - Current path: ${currentPath}, Is main page: ${isMainPage}, Base path: ${basePath}`
+                );
+
+                if (isMainPage) {
+                    // We're on the main page, just scroll to contact form
+                    const contactSection =
+                        document.getElementById("contact-form");
+                    if (contactSection) {
+                        contactSection.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                    }
+                } else {
+                    // We're on a subpage, need to navigate with smooth transition
+                    isNavigating = true;
+                    const targetUrl = basePath + "index.html";
+
+                    // Create smooth transition overlay
+                    this.createSmoothTransition(() => {
+                        window.location.href = targetUrl + "#contact-form";
+                    });
+                }
+            };
+
+            // Add the event listener
+            document.addEventListener("click", this.contactClickHandler);
+        },
+
+        determineBasePath() {
+            const path = window.location.pathname;
+            if (path.includes("/destinations/activities/")) return "../../../";
+            if (path.includes("/destinations/") || path.includes("/services/"))
+                return "../../";
+            if (path.includes("/pages/")) return "../";
+            return "";
+        },
+
+        createSmoothTransition(callback) {
+            // Create smooth transition overlay with enhanced timing
+            const transitionOverlay = document.createElement("div");
+            transitionOverlay.className = "contact-transition-overlay";
+            transitionOverlay.innerHTML = `
+                <div class="transition-content">
+                    <div class="transition-spinner"></div>
+                    <span>Navigating to Contact...</span>
+                </div>
+            `;
+            document.body.appendChild(transitionOverlay);
+
+            // Add fade-out effect to current page content first
+            const allContent = document.querySelectorAll(
+                "section, .hero, header"
+            );
+
+            // Apply fade-out to all visible content
+            allContent.forEach((element) => {
+                element.style.transition =
+                    "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+                element.style.opacity = "0.2";
+                element.style.transform = "translateY(-20px) scale(0.96)";
+                element.style.filter = "blur(2px)";
+            });
+
+            // Prevent scrolling during transition
+            document.body.style.overflow = "hidden";
+
+            // Trigger overlay fade-in after content starts fading
+            setTimeout(() => {
+                requestAnimationFrame(() => {
+                    transitionOverlay.classList.add("active");
+                });
+            }, 150);
+
+            // Execute navigation after overlay is fully visible and content is hidden
+            setTimeout(() => {
+                callback();
+            }, 700);
         },
     };
 
@@ -677,7 +855,7 @@
     const ModalController = {
         init() {
             // this.welcomeModal();
-            this.aboutModal();
+            // this.aboutModal();
         },
 
         welcomeModal() {
@@ -2093,5 +2271,462 @@
 
         // Call the async function
         initializeApp();
+
+        // Initialize contact form and newsletter functionality
+        initializeContactForm();
+        initializeNewsletterModal();
+
+        // Ensure hero is visible by default (unless we're on contact form)
+        const ensureHeroVisibility = () => {
+            const heroSection = document.querySelector(".hero");
+            if (heroSection && window.location.hash !== "#contact-form") {
+                // Make sure hero is visible by default
+                heroSection.style.display = "";
+                heroSection.style.opacity = "";
+                heroSection.style.transform = "";
+                heroSection.style.pointerEvents = "";
+            }
+        };
+
+        // Run immediately and after a short delay
+        ensureHeroVisibility();
+        setTimeout(ensureHeroVisibility, 100);
+
+        // Handle hash navigation with multiple attempts for reliability
+        const handleHashNavigation = () => {
+            if (window.location.hash === "#contact-form") {
+                // Immediately hide hero section to prevent jarring
+                const heroSection = document.querySelector(".hero");
+                if (heroSection) {
+                    heroSection.style.transition = "none";
+                    heroSection.style.opacity = "0";
+                    heroSection.style.transform = "translateY(-50px)";
+                    heroSection.style.pointerEvents = "none";
+                    // Use display none as backup
+                    setTimeout(() => {
+                        heroSection.style.display = "none";
+                    }, 50);
+                }
+
+                // Check if this is a navigation from another page or a page reload
+                const navigationEntry =
+                    performance.getEntriesByType("navigation")[0];
+                const isPageReload = navigationEntry?.type === "reload";
+
+                // Additional check: if there's no referrer, it's likely a direct access/reload
+                const isDirectAccess =
+                    !document.referrer ||
+                    document.referrer === window.location.href;
+
+                // Only auto-scroll if it's NOT a page reload and NOT a direct access
+                if (!isPageReload && !isDirectAccess) {
+                    const contactSection =
+                        document.getElementById("contact-form");
+                    if (contactSection) {
+                        // Hide any transition overlays
+                        const transitionOverlay = document.querySelector(
+                            ".contact-transition-overlay"
+                        );
+                        if (transitionOverlay) {
+                            transitionOverlay.style.transition =
+                                "opacity 0.4s ease-out";
+                            transitionOverlay.style.opacity = "0";
+                            setTimeout(() => {
+                                if (transitionOverlay.parentNode) {
+                                    transitionOverlay.parentNode.removeChild(
+                                        transitionOverlay
+                                    );
+                                }
+                                // Restore scrolling
+                                document.body.style.overflow = "";
+                            }, 400);
+                        }
+
+                        // Scroll to contact form with enhanced smooth animation
+                        setTimeout(() => {
+                            contactSection.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                            });
+
+                            // Add highlight animation after scroll
+                            setTimeout(() => {
+                                contactSection.classList.add(
+                                    "contact-highlight"
+                                );
+                                setTimeout(() => {
+                                    contactSection.classList.remove(
+                                        "contact-highlight"
+                                    );
+                                }, 1000);
+                            }, 500);
+                        }, 100);
+                        return true;
+                    }
+                } else {
+                    // It's a page reload or direct access, hide hero and clean up
+                    const heroSection = document.querySelector(".hero");
+                    if (heroSection) {
+                        heroSection.style.transition = "none";
+                        heroSection.style.opacity = "0";
+                        heroSection.style.transform = "translateY(-50px)";
+                        heroSection.style.pointerEvents = "none";
+                        heroSection.style.display = "none";
+                    }
+
+                    const transitionOverlay = document.querySelector(
+                        ".contact-transition-overlay"
+                    );
+                    if (transitionOverlay) {
+                        transitionOverlay.style.transition =
+                            "opacity 0.4s ease-out";
+                        transitionOverlay.style.opacity = "0";
+                        setTimeout(() => {
+                            if (transitionOverlay.parentNode) {
+                                transitionOverlay.parentNode.removeChild(
+                                    transitionOverlay
+                                );
+                            }
+                            // Restore scrolling
+                            document.body.style.overflow = "";
+                        }, 400);
+                    }
+
+                    // Remove the hash from URL to prevent future auto-scrolling
+                    setTimeout(() => {
+                        if (window.location.hash === "#contact-form") {
+                            history.replaceState(
+                                null,
+                                null,
+                                window.location.pathname
+                            );
+                        }
+                    }, 1000);
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        // Try immediately
+        if (!handleHashNavigation()) {
+            // Try again after a short delay
+            setTimeout(handleHashNavigation, 300);
+            // Final attempt after longer delay
+            setTimeout(handleHashNavigation, 800);
+        }
+
+        // Fallback: Ensure contact handlers are initialized after everything is loaded
+        setTimeout(() => {
+            if (ComponentLoader.initContactRedirectHandlers) {
+                ComponentLoader.initContactRedirectHandlers();
+            }
+        }, 1500);
+
+        // Add comprehensive hero restoration system
+        const restoreHeroSection = () => {
+            const heroSection = document.querySelector(".hero");
+            if (heroSection) {
+                // Only restore if we're not on contact form
+                if (window.location.hash !== "#contact-form") {
+                    heroSection.style.transition =
+                        "opacity 0.3s ease-out, transform 0.3s ease-out";
+                    heroSection.style.display = "";
+                    heroSection.style.opacity = "";
+                    heroSection.style.transform = "";
+                    heroSection.style.pointerEvents = "";
+                }
+            }
+        };
+
+        // Listen for hash changes
+        window.addEventListener("hashchange", restoreHeroSection);
+
+        // Listen for page visibility changes (when user returns to tab)
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) {
+                setTimeout(restoreHeroSection, 100);
+            }
+        });
+
+        // Listen for focus events (when user clicks back to page)
+        window.addEventListener("focus", () => {
+            setTimeout(restoreHeroSection, 100);
+        });
+
+        // Restore hero on any navigation that's not to contact
+        const originalPushState = history.pushState;
+        const originalReplaceState = history.replaceState;
+
+        history.pushState = function (...args) {
+            originalPushState.apply(history, args);
+            setTimeout(restoreHeroSection, 100);
+        };
+
+        history.replaceState = function (...args) {
+            originalReplaceState.apply(history, args);
+            setTimeout(restoreHeroSection, 100);
+        };
+
+        // Listen for popstate (back/forward navigation)
+        window.addEventListener("popstate", () => {
+            setTimeout(restoreHeroSection, 100);
+        });
+
+        // Additional safety check - restore hero after all scripts have loaded
+        window.addEventListener("load", () => {
+            setTimeout(restoreHeroSection, 200);
+        });
+
+        // Final safety check with longer delay
+        setTimeout(() => {
+            restoreHeroSection();
+        }, 1000);
     });
+
+    // Contact Form Functionality
+    function initializeContactForm() {
+        const contactForm = Utils.getElement("#contact-form");
+        if (contactForm) {
+            contactForm.addEventListener("submit", handleContactFormSubmit);
+        }
+    }
+
+    function handleContactFormSubmit(e) {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+
+        // Basic validation
+        if (!data.name || !data.email || !data.message) {
+            showNotification("Please fill in all required fields.", "error");
+            return;
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            showNotification("Please enter a valid email address.", "error");
+            return;
+        }
+
+        // Show loading state
+        const submitBtn = e.target.querySelector(".contact-submit-btn");
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+
+        // Simulate form submission (replace with actual API call)
+        setTimeout(() => {
+            // Create WhatsApp message
+            const message = `Hello BaliBlissed! I'm interested in your services.
+
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone || "Not provided"}
+Travelers: ${data.travelers || "Not specified"}
+Service Interest: ${data.service || "Not specified"}
+Travel Dates: ${data.dates || "Flexible"}
+
+Message: ${data.message}`;
+
+            const whatsappUrl = `https://wa.me/${CONFIG.WHATSAPP_NUMBER.replace(
+                "+",
+                ""
+            )}?text=${encodeURIComponent(message)}`;
+
+            // Reset form
+            e.target.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+
+            // Show success message
+            showNotification(
+                "Thank you! Your message has been prepared. Click OK to send via WhatsApp.",
+                "success"
+            );
+
+            // Open WhatsApp
+            setTimeout(() => {
+                window.open(whatsappUrl, "_blank");
+            }, 1000);
+        }, 1500);
+    }
+
+    // Newsletter Modal Functionality
+    function initializeNewsletterModal() {
+        const newsletterModal = Utils.getElement("#newsletter-modal");
+        const newsletterForm = Utils.getElement("#newsletter-form");
+        const closeBtn = Utils.getElement(".newsletter-modal-close");
+        const overlay = Utils.getElement(".newsletter-modal-overlay");
+
+        if (newsletterForm) {
+            newsletterForm.addEventListener("submit", handleNewsletterSubmit);
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener("click", closeNewsletterModal);
+        }
+
+        if (overlay) {
+            overlay.addEventListener("click", closeNewsletterModal);
+        }
+
+        // Show newsletter modal after 30 seconds (optional)
+        // setTimeout(showNewsletterModal, 30000);
+    }
+
+    function handleNewsletterSubmit(e) {
+        e.preventDefault();
+
+        const email = e.target.querySelector("#newsletter-email").value;
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showNotification("Please enter a valid email address.", "error");
+            return;
+        }
+
+        // Show loading state
+        const submitBtn = e.target.querySelector(".newsletter-submit-btn");
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Subscribing...";
+        submitBtn.disabled = true;
+
+        // Simulate subscription (replace with actual API call)
+        setTimeout(() => {
+            // Reset form
+            e.target.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+
+            // Close modal
+            closeNewsletterModal();
+
+            // Show success message
+            showNotification(
+                "Thank you for subscribing! You'll receive our latest updates and exclusive offers.",
+                "success"
+            );
+        }, 1500);
+    }
+
+    function showNewsletterModal() {
+        const modal = Utils.getElement("#newsletter-modal");
+        if (modal) {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+    }
+
+    function closeNewsletterModal() {
+        const modal = Utils.getElement("#newsletter-modal");
+        if (modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+
+    // Notification System
+    function showNotification(message, type = "info") {
+        // Remove existing notifications
+        const existingNotifications =
+            document.querySelectorAll(".notification");
+        existingNotifications.forEach((notification) => notification.remove());
+
+        // Create notification element
+        const notification = document.createElement("div");
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas ${
+                    type === "success"
+                        ? "fa-check-circle"
+                        : type === "error"
+                        ? "fa-exclamation-circle"
+                        : "fa-info-circle"
+                }"></i>
+                <span>${message}</span>
+                <button class="notification-close">&times;</button>
+            </div>
+        `;
+
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            background: ${
+                type === "success"
+                    ? "#4CAF50"
+                    : type === "error"
+                    ? "#f44336"
+                    : "#2196F3"
+            };
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-width: 400px;
+            animation: slideInRight 0.3s ease-out;
+        `;
+
+        // Add to page
+        document.body.appendChild(notification);
+
+        // Close button functionality
+        const closeBtn = notification.querySelector(".notification-close");
+        closeBtn.addEventListener("click", () => notification.remove());
+
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 5000);
+    }
+
+    // Add CSS for notifications
+    if (!document.querySelector("#notification-styles")) {
+        const style = document.createElement("style");
+        style.id = "notification-styles";
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            .notification-content {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .notification-close {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.2rem;
+                cursor: pointer;
+                margin-left: auto;
+                padding: 0;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        `;
+        document.head.appendChild(style);
+    }
 })();
