@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Bali Private Car Charter with Driver | Bali Paradise Getaway
+        </title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="../../css/style.css" />
+
+        <!-- Add JSON-LD Structured Data for Service -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "serviceType": "Private Car Charter",
+                "name": "Bali Private Car Charter with Driver",
+                "description": "Explore Bali flexibly with a private, air-conditioned vehicle and a professional English-speaking driver. Choose from 6, 10, or 12-hour packages and customize your itinerary. Covers most of Bali, with various vehicle sizes available.",
+                "image": "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", // Main hero image URL
+                "provider": {
+                    "@type": "TravelAgency",
+                    "name": "Bali Paradise Getaway",
+                    "url": "URL_of_your_homepage" // Replace with your actual homepage URL
+                },
+                "areaServed": {
+                    "@type": "AdministrativeArea",
+                    "name": "Bali",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressRegion": "Bali",
+                        "addressCountry": "ID"
+                    }
+                },
+                "serviceOutput": {
+                    "@type": "Trip",
+                    "description": "Customizable day tour around Bali based on passenger itinerary."
+                },
+                "offers": [
+                    {
+                        "@type": "Offer",
+                        "name": "6-Hour Private Car Charter",
+                        "price": "45", // Example starting price, adjust if needed
+                        "priceCurrency": "USD",
+                        "description": "6-hour private car rental with driver. Surcharges apply for North Bali destinations like Bedugul, Lovina.",
+                        "availability": "https://schema.org/InStock" // Or other availability status
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "10-Hour Private Car Charter",
+                        // Add price if different/known, otherwise can omit
+                        "priceCurrency": "USD",
+                        "description": "10-hour private car rental with driver. Reduced surcharges apply for North Bali destinations.",
+                        "availability": "https://schema.org/InStock"
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "12-Hour Private Car Charter",
+                        // Add price if different/known
+                        "priceCurrency": "USD",
+                        "description": "12-hour private car rental with driver. No surcharge for North Bali destinations.",
+                        "availability": "https://schema.org/InStock"
+                    }
+                ],
+                "url": "URL_of_this_page" // Replace with the actual URL of this car charter page
+                // You could add aggregateRating or review properties here if you have specific reviews for this service
+            }
+        </script>
+        <!-- End JSON-LD -->
+
+        <style>
+            /* Destination-specific styles */
+
+            .destination-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 3rem var(--container-padding);
+            }
+
+            .destination-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+                color: var(--dark);
+                margin-bottom: 1.5rem;
+            }
+
+            .destination-title span {
+                color: var(--primary);
+            }
+
+            .destination-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .info-card {
+                flex: 1;
+                min-width: 200px;
+                background-color: var(--white);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .info-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+
+            .destination-description {
+                line-height: 1.8;
+                margin-bottom: 2rem;
+            }
+
+            .destination-description p {
+                margin-bottom: 1.5rem;
+            }
+
+            .highlight-list {
+                margin-bottom: 2rem;
+            }
+
+            .highlight-list li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .highlight-list li::before {
+                content: "•";
+                color: var(--primary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--primary);
+                color: var(--white);
+                padding: 1rem 2rem;
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 600;
+                transition: all var(--transition-standard);
+                margin-top: 1rem;
+            }
+
+            .cta-button:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                transition: transform var(--transition-standard);
+            }
+
+            .gallery-image:hover {
+                transform: scale(1.05);
+            }
+
+            .tour-details {
+                background-color: var(--gray-100);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                margin-bottom: 2rem;
+            }
+
+            .tour-details h3 {
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+
+            .tour-details ul {
+                list-style: none;
+                margin-bottom: 1.5rem;
+            }
+
+            .tour-details ul li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .tour-details ul li::before {
+                content: "✓";
+                color: var(--secondary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .tour-details .note {
+                font-style: italic;
+                color: var(--gray-700);
+                font-size: 0.9rem;
+            }
+
+            .faq-section {
+                margin-bottom: 2rem;
+            }
+
+            .faq-item {
+                margin-bottom: 1.5rem;
+                background-color: var(--white);
+                border-radius: var(--radius-md);
+                padding: 1.5rem;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .faq-question {
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+                display: flex;
+                align-items: center;
+            }
+
+            .faq-question::before {
+                content: "Q:";
+                margin-right: 0.5rem;
+                font-weight: 700;
+                color: var(--secondary);
+            }
+
+            .faq-answer {
+                line-height: 1.6;
+                padding-left: 1.5rem;
+            }
+
+            .vehicle-cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .vehicle-card {
+                background-color: var(--white);
+                border-radius: var(--radius-md);
+                overflow: hidden;
+                box-shadow: var(--shadow-sm);
+                transition: all var(--transition-standard);
+            }
+
+            .vehicle-card:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .vehicle-image {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+            }
+
+            .vehicle-details {
+                padding: 1.5rem;
+            }
+
+            .vehicle-name {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                color: var(--dark);
+            }
+
+            .vehicle-capacity {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.5rem;
+                color: var(--gray-700);
+            }
+
+            .vehicle-capacity i {
+                margin-right: 0.5rem;
+                color: var(--primary);
+            }
+
+            .vehicle-description {
+                font-size: 0.9rem;
+                color: var(--gray-700);
+                line-height: 1.6;
+            }
+
+            .service-features {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+                margin: 3rem 1rem;
+            }
+
+            .feature-box {
+                background-color: var(--white);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+                text-align: center;
+                transition: all var(--transition-standard);
+            }
+
+            .feature-box:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .feature-icon {
+                font-size: 2.5rem;
+                color: var(--primary);
+                margin-bottom: 1rem;
+            }
+
+            .feature-title {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                color: var(--dark);
+            }
+
+            .feature-description {
+                font-size: 0.9rem;
+                color: var(--gray-700);
+                line-height: 1.6;
+            }
+
+            .surcharge-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 2rem;
+                background-color: var(--white);
+                border-radius: var(--radius-md);
+                overflow: hidden;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .surcharge-table th,
+            .surcharge-table td {
+                padding: 1rem;
+                text-align: left;
+                border-bottom: 1px solid var(--gray-200);
+            }
+
+            .surcharge-table th {
+                background-color: var(--secondary);
+                color: var(--white);
+                font-weight: 600;
+            }
+
+            .surcharge-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .surcharge-table tr:nth-child(even) {
+                background-color: var(--gray-100);
+            }
+
+            @media (max-width: 767px) {
+                .info-card {
+                    min-width: 100%;
+                }
+
+                .vehicle-cards {
+                    grid-template-columns: 1fr;
+                }
+
+                .service-features {
+                    grid-template-columns: 1fr;
+                }
+
+                .surcharge-table {
+                    font-size: 0.9rem;
+                }
+
+                .surcharge-table th,
+                .surcharge-table td {
+                    padding: 0.75rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Hero Section -->
+
+        <section class="hero destination-hero" id="home">
+            <img
+                src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Bali Private Car Charter"
+                class="hero-bg"
+            />
+            <div class="image-credit">Photo credit: Unsplash</div>
+            <div class="hero-content">
+                <h1>Bali Private Car Charter with Driver</h1>
+                <p>
+                    Explore Bali at your own pace with a comfortable private
+                    vehicle and knowledgeable local driver
+                </p>
+            </div>
+        </section>
+
+        <!-- Service Features Section -->
+        <section class="service-features">
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3 class="feature-title">Flexible Rental Hours</h3>
+                <p class="feature-description">
+                    Choose from 6, 10, or 12-hour packages to perfectly match
+                    your exploration needs. Create your own itinerary and enjoy
+                    safe, optimal service.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3 class="feature-title">Wide Range of Vehicles</h3>
+                <p class="feature-description">
+                    Select from various air-conditioned vehicles that
+                    accommodate from 1 to 32 passengers. Perfect for solo
+                    travelers, couples, families, or large groups.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3 class="feature-title">Professional Drivers</h3>
+                <p class="feature-description">
+                    Travel safely with our professional drivers who speak
+                    English, Korean, Chinese, or Japanese, ensuring smooth
+                    communication throughout your journey.
+                </p>
+            </div>
+        </section>
+
+        <!-- Destination Content -->
+        <div class="destination-content">
+            <h2 class="destination-title">
+                Explore <span>Bali Your Way</span>
+            </h2>
+
+            <div class="destination-info">
+                <div class="info-card">
+                    <h3>Service Area</h3>
+                    <p>All of Bali (surcharge for North Bali)</p>
+                </div>
+                <div class="info-card">
+                    <h3>Price</h3>
+                    <p>From $45 / day</p>
+                </div>
+                <div class="info-card">
+                    <h3>Duration Options</h3>
+                    <p>6, 10, or 12 hours</p>
+                </div>
+            </div>
+
+            <div class="destination-description">
+                <p>
+                    Discover the true essence of Bali at your own pace with our
+                    premium private car charter service. Unlike rigid tour
+                    packages that rush you from one crowded attraction to
+                    another, our service puts you in complete control of your
+                    Bali adventure. Whether you're dreaming of exploring hidden
+                    waterfalls in the northern highlands, temple-hopping across
+                    the cultural heart of Ubud, or beach-hopping along the
+                    stunning southern coastline, your dedicated private driver
+                    is ready to make it happen—all while providing local
+                    insights that no guidebook can offer.
+                </p>
+                <p>
+                    We understand that comfort is essential for enjoying Bali's
+                    diverse landscapes, which is why we offer a range of
+                    meticulously maintained, air-conditioned vehicles to suit
+                    your needs. From compact cars perfect for couples to
+                    spacious vans that can accommodate up to 32 passengers for
+                    larger groups or families, each vehicle comes equipped with
+                    modern amenities to ensure a pleasant journey. Our
+                    professional drivers are not just skilled behind the
+                    wheel—they're knowledgeable local guides fluent in English,
+                    Korean, Chinese, or Japanese, ready to bridge cultural gaps
+                    and enhance your understanding of the island's rich heritage
+                    and contemporary life.
+                </p>
+                <p>
+                    The beauty of our private charter service lies in its
+                    flexibility. With rental durations of 6, 10, or 12 hours,
+                    you can design an itinerary that perfectly matches your
+                    interests and pace. Want to linger longer at a breathtaking
+                    viewpoint? Need to make an unplanned stop at a captivating
+                    local market? No problem—your day unfolds according to your
+                    wishes, not a rigid schedule. Our drivers combine expert
+                    local knowledge with a genuine desire to showcase the best
+                    of their island home, often suggesting hidden gems that lie
+                    off the typical tourist path. From airport pickups to
+                    multi-day exploration packages, our private car charter
+                    service offers the perfect balance of freedom, comfort, and
+                    authentic local guidance for an unforgettable Bali
+                    experience.
+                </p>
+            </div>
+
+            <h2 class="destination-title">Our <span>Vehicle Fleet</span></h2>
+
+            <div class="vehicle-cards">
+                <div class="vehicle-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Standard MPV"
+                        class="vehicle-image"
+                    />
+                    <div class="vehicle-details">
+                        <h3 class="vehicle-name">Standard MPV (Small)</h3>
+                        <div class="vehicle-capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Up to 3 passengers</span>
+                        </div>
+                        <p class="vehicle-description">
+                            Toyota Agya/Cayla or similar. Compact and efficient
+                            for small groups or couples. Perfect for city
+                            exploration and short trips.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="vehicle-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Standard MPV Medium"
+                        class="vehicle-image"
+                    />
+                    <div class="vehicle-details">
+                        <h3 class="vehicle-name">Standard MPV (Medium)</h3>
+                        <div class="vehicle-capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Up to 4 passengers</span>
+                        </div>
+                        <p class="vehicle-description">
+                            Toyota Avanza, Suzuki Ertiga or similar. Comfortable
+                            and spacious for small families or groups with
+                            moderate luggage.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="vehicle-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Standard MPV Large"
+                        class="vehicle-image"
+                    />
+                    <div class="vehicle-details">
+                        <h3 class="vehicle-name">Standard MPV (Large)</h3>
+                        <div class="vehicle-capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Up to 5 passengers</span>
+                        </div>
+                        <p class="vehicle-description">
+                            Suzuki APV, Toyota Innova or similar. Ideal for
+                            families or small groups requiring extra space for
+                            comfort on longer journeys.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="vehicle-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1609520505218-7421df82c7f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Standard Van"
+                        class="vehicle-image"
+                    />
+                    <div class="vehicle-details">
+                        <h3 class="vehicle-name">Standard Van</h3>
+                        <div class="vehicle-capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Up to 10-14 passengers</span>
+                        </div>
+                        <p class="vehicle-description">
+                            Minibus Isuzu Elf, Toyota Hi-ace or similar.
+                            Spacious and comfortable for larger groups, perfect
+                            for extended family trips or group tours.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-details">
+                <h3>Service Highlights</h3>
+                <ul>
+                    <li>
+                        Flexible rental options of 6, 10, or 12 hours to suit
+                        your exploration needs
+                    </li>
+                    <li>
+                        Create your own custom itinerary with the freedom to
+                        change plans on the go
+                    </li>
+                    <li>
+                        Choose from various vehicle types accommodating from 1
+                        to 32 passengers
+                    </li>
+                    <li>
+                        Professional, English-speaking drivers with optional
+                        Korean, Chinese, or Japanese language service
+                    </li>
+                    <li>
+                        Exclusive option for female English-speaking drivers
+                        (subject to availability)
+                    </li>
+                    <li>
+                        Comfortable, air-conditioned vehicles with Klook
+                        branding for easy identification
+                    </li>
+                    <li>
+                        Convenient airport pickup and drop-off service at no
+                        additional cost
+                    </li>
+                </ul>
+
+                <h3>What's Included</h3>
+                <ul>
+                    <li>
+                        Private car with professional driver for your chosen
+                        duration
+                    </li>
+                    <li>Fuel costs for the entire journey</li>
+                    <li>
+                        Air-conditioned vehicle appropriate for your group size
+                    </li>
+                    <li>Bottled water</li>
+                    <li>Driver's expertise and local recommendations</li>
+                    <li>Pickup and drop-off at your accommodation</li>
+                    <li>Insurance coverage</li>
+                </ul>
+
+                <p class="note">
+                    <strong>Tip:</strong> Download WhatsApp before your trip as
+                    this is the main way local operators will connect with you.
+                    For the best experience, plan your itinerary in advance but
+                    remain flexible—your driver may suggest amazing spots you
+                    hadn't considered. Remember that admission tickets to
+                    attractions are not included, so bring cash for entrance
+                    fees, meals, and optional driver's meal for bookings over 6
+                    hours.
+                </p>
+            </div>
+
+            <h2 class="destination-title">
+                North Bali <span>Surcharges</span>
+            </h2>
+
+            <table class="surcharge-table">
+                <thead>
+                    <tr>
+                        <th>Package</th>
+                        <th>Destination</th>
+                        <th>Surcharge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>6-Hour Package</td>
+                        <td>Bedugul, Jatiluwih, Ulun Danu Temple</td>
+                        <td>IDR 200,000</td>
+                    </tr>
+                    <tr>
+                        <td>6-Hour Package</td>
+                        <td>Lovina, Banjar Hot Spring, Munduk Waterfall</td>
+                        <td>IDR 300,000</td>
+                    </tr>
+                    <tr>
+                        <td>10-Hour Package</td>
+                        <td>Bedugul, Jatiluwih, Ulun Danu Temple</td>
+                        <td>IDR 100,000</td>
+                    </tr>
+                    <tr>
+                        <td>10-Hour Package</td>
+                        <td>Lovina, Banjar Hot Spring, Munduk Waterfall</td>
+                        <td>IDR 200,000</td>
+                    </tr>
+                    <tr>
+                        <td>12-Hour Package</td>
+                        <td>Any North Bali destination</td>
+                        <td>No surcharge</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="faq-section">
+                <h2 class="destination-title">
+                    Frequently Asked <span>Questions</span>
+                </h2>
+
+                <div class="faq-item">
+                    <p class="faq-question">
+                        Which routes are included in this service?
+                    </p>
+                    <p class="faq-answer">
+                        This service covers most of Bali, including Ubud City
+                        Centre. Areas in North Bali beyond Ubud may incur an
+                        additional surcharge depending on your chosen package.
+                        You can customize your route and starting point by
+                        listing your preferred itinerary during checkout.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-question">
+                        How long can I stay at each attraction?
+                    </p>
+                    <p class="faq-answer">
+                        The duration at each location is entirely up to you
+                        within your booked hours. Your driver will accommodate
+                        your preferences, though they may offer suggestions to
+                        help you maximize your time.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-question">
+                        What's included in the fees, and what are the extra
+                        charges?
+                    </p>
+                    <p class="faq-answer">
+                        The fee covers your private vehicle, driver, and fuel
+                        costs. Not included are entrance tickets to attractions,
+                        meals (including the driver's meal for bookings over 6
+                        hours), and surcharges for certain northern
+                        destinations.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-question">
+                        When will I receive my driver and vehicle information?
+                    </p>
+                    <p class="faq-answer">
+                        You'll receive your driver's contact information and
+                        vehicle details one day before your scheduled service
+                        via email or WhatsApp.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-question">
+                        Can I be picked up from the airport?
+                    </p>
+                    <p class="faq-answer">
+                        Yes, airport pickup is available at no additional cost.
+                        Your driver will wait for up to 120 minutes after your
+                        flight's arrival, holding a sign with the lead
+                        traveler's name.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-question">
+                        What happens if I need to extend my rental hours?
+                    </p>
+                    <p class="faq-answer">
+                        If you wish to extend your rental hours on the day of
+                        service, you can discuss this directly with your driver.
+                        Additional hours are charged at IDR 100,000 per hour,
+                        payable directly to the driver.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-question">
+                        Is there a luggage limit for airport pickups?
+                    </p>
+                    <p class="faq-answer">
+                        Standard luggage size is 61cm; larger bags count as 2
+                        pieces and take up passenger space. Please specify your
+                        luggage requirements when booking to ensure an
+                        appropriately sized vehicle.
+                    </p>
+                </div>
+            </div>
+
+            <div class="gallery">
+                <img
+                    src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Bali Temple Visit"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Bali Rice Terraces"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Bali Waterfall"
+                    class="gallery-image"
+                />
+            </div>
+
+            <a href="#" class="cta-button" id="booking-button"
+                >Book Your Private Car Charter</a
+            >
+        </div>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+    </body>
+    <!-- Link to external JavaScript file -->
+    <script src="../../js/main.js"></script>
+</html>

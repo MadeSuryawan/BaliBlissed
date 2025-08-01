@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ubud Zipline & Sky Bike Adventure | Bali Paradise Getaway</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="../../../css/style.css" />
+        <style>
+            /* Destination-specific styles - Copied from Mount Batur */
+            .destination-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 3rem var(--container-padding);
+            }
+
+            .destination-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+                color: var(--dark);
+                margin-bottom: 1.5rem;
+            }
+
+            .destination-title span {
+                color: var(--primary);
+            }
+
+            .destination-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .info-card {
+                flex: 1;
+                min-width: 200px;
+                background-color: var(--white);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .info-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+
+            .destination-description {
+                line-height: 1.8;
+                margin-bottom: 2rem;
+            }
+
+            .destination-description p {
+                margin-bottom: 1.5rem;
+            }
+
+            .highlight-list {
+                margin-bottom: 2rem;
+            }
+
+            .highlight-list li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .highlight-list li::before {
+                content: "•";
+                color: var(--primary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--primary);
+                color: var(--white);
+                padding: 1rem 2rem;
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 600;
+                transition: all var(--transition-standard);
+                margin-top: 1rem;
+            }
+
+            .cta-button:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                transition: transform var(--transition-standard);
+            }
+
+            .gallery-image:hover {
+                transform: scale(1.05);
+            }
+
+            .tour-details {
+                background-color: var(--gray-100);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                margin-bottom: 2rem;
+            }
+
+            .tour-details h3 {
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+
+            .tour-details ul {
+                list-style: none;
+                margin-bottom: 1.5rem;
+            }
+
+            .tour-details ul li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .tour-details ul li::before {
+                content: "✓";
+                color: var(--secondary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .tour-details .note {
+                font-style: italic;
+                color: var(--gray-700);
+                font-size: 0.9rem;
+            }
+
+            @media (max-width: 767px) {
+                .info-card {
+                    min-width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="hero destination-hero" id="home">
+            <img
+                src="https://images.unsplash.com/photo-1531778272849-d1dd22444c06?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Zipline over Ubud Rice Terraces"
+                class="hero-bg"
+            />
+            <div class="image-credit">Photo credit: Unsplash</div>
+            <div class="hero-content">
+                <h1>Ubud Zipline & Sky Bike Adventure</h1>
+                <p>
+                    Soar through the air or pedal across the sky for thrilling
+                    views of Ubud's stunning rice terraces!
+                </p>
+            </div>
+        </section>
+
+        <!-- Destination Content -->
+        <div class="destination-content">
+            <h2 class="destination-title">
+                Adventure Above <span>Ubud's Rice Fields</span>
+            </h2>
+
+            <div class="destination-info">
+                <div class="info-card">
+                    <h3>Location</h3>
+                    <address
+                        class="card-location"
+                        id="destination-location"
+                        style="
+                            cursor: pointer;
+                            text-decoration: underline;
+                            color: var(--primary);
+                        "
+                    >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Near Tegalalang, Ubud</span>
+                    </address>
+                </div>
+                <div class="info-card">
+                    <h3>Activities</h3>
+                    <p>Zipline, Sky Bike</p>
+                </div>
+                <div class="info-card">
+                    <h3>Best For</h3>
+                    <p>Adventure Seekers, Scenic Views</p>
+                </div>
+            </div>
+
+            <div class="destination-description">
+                <p>
+                    Get ready for an unforgettable dose of adrenaline mixed with
+                    breathtaking scenery in the heart of Ubud! Choose your
+                    adventure: feel the wind rush past as you zoom across lush
+                    valleys on an exhilarating zipline, or challenge your
+                    balance and pedal your way across the sky on the unique Sky
+                    Bike. Both activities offer unparalleled views of Bali's
+                    iconic rice terraces, providing a thrilling perspective you
+                    won't find anywhere else.
+                </p>
+                <p>
+                    Safety is our top priority. Whether you're a seasoned
+                    thrill-seeker or a first-timer, our high-quality safety
+                    equipment and experienced guides ensure a secure and
+                    enjoyable experience. Feel confident as you launch off the
+                    platform or start pedaling high above the ground, knowing
+                    you're in good hands. It's the perfect way to add a
+                    memorable and fun twist to your Ubud exploration.
+                </p>
+                <p>
+                    Want to make a full day of it? Combine your Zipline or Sky
+                    Bike adventure with an optional Ubud tour package! Explore
+                    famous landmarks like the stunning Tegalalang Rice Terrace
+                    (from a different angle!), interact with playful primates at
+                    the Ubud Monkey Forest, and cool off at the beautiful
+                    Tegenungan Waterfall. It's the ultimate Ubud experience,
+                    blending adventure, nature, and culture.
+                </p>
+            </div>
+
+            <div class="tour-details">
+                <h3>Activity Highlights</h3>
+                <ul>
+                    <li>
+                        Experience the thrill of Ziplining over scenic rice
+                        terraces.
+                    </li>
+                    <li>
+                        Try the unique Sky Bike for a pedal-powered aerial
+                        adventure.
+                    </li>
+                    <li>
+                        Enjoy stunning panoramic views of Ubud's lush
+                        landscapes.
+                    </li>
+                    <li>
+                        High-quality safety equipment and professional guides
+                        provided.
+                    </li>
+                    <li>
+                        Suitable for beginners and adventure enthusiasts alike.
+                    </li>
+                    <li>
+                        Option to combine with a tour visiting Tegalalang,
+                        Monkey Forest, and Tegenungan Waterfall.
+                    </li>
+                    <li>Create fun and lasting memories of your Ubud trip.</li>
+                </ul>
+
+                <h3>What's Included (Typical Activity Package)</h3>
+                <ul>
+                    <li>Choice of Zipline or Sky Bike experience</li>
+                    <li>Safety equipment (harness, helmet, etc.)</li>
+                    <li>Professional instruction and guidance</li>
+                    <li>Insurance coverage</li>
+                    <li>Welcome drink</li>
+                    <li>
+                        Hotel transfers (often included or available as add-on)
+                    </li>
+                </ul>
+
+                <p class="note">
+                    <strong>Tip:</strong> Wear comfortable clothing and
+                    closed-toe shoes. Bring sunscreen, sunglasses, and your
+                    camera to capture the amazing views! Booking in advance is
+                    recommended, especially if combining with an Ubud tour.
+                </p>
+            </div>
+
+            <h3>Essential Experiences</h3>
+            <ul class="highlight-list">
+                <li>Feel the rush of flying through the air on the zipline.</li>
+                <li>
+                    Experience the unique sensation of cycling high above the
+                    ground.
+                </li>
+                <li>
+                    Marvel at the beauty of Ubud's terraced rice fields from a
+                    bird's-eye view.
+                </li>
+                <li>Capture incredible photos and videos of your adventure.</li>
+                <li>
+                    Enjoy a safe and professionally managed thrill activity.
+                </li>
+                <li>
+                    Add an extra layer of excitement to your Bali itinerary.
+                </li>
+                <li>
+                    (Optional Tour) Interact with monkeys and visit iconic Ubud
+                    landmarks.
+                </li>
+            </ul>
+
+            <div class="gallery">
+                <img
+                    src="https://images.unsplash.com/photo-1506974748274-f5769f5a8fea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Zipline action"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1543731068-7e0f5beff43a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Unique activity in Ubud"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1500382841059-ce9998a2b4f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Tegalalang Rice Terrace view"
+                    class="gallery-image"
+                />
+            </div>
+
+            <a href="#" class="cta-button" id="booking_button"
+                >Book Your Ubud Sky Adventure</a
+            >
+        </div>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Google Maps Modal -->
+        <div class="map-modal" id="map-modal">
+            <div class="map-container">
+                <div class="map-close" id="map-close">
+                    <i class="fas fa-times"></i>
+                </div>
+                <iframe
+                    id="map-iframe"
+                    class="map-iframe"
+                    src=""
+                    allowfullscreen=""
+                    loading="lazy"
+                >
+                </iframe>
+            </div>
+        </div>
+    </body>
+    <script>
+        // Page-specific script to initialize map with correct location
+        document.addEventListener("DOMContentLoaded", function () {
+            const locationElement = document.getElementById(
+                "destination-location"
+            );
+            const mapModal = document.getElementById("map-modal");
+            const mapClose = document.getElementById("map-close");
+            const mapIframe = document.getElementById("map-iframe");
+
+            if (locationElement && mapModal && mapClose && mapIframe) {
+                // Assuming the location is near Tegalalang Rice Terraces
+                const locationName = "Tegalalang Rice Terrace Area";
+                const addressLocation = "Tegalalang, Gianyar Regency, Bali"; // Approximate location
+                // Use coordinates for Tegalalang for better accuracy
+                const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15788.48981818008!2d115.2698341863448!3d-8.40011184013598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd218a7f19a8995%3A0x684a7f9f03d61baf!2s${encodeURIComponent(
+                    addressLocation
+                )}!5e0!3m2!1sen!2sid!4v1744617777191!5m2!1sen!2sid`; // Embed URL centered on Tegalalang
+
+                locationElement.addEventListener("click", () => {
+                    mapIframe.src = mapUrl;
+                    mapModal.classList.add("active");
+                    document.body.style.overflow = "hidden";
+                });
+
+                mapClose.addEventListener("click", () => {
+                    mapModal.classList.remove("active");
+                    document.body.style.overflow = "";
+                    setTimeout(() => {
+                        mapIframe.src = "";
+                    }, 300);
+                });
+
+                mapModal.addEventListener("click", (e) => {
+                    if (e.target === mapModal) {
+                        mapClose.click();
+                    }
+                });
+
+                document.addEventListener("keydown", (e) => {
+                    if (
+                        e.key === "Escape" &&
+                        mapModal.classList.contains("active")
+                    ) {
+                        mapClose.click();
+                    }
+                });
+
+                // Indicate that map is initialized by this page
+                window.mapInitialized = true;
+            }
+        });
+    </script>
+    <!-- Link to external JavaScript file -->
+    <script src="../../../js/main.js"></script>
+</html>

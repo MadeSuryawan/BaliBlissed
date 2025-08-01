@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bali Helicopter Ride Experience | Bali Paradise Getaway</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="../../../css/style.css" />
+        <style>
+            /* Destination-specific styles - Copied from Mount Batur */
+            .destination-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 3rem var(--container-padding);
+            }
+
+            .destination-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+                color: var(--dark);
+                margin-bottom: 1.5rem;
+            }
+
+            .destination-title span {
+                color: var(--primary);
+            }
+
+            .destination-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .info-card {
+                flex: 1;
+                min-width: 200px;
+                background-color: var(--white);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .info-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+
+            .destination-description {
+                line-height: 1.8;
+                margin-bottom: 2rem;
+            }
+
+            .destination-description p {
+                margin-bottom: 1.5rem;
+            }
+
+            .highlight-list {
+                margin-bottom: 2rem;
+            }
+
+            .highlight-list li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .highlight-list li::before {
+                content: "•";
+                color: var(--primary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--primary);
+                color: var(--white);
+                padding: 1rem 2rem;
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 600;
+                transition: all var(--transition-standard);
+                margin-top: 1rem;
+            }
+
+            .cta-button:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                transition: transform var(--transition-standard);
+            }
+
+            .gallery-image:hover {
+                transform: scale(1.05);
+            }
+
+            .tour-details {
+                background-color: var(--gray-100);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                margin-bottom: 2rem;
+            }
+
+            .tour-details h3 {
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+
+            .tour-details ul {
+                list-style: none;
+                margin-bottom: 1.5rem;
+            }
+
+            .tour-details ul li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .tour-details ul li::before {
+                content: "✓";
+                color: var(--secondary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .tour-details .note {
+                font-style: italic;
+                color: var(--gray-700);
+                font-size: 0.9rem;
+            }
+
+            @media (max-width: 767px) {
+                .info-card {
+                    min-width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="hero destination-hero" id="home">
+            <img
+                src="https://images.unsplash.com/photo-1588499756007-ded3f865871f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Helicopter flying over Bali"
+                class="hero-bg"
+            />
+            <div class="image-credit">Photo credit: Unsplash</div>
+            <div class="hero-content">
+                <h1>See Bali From Above: Unforgettable Helicopter Tours</h1>
+                <p>
+                    Experience the Island of the Gods from a breathtaking new
+                    perspective. Choose your scenic flight and create memories
+                    that last a lifetime.
+                </p>
+            </div>
+        </section>
+
+        <!-- Destination Content -->
+        <div class="destination-content">
+            <h2 class="destination-title">
+                Bali's Beauty <span>Unveiled</span>
+            </h2>
+
+            <div class="destination-info">
+                <div class="info-card">
+                    <h3>Departure Point</h3>
+                    <address
+                        class="card-location"
+                        id="destination-location"
+                        style="
+                            cursor: pointer;
+                            text-decoration: underline;
+                            color: var(--primary);
+                        "
+                    >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bali Heliport (Near Benoa)</span>
+                    </address>
+                </div>
+                <div class="info-card">
+                    <h3>Flight Durations</h3>
+                    <p>Various options available (e.g., 15-60 mins)</p>
+                </div>
+                <div class="info-card">
+                    <h3>Price</h3>
+                    <p>Starting from $XXX / person</p>
+                    <!-- Adjust price as needed -->
+                </div>
+            </div>
+
+            <div class="destination-description">
+                <p>
+                    Elevate your Bali experience – literally! Discover the
+                    island's stunning landscapes from the best seat in the
+                    house: a state-of-the-art helicopter. Glide effortlessly
+                    above iconic landmarks, dramatic coastlines, and lush
+                    interiors, witnessing Bali's magic unfold beneath you. It's
+                    the perfect way to celebrate a special occasion, capture
+                    incredible photos, or simply treat yourself to an
+                    unforgettable adventure.
+                </p>
+                <p>
+                    Choose from a range of scenic flight paths tailored to
+                    showcase Bali's diverse beauty. Soar along the southern
+                    coastline, marveling at the limestone cliffs of Uluwatu, the
+                    pristine white sands of Pandawa and Melasti beaches, and the
+                    vibrant coral reefs below. Fly over the iconic Garuda Wisnu
+                    Kencana statue and see the bustling beaches of Kuta and
+                    Seminyak from a unique angle.
+                </p>
+                <p>
+                    Venture further across the Badung Strait to the mystical
+                    Nusa Islands (Lembongan, Ceningan, Penida), admiring their
+                    rugged cliffs, secluded coves, and perhaps even spotting
+                    majestic Manta Rays in the clear waters. Or, embark on an
+                    epic volcano-temple journey, circling the caldera of Mount
+                    Batur, gazing upon Kintamani Lake, flying over the vast
+                    Jatiluwih Rice Terraces (UNESCO site), and witnessing the
+                    legendary Tanah Lot temple from the air. Whichever tour you
+                    choose, prepare for awe-inspiring views and memories to
+                    cherish.
+                </p>
+            </div>
+
+            <div class="tour-details">
+                <h3>Popular Flight Routes Include Views Of:</h3>
+                <ul>
+                    <li>
+                        Southern Coastline: Uluwatu Temple, Pandawa Beach,
+                        Melasti Beach, Nusa Dua
+                    </li>
+                    <li>
+                        Iconic Landmarks: Garuda Wisnu Kencana (GWK) Statue,
+                        Tanah Lot Temple
+                    </li>
+                    <li>
+                        Nusa Islands: Lembongan, Ceningan, Penida (potential
+                        Manta Ray sightings)
+                    </li>
+                    <li>
+                        Volcano & Culture: Mount Batur, Kintamani Lake,
+                        Jatiluwih Rice Terraces
+                    </li>
+                    <li>Popular Beaches: Kuta, Seminyak, Nyang Nyang</li>
+                    <li>Breathtaking Sunsets (specific tours)</li>
+                </ul>
+
+                <h3>What's Included (Typical)</h3>
+                <ul>
+                    <li>
+                        Scenic helicopter flight (duration based on package)
+                    </li>
+                    <li>Experienced pilot and commentary</li>
+                    <li>Safety briefing</li>
+                    <li>Insurance coverage</li>
+                    <li>Hotel transfers (often available as add-on)</li>
+                    <li>Welcome drink/refreshments</li>
+                </ul>
+
+                <p class="note">
+                    <strong>Good to Know:</strong> Flights are subject to
+                    weather conditions and air traffic control. Weight limits
+                    apply per passenger and per flight. Booking in advance is
+                    highly recommended, especially during peak season. Bring
+                    your camera!
+                </p>
+            </div>
+
+            <h3>Essential Experiences</h3>
+            <ul class="highlight-list">
+                <li>
+                    Gain a unique bird's-eye perspective of Bali's diverse
+                    landscapes.
+                </li>
+                <li>
+                    Witness the dramatic scale of coastal cliffs and volcanic
+                    calderas.
+                </li>
+                <li>
+                    Appreciate the intricate patterns of rice terraces from
+                    above.
+                </li>
+                <li>Capture stunning aerial photographs and videos.</li>
+                <li>
+                    Experience the thrill of helicopter flight over paradise.
+                </li>
+                <li>
+                    See multiple iconic landmarks in a short amount of time.
+                </li>
+                <li>Create an unforgettable memory for a special occasion.</li>
+                <li>Spot marine life like Manta Rays over the Nusa Islands.</li>
+            </ul>
+
+            <div class="gallery">
+                <img
+                    src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Aerial view of Uluwatu coastline"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Aerial view of Nusa Penida"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1596938399978-1103a9a0a0c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Aerial view of Mount Batur"
+                    class="gallery-image"
+                />
+            </div>
+
+            <a href="#" class="cta-button" id="booking_button"
+                >Book Your Scenic Helicopter Flight</a
+            >
+        </div>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Google Maps Modal -->
+        <div class="map-modal" id="map-modal">
+            <div class="map-container">
+                <div class="map-close" id="map-close">
+                    <i class="fas fa-times"></i>
+                </div>
+                <iframe
+                    id="map-iframe"
+                    class="map-iframe"
+                    src=""
+                    allowfullscreen=""
+                    loading="lazy"
+                >
+                </iframe>
+            </div>
+        </div>
+    </body>
+    <!-- Link to external JavaScript file -->
+    <script src="../../../js/main.js"></script>
+    <script>
+        // Page-specific script to initialize map with correct location
+        document.addEventListener("DOMContentLoaded", function () {
+            const locationElement = document.getElementById(
+                "destination-location"
+            );
+            const mapModal = document.getElementById("map-modal");
+            const mapClose = document.getElementById("map-close");
+            const mapIframe = document.getElementById("map-iframe");
+
+            if (locationElement && mapModal && mapClose && mapIframe) {
+                // Assuming Bali Heliport is near Benoa/Nusa Dua area
+                const locationName = "Bali Heliport";
+                const addressLocation =
+                    "Benoa Heliport, Pesanggaran, Denpasar Selatan, Denpasar City, Bali"; // Approximate location
+                const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.49699712488!2d115.2119443147841!3d-8.73999999376087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2435a4f34a4c7%3A0x7b4b7b0b7b0b7b0b!2s${encodeURIComponent(
+                    addressLocation
+                )}!5e0!3m2!1sen!2sid!4v1744616667191!5m2!1sen!2sid`; // Placeholder embed URL - replace if exact location known
+
+                locationElement.addEventListener("click", () => {
+                    mapIframe.src = mapUrl;
+                    mapModal.classList.add("active");
+                    document.body.style.overflow = "hidden";
+                });
+
+                mapClose.addEventListener("click", () => {
+                    mapModal.classList.remove("active");
+                    document.body.style.overflow = "";
+                    setTimeout(() => {
+                        mapIframe.src = "";
+                    }, 300);
+                });
+
+                mapModal.addEventListener("click", (e) => {
+                    if (e.target === mapModal) {
+                        mapClose.click();
+                    }
+                });
+
+                document.addEventListener("keydown", (e) => {
+                    if (
+                        e.key === "Escape" &&
+                        mapModal.classList.contains("active")
+                    ) {
+                        mapClose.click();
+                    }
+                });
+
+                // Indicate that map is initialized by this page
+                window.mapInitialized = true;
+            }
+        });
+    </script>
+</html>
