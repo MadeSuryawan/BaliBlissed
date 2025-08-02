@@ -612,7 +612,7 @@ header.scrolled .menu-toggle {
 /* Section Styles */
 .section {
     padding: 5rem var(--container-padding);
-    opacity: 0; /* Initially hidden */
+    opacity: 0.3; /* Initially hidden */
     transform: translateY(50px); /* Start slightly below */
     transition: opacity 0.9s ease-out, transform 0.9s ease-out; /* Smooth transition */
     will-change: opacity, transform; /* Optimize animation */
@@ -622,6 +622,30 @@ header.scrolled .menu-toggle {
     opacity: 1; /* Fade in */
     transform: translateY(0); /* Move to original position */
     transition-delay: 0.2s;
+}
+/* Soft dark overlay that fades out on section scroll */
+.scroll-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 2000;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 1.5s ease-out;
+    will-change: opacity;
+}
+
+.scroll-overlay.fade-out {
+    opacity: 0;
+}
+
+html {
+    transition: filter 1.5s ease-out;
+    will-change: filter;
+}
+
+html.dimmed {
+    filter: brightness(0.75);
 }
 
 .section-title {
@@ -2218,7 +2242,7 @@ footer {
 }
 
 /* Contact Navigation Smooth Transition */
-.contact-transition-overlay {
+/* .contact-transition-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -2285,9 +2309,9 @@ footer {
     letter-spacing: 0.5px;
     opacity: 0;
     animation: textFadeIn 0.5s ease-out 0.4s forwards;
-}
+} */
 
-@keyframes smoothSpin {
+/* @keyframes smoothSpin {
     0% {
         transform: rotate(0deg);
     }
@@ -2320,16 +2344,16 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
-}
+} */
 
 /* Smooth transition for contact section */
-#contact-form {
+/* #contact-form {
     scroll-margin-top: 100px; /* Account for fixed header */
-    transition: all var(--transition-standard);
-}
+/* transition: all var(--transition-standard); */
+/* } */
 
 /* Hero section smooth hiding for contact navigation */
-.hero {
+/* .hero {
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
@@ -2337,14 +2361,14 @@ footer {
     opacity: 0;
     transform: translateY(-30px);
     pointer-events: none;
-}
+} */
 
 /* Enhanced contact section animation when navigated to */
-#contact-form.contact-highlight {
+/* #contact-form.contact-highlight {
     animation: contactSectionHighlight 1s ease-out;
-}
+} */
 
-@keyframes contactSectionHighlight {
+/* @keyframes contactSectionHighlight {
     0% {
         opacity: 0.8;
         transform: translateY(20px);
@@ -2357,4 +2381,4 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
-}
+} */

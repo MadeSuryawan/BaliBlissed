@@ -19,6 +19,14 @@
         BUTTON_COLLAPSE_TIMEOUT: 1000,
         HOVER_DELAY: 600,
         PARALLAX_FACTOR: 0.5,
+        NAV_LINKS: [
+            "index.html#home",
+            "index.html#car-charter",
+            "index.html#destinations",
+            "index.html#contact-form",
+        ],
+        DEST_IMG_LINK: "js/destinationImages.json",
+        MAP_URLS_LINK: "js/mapUrls.json",
     };
 
     // Utility functions
@@ -65,69 +73,31 @@
 
     // Data mapping destination titles to their card image URLs (relative to root or absolute)
     // Populate this object with ALL destinations and their correct image URLs from index.html
-    const destinationImages = {
-        "Bali ATV Quad Bike Adventure in Ubud":
-            "destinations/activities/Bali_Atv_Ride_In_Ubud/Images/atv_track.jpg",
-        "Mount Batur Sunrise Trekking or Jeep Private Tour":
-            "destinations/activities/Mount_Batur_4wd_Jeep_Sunrise_Tour/Images/a_couple_is_watching_sunrise.jpg",
-        "Nusa Lembongan & Manta Bay Snorkeling":
-            "destinations/activities/Nusa_Lembongan_And_Manta_Bay_Snorkeling_Experience/Images/banner_03.jpg",
-        "West Nusa Penida Tour":
-            "destinations/activities/Nusa_Penida_Day_Tour_From_Bali/Images/banner_03.jpg",
-        "Mount Batur 4WD Jeep Sunrise Tour":
-            "destinations/activities/Mount_Batur_Sunrise_Trekking_or_Jeep_Private_Tour/Images/banner_03.jpg",
-        "Lovina Dolphin Watching and Snorkeling Tour":
-            "destinations/activities/Lovina_Dolphin_Watching_And_Snorkeling_Tour_In_Bali/Images/dolphin_watching_at_lovina_beach_in_bali.jpg",
-        "Ijen Blue Fire Hiking Tour From Bali":
-            "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Balinese Purification And Wellness Experience":
-            "https://images.unsplash.com/photo-1577715694662-6222a3d6e21c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Tulamben Dive Escapade: Discover Scuba Day Trip with PADI 5*":
-            "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Sanur's Aquatic Gateway: Open Water Diver with PADI 5*":
-            "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Daytrip Scuba Diving or Snorkeling To Amed":
-            "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Private Charter Boat For Scuba Diving or Snorkeling To Nusa Penida":
-            "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Jet Ski Touring Experience In Bali":
-            "https://images.unsplash.com/photo-1596464716127-f2a82984de30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Uluwatu Temple Sunset and Kecak Fire Dance":
-            "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Beauty Of Bali Customizable Full-Day Private Tour":
-            "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Surfing Lesson at Kuta Beach by 27 Surf Bali":
-            "https://images.unsplash.com/photo-1502680390469-be75c86b636f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Jimbaran Seafood Dining and Sunset Experience":
-            "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Ayung River Rafting in Bali with Activities and Sightseeing Tour":
-            "https://images.unsplash.com/photo-1583452924150-ea5ea61009a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Ubud Highlights And Lempuyang Gate Of Heaven Tour":
-            "https://images.unsplash.com/photo-1604999333679-b86d54738315?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Beach Horse Riding Experience at Seminyak Beach":
-            "https://images.unsplash.com/photo-1570555679220-9ee36e4a7ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Blue Lagoon Beach Snorkeling Experience":
-            "https://images.unsplash.com/photo-1589940801380-39c1d03c06a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Tanah Lot, Padang Padang & Uluwatu Sunset Kecak Dance Tour":
-            "https://images.unsplash.com/photo-1555400038-63f5ba517a47?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Mount Agung Sunrise Trekking":
-            "https://images.unsplash.com/photo-1596938399978-1103a9a0a0c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Tanjung Benoa Watersports Adventure":
-            "https://images.unsplash.com/photo-1596464716127-f2a82984de30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", // Example: Update required
-        "Bali Swing Pioneer Experience in Ubud":
-            "https://images.unsplash.com/photo-1591809859305-1823197a46c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Bali Helicopter Ride Experience":
-            "https://images.unsplash.com/photo-1588499756007-ded3f865871f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Ubud Zipline & Sky Bike Adventure":
-            "https://images.unsplash.com/photo-1531778272849-d1dd22444c06?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "Bali Paragliding & Uluwatu Sunset Tour":
-            "https://images.unsplash.com/photo-1588499756007-ded3f865871f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", // Example: Update required
-        "Tulamben Wreck Diving Day Trip":
-            "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", // Example: Update required
-        "Bali UNESCO Heritage Sites Tour":
-            "https://images.unsplash.com/photo-1500382841059-ce9998a2b4f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        // Add all other destinations here...
-    };
+    let destinationImages = {};
+
+    let mapUrls = {};
+
+    // ---- JSON loaders ----
+    async function loadMapUrls() {
+        try {
+            const res = await fetch(CONFIG.MAP_URLS_LINK);
+            mapUrls = await res.json();
+        } catch (e) {
+            console.error("Could not load mapUrls.json", e);
+            mapUrls = {};
+        }
+    }
+
+    // Load once at startup
+    async function loadDestinationImages() {
+        try {
+            const res = await fetch(CONFIG.DEST_IMG_LINK);
+            destinationImages = await res.json();
+        } catch (e) {
+            console.error("Could not load destinationImages.json", e);
+            destinationImages = {}; // fallback empty map
+        }
+    }
 
     // To update destination card images on the main page
     function setDestCardImgs() {
@@ -222,6 +192,20 @@
         // heroImageElement.alt = cleanedTitle + " hero image";
     }
 
+    // add section to sessionStorage
+    function add_section(section) {
+        const arr = JSON.parse(
+            sessionStorage.getItem("scrollToSection") || "[]"
+        );
+        arr.push(section);
+        sessionStorage.setItem("scrollToSection", JSON.stringify(arr));
+    }
+
+    // get sections from sessionStorage
+    function get_sections() {
+        return JSON.parse(sessionStorage.getItem("scrollToSection") || "[]");
+    }
+
     const ComponentLoader = {
         async init() {
             // Use Promise.all to wait for both header and footer to load
@@ -307,7 +291,7 @@
                 isPagesPage
             ) {
                 const links = container.querySelectorAll(
-                    'a:not([href^="http"]):not([href^="mailto"]):not([href^="tel"])'
+                    'a:not([href^="http"]):not([href^="#"]):not([href^="mailto"]):not([href^="tel"])'
                 );
                 const images = container.querySelectorAll(
                     'img:not([src^="http"]):not([src^="/"])'
@@ -316,28 +300,28 @@
                 links.forEach((link) => {
                     const href = link.getAttribute("href");
 
-                    // Handle anchor-only links (like #contact-form)
-                    if (href && href.startsWith("#")) {
-                        // Contact form links are handled by event delegation, skip processing
-                        if (href === "#contact-form") {
-                            return;
-                        }
-                        // Other anchor links stay as-is since they're for current page
-                        return;
-                    }
+                    // Special handling for section links
+                    if (CONFIG.NAV_LINKS.includes(href)) {
+                        const section = href.split("#")[1];
+                        // Convert to absolute path with hash
+                        const absolutePath = basePath + "index.html";
+                        link.setAttribute("href", absolutePath + "#" + section);
 
+                        // Add click handler for smooth scroll after navigation
+                        link.addEventListener("click", (e) => {
+                            e.preventDefault();
+                            add_section(section);
+                            window.location.href = absolutePath;
+                        });
+                    }
                     // Adjust relative paths like 'index.html' or 'services/...'
-                    if (
+                    else if (
                         href &&
                         !href.startsWith("../") &&
-                        !href.startsWith("/")
+                        !href.startsWith("/") &&
+                        !href.includes("#")
                     ) {
-                        // Special handling for contact form links - skip processing entirely
-                        if (href.includes("#contact-form")) {
-                            return;
-                        } else {
-                            link.setAttribute("href", basePath + href);
-                        }
+                        link.setAttribute("href", basePath + href);
                     }
                 });
                 images.forEach((img) => {
@@ -354,158 +338,6 @@
             // Initialize controllers that might depend on elements in header OR footer
             // Ensure ModalController runs after footer is loaded because About modal content is there
             ModalController.init();
-
-            // Initialize contact form redirect handlers with a longer delay to ensure header is fully loaded
-            setTimeout(() => {
-                this.initContactRedirectHandlers();
-            }, 500);
-        },
-
-        initContactRedirectHandlers() {
-            // Prevent duplicate initialization
-            if (this.contactHandlersInitialized) {
-                console.log("Contact handlers already initialized, skipping");
-                return;
-            }
-
-            console.log("Initializing contact redirect handlers");
-            this.contactHandlersInitialized = true;
-
-            // Handle contact form redirects from subpages
-            let isNavigating = false; // Prevent multiple rapid clicks
-
-            // Create the contact click handler
-            this.contactClickHandler = (e) => {
-                // Check if the clicked element or its parent is a contact link
-                const link = e.target.closest("a");
-                if (!link) {
-                    // Check if it's a contact-related click
-                    if (
-                        e.target.textContent &&
-                        e.target.textContent.toLowerCase().includes("contact")
-                    ) {
-                        console.log(
-                            "Contact text clicked but no link found:",
-                            e.target
-                        );
-                    }
-                    return;
-                }
-
-                const href = link.getAttribute("href");
-                const linkText = link.textContent.toLowerCase().trim();
-
-                // Check if it's a contact link - look for contact-form in href or "Contact" text
-                const isContactLink =
-                    (href && href.includes("contact-form")) ||
-                    linkText === "contact";
-
-                if (!isContactLink) {
-                    return;
-                }
-
-                console.log(
-                    `Contact link clicked: href="${href}", text="${linkText}"`
-                );
-
-                e.preventDefault();
-
-                // Prevent multiple rapid clicks
-                if (isNavigating) return;
-
-                const basePath = this.determineBasePath();
-
-                // Check if we're already on the main page
-                const currentPath = window.location.pathname;
-                const isMainPage =
-                    currentPath === "/" ||
-                    currentPath === "/index.html" ||
-                    currentPath === "/BaliBlissed/" ||
-                    currentPath === "/BaliBlissed/index.html" ||
-                    (currentPath.endsWith("/") &&
-                        !currentPath.includes("/destinations/") &&
-                        !currentPath.includes("/services/") &&
-                        !currentPath.includes("/pages/"));
-
-                console.log(
-                    `Contact click - Current path: ${currentPath}, Is main page: ${isMainPage}, Base path: ${basePath}`
-                );
-
-                if (isMainPage) {
-                    // We're on the main page, just scroll to contact form
-                    const contactSection =
-                        document.getElementById("contact-form");
-                    if (contactSection) {
-                        contactSection.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                        });
-                    }
-                } else {
-                    // We're on a subpage, need to navigate with smooth transition
-                    isNavigating = true;
-                    const targetUrl = basePath + "index.html";
-
-                    // Create smooth transition overlay
-                    this.createSmoothTransition(() => {
-                        window.location.href = targetUrl + "#contact-form";
-                    });
-                }
-            };
-
-            // Add the event listener
-            document.addEventListener("click", this.contactClickHandler);
-        },
-
-        determineBasePath() {
-            const path = window.location.pathname;
-            if (path.includes("/destinations/activities/")) return "../../../";
-            if (path.includes("/destinations/") || path.includes("/services/"))
-                return "../../";
-            if (path.includes("/pages/")) return "../";
-            return "";
-        },
-
-        createSmoothTransition(callback) {
-            // Create smooth transition overlay with enhanced timing
-            const transitionOverlay = document.createElement("div");
-            transitionOverlay.className = "contact-transition-overlay";
-            transitionOverlay.innerHTML = `
-                <div class="transition-content">
-                    <div class="transition-spinner"></div>
-                    <span>Navigating to Contact...</span>
-                </div>
-            `;
-            document.body.appendChild(transitionOverlay);
-
-            // Add fade-out effect to current page content first
-            const allContent = document.querySelectorAll(
-                "section, .hero, header"
-            );
-
-            // Apply fade-out to all visible content
-            allContent.forEach((element) => {
-                element.style.transition =
-                    "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
-                element.style.opacity = "0.2";
-                element.style.transform = "translateY(-20px) scale(0.96)";
-                element.style.filter = "blur(2px)";
-            });
-
-            // Prevent scrolling during transition
-            document.body.style.overflow = "hidden";
-
-            // Trigger overlay fade-in after content starts fading
-            setTimeout(() => {
-                requestAnimationFrame(() => {
-                    transitionOverlay.classList.add("active");
-                });
-            }, 150);
-
-            // Execute navigation after overlay is fully visible and content is hidden
-            setTimeout(() => {
-                callback();
-            }, 700);
         },
     };
 
@@ -598,87 +430,12 @@
         },
     };
 
-    // const ScrollAnimation_ori = {
-    //     serviceObserver: null, // Observer for service link
-    //     sectionObserver: null, // Observer for sections
-
-    //     init() {
-    //         try {
-    //             const serviceElements = Utils.getElements(
-    //                 ".service-link-content"
-    //             );
-    //             const sectionElements = Utils.getElements("section:not(.hero)");
-
-    //             if (!serviceElements.length && !sectionElements.length) return;
-
-    //             // Common callback function for both observers
-    //             const observerCallback = (entries, observerInstance) => {
-    //                 entries.forEach((entry) => {
-    //                     if (entry.isIntersecting) {
-    //                         entry.target.classList.add("visible");
-    //                         // // Optional: Uncomment to animate only once per element type
-    //                         // observerInstance.unobserve(entry.target);
-    //                     } else {
-    //                         // Element is leaving the viewport (optional: keep animating on scroll up/down)
-    //                         entry.target.classList.remove("visible");
-    //                     }
-    //                 });
-    //             };
-
-    //             // Options and observer for .service-link-content
-    //             if (serviceElements.length) {
-    //                 const serviceObserverOptions = {
-    //                     root: null,
-    //                     rootMargin: "0px",
-    //                     threshold: 0.6, // Trigger when 60% is visible
-    //                 };
-    //                 this.serviceObserver = new IntersectionObserver(
-    //                     observerCallback,
-    //                     serviceObserverOptions
-    //                 );
-    //                 serviceElements.forEach((el) =>
-    //                     this.serviceObserver.observe(el)
-    //                 );
-    //             }
-
-    //             // Options and observer for section:not(.hero)
-    //             if (sectionElements.length) {
-    //                 const sectionObserverOptions = {
-    //                     root: null,
-    //                     rootMargin: "0px",
-    //                     threshold: 0.2, // Trigger when 20% is visible
-    //                 };
-    //                 this.sectionObserver = new IntersectionObserver(
-    //                     observerCallback,
-    //                     sectionObserverOptions
-    //                 );
-    //                 sectionElements.forEach((el) =>
-    //                     this.sectionObserver.observe(el)
-    //                 );
-    //             }
-    //         } catch (error) {
-    //             console.error("Error initializing scroll animations:", error);
-    //         }
-    //     },
-
-    //     disconnect() {
-    //         if (this.serviceObserver) {
-    //             this.serviceObserver.disconnect();
-    //             this.serviceObserver = null;
-    //         }
-    //         if (this.sectionObserver) {
-    //             this.sectionObserver.disconnect();
-    //             this.sectionObserver = null;
-    //         }
-    //     },
-    // };
-
     const ScrollAnimation = {
         // --- Configuration ---
         SERVICE_SELECTOR: ".service-link-content",
-        SECTION_SELECTOR: "section:not(.hero)",
-        SECTION_THRESHOLD: 0.1, // Trigger when 20% is visible
         SERVICE_THRESHOLD: 0.6, // Trigger when 60% is visible
+        SECTION_SELECTOR: "section:not(.hero)",
+        SECTION_THRESHOLD: 0.1, // Trigger when 10% is visible
         VISIBLE_CLASS: "visible", // Centralize the class name
 
         // --- State ---
@@ -781,7 +538,7 @@
                 this._sectionObserver.disconnect();
                 this._sectionObserver = null;
             }
-            console.log("ScrollAnimation observers disconnected."); // Optional log
+            // console.log("ScrollAnimation observers disconnected."); // Optional log
         },
     };
 
@@ -789,6 +546,7 @@
         init() {
             this.setupMobileMenu();
             this.setupSmoothScrolling();
+            this.setupCrossPageNavigation();
         },
 
         setupMobileMenu() {
@@ -816,6 +574,169 @@
                 }
             } catch (error) {
                 console.error("Error setting up mobile menu:", error);
+            }
+        },
+
+        setupCrossPageNavigation12() {
+            try {
+                // Handle destinations links specifically
+                const carCharterLink = Utils.getElement(".car-charter-link");
+                const destinationLink = Utils.getElement(".destinations-link");
+                const contactLink = Utils.getElement(".contact-link");
+
+                const allLinks = [carCharterLink, destinationLink, contactLink];
+
+                allLinks.forEach((link) => {
+                    link.addEventListener("click", (e) => {
+                        const href = link.getAttribute("href");
+                        const currentPath = window.location.pathname;
+                        const isHome =
+                            currentPath.endsWith("/") ||
+                            currentPath.endsWith("/index.html") ||
+                            currentPath.includes("/BaliBlissed/index.html");
+
+                        // Check if we're not on the main page
+                        if (!isHome) {
+                            // e.preventDefault();
+
+                            // Store the target section in sessionStorage
+                            sessionStorage.setItem(
+                                "scrollToSection",
+                                "destinations"
+                            );
+
+                            // Navigate to the main page
+                            window.location.href = href.split("#")[0];
+                        } else {
+                            let overlay = Utils.getElement(".scroll-overlay");
+                            if (!overlay) {
+                                overlay = document.createElement("div");
+                                overlay.className = "scroll-overlay";
+                                document.body.appendChild(overlay);
+                            }
+                            document.body.classList.add("overlay-active");
+                            overlay.classList.remove("fade-out");
+                            // start fade-out a tiny bit after paint
+                            requestAnimationFrame(() => {
+                                overlay.classList.add("fade-out");
+                            });
+                            // clean up once animation ends
+                            overlay.addEventListener(
+                                "transitionend",
+                                () => {
+                                    overlay.remove();
+                                    document.body.classList.remove(
+                                        "overlay-active"
+                                    );
+                                },
+                                { once: true }
+                            );
+
+                            // dim the page
+                            // document.documentElement.classList.add("dimmed");
+
+                            setTimeout(() => {
+                                link.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "start",
+                                });
+                                // after scroll,
+
+                                // remove dim
+                                // document.documentElement.classList.remove(
+                                //     "dimmed"
+                                // );
+
+                                // remove overlay
+                                overlay.remove();
+                                document.body.classList.remove(
+                                    "overlay-active"
+                                );
+                            }, 1500);
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error("Error setting up cross-page navigation:", error);
+            }
+        },
+
+        setupCrossPageNavigation() {
+            try {
+                // Handle destinations links specifically
+                const carCharterLink = Utils.getElement(".car-charter-link");
+                const destinationLink = Utils.getElement(".destinations-link");
+                const contactLink = Utils.getElement(".contact-link");
+
+                const allLinks = [carCharterLink, destinationLink, contactLink];
+
+                allLinks.forEach((link) => {
+                    link.addEventListener("click", (e) => {
+                        const href = link.getAttribute("href");
+                        const currentPath = window.location.pathname;
+                        const isHome =
+                            currentPath.endsWith("/") ||
+                            currentPath.endsWith("/index.html") ||
+                            currentPath.includes("/BaliBlissed/index.html");
+
+                        // Check if we're not on the main page
+                        if (!isHome && CONFIG.NAV_LINKS.includes(href)) {
+                            e.preventDefault();
+                            add_section(href.split("#")[1]);
+
+                            // Navigate to the main page
+                            window.location.href = href.split("#")[0];
+                        } else {
+                            let overlay = Utils.getElement(".scroll-overlay");
+                            if (!overlay) {
+                                overlay = document.createElement("div");
+                                overlay.className = "scroll-overlay";
+                                document.body.appendChild(overlay);
+                            }
+                            document.body.classList.add("overlay-active");
+                            overlay.classList.remove("fade-out");
+                            // start fade-out a tiny bit after paint
+                            requestAnimationFrame(() => {
+                                overlay.classList.add("fade-out");
+                            });
+                            // clean up once animation ends
+                            overlay.addEventListener(
+                                "transitionend",
+                                () => {
+                                    overlay.remove();
+                                    document.body.classList.remove(
+                                        "overlay-active"
+                                    );
+                                },
+                                { once: true }
+                            );
+
+                            // dim the page
+                            // document.documentElement.classList.add("dimmed");
+
+                            setTimeout(() => {
+                                link.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "start",
+                                });
+                                // after scroll,
+
+                                // remove dim
+                                // document.documentElement.classList.remove(
+                                //     "dimmed"
+                                // );
+
+                                // remove overlay
+                                overlay.remove();
+                                document.body.classList.remove(
+                                    "overlay-active"
+                                );
+                            }, 1500);
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error("Error setting up cross-page navigation:", error);
             }
         },
 
@@ -1094,154 +1015,6 @@
         } catch (error) {
             console.error("Error setting up booking buttons:", error);
         }
-    };
-
-    const FloatingButtonsControllerOri = {
-        buttonTimeouts: new Map(), // Stores timeout IDs for collapsing buttons
-        isTapping: false, // Tracks if a touch event is in progress on mobile
-
-        init() {
-            try {
-                const floatingButtons = Utils.getElements(".floating-button");
-                // Ensure the WhatsApp button exists before proceeding
-                const whatsappFloat = Utils.getElement("#whatsapp-float");
-                if (!whatsappFloat) {
-                    // console.warn("WhatsApp floating button (#whatsapp-float) not found.");
-                    // If WhatsApp button is essential, might return here or handle differently
-                }
-
-                if (Utils.isMobileDevice()) {
-                    this.setupMobileInteraction(floatingButtons);
-                } else {
-                    this.setupDesktopInteraction(
-                        floatingButtons,
-                        whatsappFloat
-                    );
-                }
-            } catch (error) {
-                console.error("Error initializing floating buttons:", error);
-            }
-        },
-
-        expandButton(button) {
-            // Collapse any other expanded button first
-            Utils.getElements(".floating-button.expanded").forEach((btn) => {
-                if (btn !== button) {
-                    this.collapseButton(btn);
-                }
-            });
-
-            // Expand the target button
-            button.classList.add("expanded");
-
-            // Clear existing timeout for this button, if any
-            if (this.buttonTimeouts.has(button)) {
-                clearTimeout(this.buttonTimeouts.get(button));
-            }
-
-            // Set timeout to automatically collapse the button
-            const timeoutId = setTimeout(() => {
-                this.collapseButton(button); // Use collapseButton to ensure timeout is cleared from map
-            }, CONFIG.BUTTON_COLLAPSE_TIMEOUT);
-
-            this.buttonTimeouts.set(button, timeoutId);
-        },
-
-        collapseButton(button) {
-            button.classList.remove("expanded");
-            // Clear and remove the timeout associated with this button
-            if (this.buttonTimeouts.has(button)) {
-                clearTimeout(this.buttonTimeouts.get(button));
-                this.buttonTimeouts.delete(button);
-            }
-        },
-
-        handleButtonAction(button, e) {
-            if (!button.classList.contains("expanded")) {
-                // First interaction: Prevent default link behavior and expand
-                e.preventDefault();
-                this.expandButton(button);
-            } else {
-                // Second interaction (button already expanded): Perform action
-                if (button.id === "whatsapp-float") {
-                    e.preventDefault(); // Prevent default '#' link behavior
-                    openWhatsAppChat(); // Use the standalone function
-                    this.collapseButton(button); // Collapse after action
-                }
-                // Add 'else if' blocks here for other floating buttons if needed
-                // else { /* Allow default behavior for other expanded buttons */ }
-            }
-        },
-
-        setupMobileInteraction(floatingButtons) {
-            floatingButtons.forEach((button) => {
-                // Use touchend for primary interaction on mobile
-                button.addEventListener("touchend", (e) => {
-                    // Prevent potential "ghost clicks" that might follow touchend
-                    e.preventDefault();
-                    this.handleButtonAction(button, e);
-                });
-
-                // REMOVED the separate 'click' listener to avoid potential conflicts
-                // Relying solely on 'touchend' for mobile interaction.
-            });
-
-            // Collapse buttons if user touches outside of them
-            document.addEventListener(
-                "touchstart",
-                (e) => {
-                    // Check if the touch is outside any floating button
-                    if (!e.target.closest(".floating-button")) {
-                        // Find any currently expanded floating button
-                        const expandedButton = Utils.getElement(
-                            ".floating-button.expanded"
-                        );
-                        if (expandedButton) {
-                            // Collapse it
-                            this.collapseButton(expandedButton);
-                        }
-                    }
-                },
-                { passive: true } // Use passive listener for better scroll performance
-            );
-        },
-
-        setupDesktopInteraction(floatingButtons, whatsappFloat) {
-            // Hover effect for all floating buttons
-            floatingButtons.forEach((button) => {
-                let hoverTimer = null;
-                button.addEventListener("mouseenter", () => {
-                    clearTimeout(hoverTimer); // Clear any pending collapse
-                    if (!button.classList.contains("expanded")) {
-                        // Expand immediately on hover enter
-                        this.expandButton(button);
-                        // Clear the auto-collapse timeout set by expandButton, as hover controls it now
-                        if (this.buttonTimeouts.has(button)) {
-                            clearTimeout(this.buttonTimeouts.get(button));
-                            this.buttonTimeouts.delete(button);
-                        }
-                    }
-                });
-
-                button.addEventListener("mouseleave", () => {
-                    // Set a delay before collapsing on hover leave
-                    hoverTimer = setTimeout(() => {
-                        this.collapseButton(button);
-                    }, CONFIG.HOVER_DELAY);
-                });
-            });
-
-            // Click handler specifically for the WhatsApp button on desktop
-            if (whatsappFloat) {
-                whatsappFloat.addEventListener("click", (e) => {
-                    e.preventDefault(); // Prevent default link behavior
-                    // No need to explicitly expand on click for desktop hover, but ensure it's visually open if somehow closed
-                    // whatsappFloat.classList.add("expanded"); // Optional: Force expansion visual on click
-                    openWhatsAppChat(); // Use the standalone function
-                    this.collapseButton(whatsappFloat); // Collapse after action
-                });
-            }
-        },
     };
 
     const FloatingButtonsController = {
@@ -2053,16 +1826,26 @@
         },
     };
 
+    // Might use in the future, need some fix how to return the value
+    function getMapUrlForLocation(locationName, addressLocation) {
+        return (
+            mapUrls[locationName] ||
+            `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126180.25308523745!2d115.1171446871789!3d-8.650645903152404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd22f7520fca7d3%3A0x2872b62cc456cd84!2s${encodeURIComponent(
+                addressLocation
+            )}!5e0!3m2!1sen!2sid!4v1744548957195!5m2!1sen!2sid`
+        );
+    }
+
     const MapController = {
         init() {
             try {
                 // Check if map is already initialized by page-specific script
                 if (window.mapInitialized) return;
 
+                const locationId = "#destination-location";
+
                 // Find location elements on the page
-                const locationElement = Utils.getElement(
-                    "#destination-location"
-                );
+                const locationElement = Utils.getElement(locationId);
                 if (!locationElement) return; // Exit if not on a page with location element
 
                 const mapModal = Utils.getElement("#map-modal");
@@ -2076,7 +1859,7 @@
                 if (!addressSpan) return;
 
                 const locationName = addressSpan.textContent.trim();
-                const addressLocation = locationName + ", Bali, Indonesia";
+                const addressLocation = `${locationName}, Bali, Indonesia`;
 
                 // Open map modal when location is clicked
                 locationElement.addEventListener("click", () => {
@@ -2085,6 +1868,10 @@
                         locationName,
                         addressLocation
                     );
+                    // const mapUrl = getMapUrlForLocation(
+                    //     locationName,
+                    //     addressLocation
+                    // );
 
                     // Set the iframe source
                     mapIframe.src = mapUrl;
@@ -2234,7 +2021,29 @@
     // Initialize all controllers when DOM is ready
     document.addEventListener("DOMContentLoaded", function () {
         async function initializeApp() {
+            // await loadDestinationImages(); // 1️⃣ load JSON first
+            await Promise.all([loadDestinationImages(), loadMapUrls()]);
             try {
+                // Check if we need to scroll to a specific section after page load
+                const sections = get_sections();
+                if (sections) {
+                    // Clear the stored section
+                    sessionStorage.removeItem("scrollToSection");
+                    sections.forEach((section) => {
+                        // Wait for page to fully load, then scroll
+                        setTimeout(() => {
+                            const targetElement = Utils.getElement(
+                                `#${section}`
+                            );
+                            if (targetElement) {
+                                targetElement.scrollIntoView({
+                                    behavior: "smooth",
+                                });
+                            }
+                        }, 300);
+                    });
+                }
+
                 // Initialize controllers that don't depend on fetched components first
                 ScrollController.init();
                 DelayedService.init();
@@ -2275,213 +2084,6 @@
         // Initialize contact form and newsletter functionality
         initializeContactForm();
         initializeNewsletterModal();
-
-        // Ensure hero is visible by default (unless we're on contact form)
-        const ensureHeroVisibility = () => {
-            const heroSection = document.querySelector(".hero");
-            if (heroSection && window.location.hash !== "#contact-form") {
-                // Make sure hero is visible by default
-                heroSection.style.display = "";
-                heroSection.style.opacity = "";
-                heroSection.style.transform = "";
-                heroSection.style.pointerEvents = "";
-            }
-        };
-
-        // Run immediately and after a short delay
-        ensureHeroVisibility();
-        setTimeout(ensureHeroVisibility, 100);
-
-        // Handle hash navigation with multiple attempts for reliability
-        const handleHashNavigation = () => {
-            if (window.location.hash === "#contact-form") {
-                // Immediately hide hero section to prevent jarring
-                const heroSection = document.querySelector(".hero");
-                if (heroSection) {
-                    heroSection.style.transition = "none";
-                    heroSection.style.opacity = "0";
-                    heroSection.style.transform = "translateY(-50px)";
-                    heroSection.style.pointerEvents = "none";
-                    // Use display none as backup
-                    setTimeout(() => {
-                        heroSection.style.display = "none";
-                    }, 50);
-                }
-
-                // Check if this is a navigation from another page or a page reload
-                const navigationEntry =
-                    performance.getEntriesByType("navigation")[0];
-                const isPageReload = navigationEntry?.type === "reload";
-
-                // Additional check: if there's no referrer, it's likely a direct access/reload
-                const isDirectAccess =
-                    !document.referrer ||
-                    document.referrer === window.location.href;
-
-                // Only auto-scroll if it's NOT a page reload and NOT a direct access
-                if (!isPageReload && !isDirectAccess) {
-                    const contactSection =
-                        document.getElementById("contact-form");
-                    if (contactSection) {
-                        // Hide any transition overlays
-                        const transitionOverlay = document.querySelector(
-                            ".contact-transition-overlay"
-                        );
-                        if (transitionOverlay) {
-                            transitionOverlay.style.transition =
-                                "opacity 0.4s ease-out";
-                            transitionOverlay.style.opacity = "0";
-                            setTimeout(() => {
-                                if (transitionOverlay.parentNode) {
-                                    transitionOverlay.parentNode.removeChild(
-                                        transitionOverlay
-                                    );
-                                }
-                                // Restore scrolling
-                                document.body.style.overflow = "";
-                            }, 400);
-                        }
-
-                        // Scroll to contact form with enhanced smooth animation
-                        setTimeout(() => {
-                            contactSection.scrollIntoView({
-                                behavior: "smooth",
-                                block: "start",
-                            });
-
-                            // Add highlight animation after scroll
-                            setTimeout(() => {
-                                contactSection.classList.add(
-                                    "contact-highlight"
-                                );
-                                setTimeout(() => {
-                                    contactSection.classList.remove(
-                                        "contact-highlight"
-                                    );
-                                }, 1000);
-                            }, 500);
-                        }, 100);
-                        return true;
-                    }
-                } else {
-                    // It's a page reload or direct access, hide hero and clean up
-                    const heroSection = document.querySelector(".hero");
-                    if (heroSection) {
-                        heroSection.style.transition = "none";
-                        heroSection.style.opacity = "0";
-                        heroSection.style.transform = "translateY(-50px)";
-                        heroSection.style.pointerEvents = "none";
-                        heroSection.style.display = "none";
-                    }
-
-                    const transitionOverlay = document.querySelector(
-                        ".contact-transition-overlay"
-                    );
-                    if (transitionOverlay) {
-                        transitionOverlay.style.transition =
-                            "opacity 0.4s ease-out";
-                        transitionOverlay.style.opacity = "0";
-                        setTimeout(() => {
-                            if (transitionOverlay.parentNode) {
-                                transitionOverlay.parentNode.removeChild(
-                                    transitionOverlay
-                                );
-                            }
-                            // Restore scrolling
-                            document.body.style.overflow = "";
-                        }, 400);
-                    }
-
-                    // Remove the hash from URL to prevent future auto-scrolling
-                    setTimeout(() => {
-                        if (window.location.hash === "#contact-form") {
-                            history.replaceState(
-                                null,
-                                null,
-                                window.location.pathname
-                            );
-                        }
-                    }, 1000);
-                    return true;
-                }
-            }
-            return false;
-        };
-
-        // Try immediately
-        if (!handleHashNavigation()) {
-            // Try again after a short delay
-            setTimeout(handleHashNavigation, 300);
-            // Final attempt after longer delay
-            setTimeout(handleHashNavigation, 800);
-        }
-
-        // Fallback: Ensure contact handlers are initialized after everything is loaded
-        setTimeout(() => {
-            if (ComponentLoader.initContactRedirectHandlers) {
-                ComponentLoader.initContactRedirectHandlers();
-            }
-        }, 1500);
-
-        // Add comprehensive hero restoration system
-        const restoreHeroSection = () => {
-            const heroSection = document.querySelector(".hero");
-            if (heroSection) {
-                // Only restore if we're not on contact form
-                if (window.location.hash !== "#contact-form") {
-                    heroSection.style.transition =
-                        "opacity 0.3s ease-out, transform 0.3s ease-out";
-                    heroSection.style.display = "";
-                    heroSection.style.opacity = "";
-                    heroSection.style.transform = "";
-                    heroSection.style.pointerEvents = "";
-                }
-            }
-        };
-
-        // Listen for hash changes
-        window.addEventListener("hashchange", restoreHeroSection);
-
-        // Listen for page visibility changes (when user returns to tab)
-        document.addEventListener("visibilitychange", () => {
-            if (!document.hidden) {
-                setTimeout(restoreHeroSection, 100);
-            }
-        });
-
-        // Listen for focus events (when user clicks back to page)
-        window.addEventListener("focus", () => {
-            setTimeout(restoreHeroSection, 100);
-        });
-
-        // Restore hero on any navigation that's not to contact
-        const originalPushState = history.pushState;
-        const originalReplaceState = history.replaceState;
-
-        history.pushState = function (...args) {
-            originalPushState.apply(history, args);
-            setTimeout(restoreHeroSection, 100);
-        };
-
-        history.replaceState = function (...args) {
-            originalReplaceState.apply(history, args);
-            setTimeout(restoreHeroSection, 100);
-        };
-
-        // Listen for popstate (back/forward navigation)
-        window.addEventListener("popstate", () => {
-            setTimeout(restoreHeroSection, 100);
-        });
-
-        // Additional safety check - restore hero after all scripts have loaded
-        window.addEventListener("load", () => {
-            setTimeout(restoreHeroSection, 200);
-        });
-
-        // Final safety check with longer delay
-        setTimeout(() => {
-            restoreHeroSection();
-        }, 1000);
     });
 
     // Contact Form Functionality
@@ -2523,14 +2125,14 @@
             // Create WhatsApp message
             const message = `Hello BaliBlissed! I'm interested in your services.
 
-Name: ${data.name}
-Email: ${data.email}
-Phone: ${data.phone || "Not provided"}
-Travelers: ${data.travelers || "Not specified"}
-Service Interest: ${data.service || "Not specified"}
-Travel Dates: ${data.dates || "Flexible"}
+            Name: ${data.name}
+            Email: ${data.email}
+            Phone: ${data.phone || "Not provided"}
+            Travelers: ${data.travelers || "Not specified"}
+            Service Interest: ${data.service || "Not specified"}
+            Travel Dates: ${data.dates || "Flexible"}
 
-Message: ${data.message}`;
+            Message: ${data.message}`;
 
             const whatsappUrl = `https://wa.me/${CONFIG.WHATSAPP_NUMBER.replace(
                 "+",
@@ -2557,7 +2159,6 @@ Message: ${data.message}`;
 
     // Newsletter Modal Functionality
     function initializeNewsletterModal() {
-        const newsletterModal = Utils.getElement("#newsletter-modal");
         const newsletterForm = Utils.getElement("#newsletter-form");
         const closeBtn = Utils.getElement(".newsletter-modal-close");
         const overlay = Utils.getElement(".newsletter-modal-overlay");
@@ -2574,8 +2175,10 @@ Message: ${data.message}`;
             overlay.addEventListener("click", closeNewsletterModal);
         }
 
-        // Show newsletter modal after 30 seconds (optional)
-        // setTimeout(showNewsletterModal, 30000);
+        // // Show newsletter modal after 30 seconds (optional)
+        // setTimeout(() => {
+        //     showNewsletterModal(Utils.getElement("#newsletter-modal"));
+        // }, 30000);
     }
 
     function handleNewsletterSubmit(e) {
@@ -2614,8 +2217,7 @@ Message: ${data.message}`;
         }, 1500);
     }
 
-    function showNewsletterModal() {
-        const modal = Utils.getElement("#newsletter-modal");
+    function showNewsletterModal(modal) {
         if (modal) {
             modal.style.display = "block";
             document.body.style.overflow = "hidden";

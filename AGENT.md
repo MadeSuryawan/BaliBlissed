@@ -333,22 +333,49 @@ Once answers are collected, the agent should:
 
 ---
 
-## Quick Start Template
+## Project Structure Templates
 
-For rapid development, use this template structure:
+### Basic HTML/CSS/JS Project
+
+A simple, clean structure for static websites.
 
 ```plaintext
 project-name/
 ├── index.html
+├── pages/
+│   ├── about.html
+│   └── contact.html
 ├── assets/
 │   ├── css/
-│   │   └── styles.css
+│   │   └── style.css
 │   ├── js/
-│   │   └── script.js
+│   │   └── main.js
 │   └── images/
-├── pages/
-├── components/
 └── README.md
+```
+
+### Advanced Next.js Project
+
+A scalable structure for modern React applications.
+
+```plaintext
+project-name/
+├── app/
+│   ├── (pages)/
+│   │   ├── about/
+│   │   │   └── page.tsx
+│   │   └── layout.tsx
+│   ├── api/
+│   └── globals.css
+├── components/
+│   ├── ui/
+│   └── layout/
+├── public/
+│   ├── images/
+│   └── favicon.ico
+├── lib/
+├── tsconfig.json
+└── next.config.js
 ```
 
 Remember: Always prioritize user experience, accessibility, and performance in every decision.
