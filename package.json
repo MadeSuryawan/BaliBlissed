@@ -9,8 +9,7 @@
         "lint": "eslint js/main.js",
         "build:js": "terser js/main.js -o js/main.min.js --compress --mangle",
         "build:css": "cssnano css/style.css > css/style.min.css",
-        "build": "npm-run-all build:css build:js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "npm-run-all build:css build:js"
     },
     "keywords": [
         "bali",
