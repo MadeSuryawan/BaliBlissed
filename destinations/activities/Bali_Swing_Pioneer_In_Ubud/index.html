@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -76,7 +76,7 @@
             }
 
             .highlight-list li::before {
-                content: "•";
+                content: '•';
                 color: var(--primary);
                 font-weight: bold;
                 position: absolute;
@@ -144,7 +144,7 @@
             }
 
             .tour-details ul li::before {
-                content: "✓";
+                content: '✓';
                 color: var(--secondary);
                 font-weight: bold;
                 position: absolute;
@@ -396,56 +396,56 @@
     </body>
     <script>
         // Page-specific script to initialize map with correct location
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener('DOMContentLoaded', function () {
             const locationElement = document.getElementById(
-                "destination-location"
+                'destination-location'
             );
-            const mapModal = document.getElementById("map-modal");
-            const mapClose = document.getElementById("map-close");
-            const mapIframe = document.getElementById("map-iframe");
+            const mapModal = document.getElementById('map-modal');
+            const mapClose = document.getElementById('map-close');
+            const mapIframe = document.getElementById('map-iframe');
 
             if (!locationElement || !mapModal || !mapClose || !mapIframe)
                 return;
 
             // Get the location text from the address span
-            const addressSpan = locationElement.querySelector("span");
+            const addressSpan = locationElement.querySelector('span');
             if (!addressSpan) return;
 
-            const locationName = "Bali Swing Pioneer"; // Specific name for map lookup
+            const locationName = 'Bali Swing Pioneer'; // Specific name for map lookup
             const addressLocation =
-                "Jl. Dewi Saraswati No.7, Bongkasa Pertiwi, Kec. Abiansemal, Kabupaten Badung, Bali 80352"; // Full address
+                'Jl. Dewi Saraswati No.7, Bongkasa Pertiwi, Kec. Abiansemal, Kabupaten Badung, Bali 80352'; // Full address
 
             // Use the MapController's method (assuming main.js is loaded)
             const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.069199859886!2d115.2372321744891!3d-8.49058589176171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d2bb78f98e5%3A0xdc87cb5e74348952!2s${encodeURIComponent(
                 addressLocation
             )}!5e0!3m2!1sen!2sid!4v1744615557191!5m2!1sen!2sid`;
 
-            locationElement.addEventListener("click", (e) => {
+            locationElement.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 mapIframe.src = mapUrl;
-                mapModal.classList.add("active");
-                document.body.style.overflow = "hidden";
+                mapModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
 
-            mapClose.addEventListener("click", () => {
-                mapModal.classList.remove("active");
-                document.body.style.overflow = "";
+            mapClose.addEventListener('click', () => {
+                mapModal.classList.remove('active');
+                document.body.style.overflow = '';
                 setTimeout(() => {
-                    mapIframe.src = "";
+                    mapIframe.src = '';
                 }, 300);
             });
 
-            mapModal.addEventListener("click", (e) => {
+            mapModal.addEventListener('click', (e) => {
                 if (e.target === mapModal) {
                     mapClose.click();
                 }
             });
 
-            document.addEventListener("keydown", (e) => {
+            document.addEventListener('keydown', (e) => {
                 if (
-                    e.key === "Escape" &&
-                    mapModal.classList.contains("active")
+                    e.key === 'Escape' &&
+                    mapModal.classList.contains('active')
                 ) {
                     mapClose.click();
                 }

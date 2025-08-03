@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -74,7 +74,7 @@
             }
 
             .highlight-list li::before {
-                content: "•";
+                content: '•';
                 color: var(--primary);
                 font-weight: bold;
                 position: absolute;
@@ -142,7 +142,7 @@
             }
 
             .tour-details ul li::before {
-                content: "✓";
+                content: '✓';
                 color: var(--secondary);
                 font-weight: bold;
                 position: absolute;
@@ -364,47 +364,47 @@
     </body>
     <script>
         // Page-specific script to initialize map with correct location
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener('DOMContentLoaded', function () {
             const locationElement = document.getElementById(
-                "destination-location"
+                'destination-location'
             );
-            const mapModal = document.getElementById("map-modal");
-            const mapClose = document.getElementById("map-close");
-            const mapIframe = document.getElementById("map-iframe");
+            const mapModal = document.getElementById('map-modal');
+            const mapClose = document.getElementById('map-close');
+            const mapIframe = document.getElementById('map-iframe');
 
             if (locationElement && mapModal && mapClose && mapIframe) {
                 // Assuming the location is near Tegalalang Rice Terraces
-                const locationName = "Tegalalang Rice Terrace Area";
-                const addressLocation = "Tegalalang, Gianyar Regency, Bali"; // Approximate location
+                const locationName = 'Tegalalang Rice Terrace Area';
+                const addressLocation = 'Tegalalang, Gianyar Regency, Bali'; // Approximate location
                 // Use coordinates for Tegalalang for better accuracy
                 const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15788.48981818008!2d115.2698341863448!3d-8.40011184013598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd218a7f19a8995%3A0x684a7f9f03d61baf!2s${encodeURIComponent(
                     addressLocation
                 )}!5e0!3m2!1sen!2sid!4v1744617777191!5m2!1sen!2sid`; // Embed URL centered on Tegalalang
 
-                locationElement.addEventListener("click", () => {
+                locationElement.addEventListener('click', () => {
                     mapIframe.src = mapUrl;
-                    mapModal.classList.add("active");
-                    document.body.style.overflow = "hidden";
+                    mapModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 });
 
-                mapClose.addEventListener("click", () => {
-                    mapModal.classList.remove("active");
-                    document.body.style.overflow = "";
+                mapClose.addEventListener('click', () => {
+                    mapModal.classList.remove('active');
+                    document.body.style.overflow = '';
                     setTimeout(() => {
-                        mapIframe.src = "";
+                        mapIframe.src = '';
                     }, 300);
                 });
 
-                mapModal.addEventListener("click", (e) => {
+                mapModal.addEventListener('click', (e) => {
                     if (e.target === mapModal) {
                         mapClose.click();
                     }
                 });
 
-                document.addEventListener("keydown", (e) => {
+                document.addEventListener('keydown', (e) => {
                     if (
-                        e.key === "Escape" &&
-                        mapModal.classList.contains("active")
+                        e.key === 'Escape' &&
+                        mapModal.classList.contains('active')
                     ) {
                         mapClose.click();
                     }

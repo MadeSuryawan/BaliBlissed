@@ -15,9 +15,9 @@ This document provides comprehensive guidelines for AI agents to create professi
 1. **Purpose Definition**: "What is the primary objective of this website? (e.g., business showcase, e-commerce, portfolio, blog, SaaS platform)"
 
 2. **Website Type**: "Do you need a static or dynamic website?"
-   - **Static**: "Content rarely changes, faster loading, lower cost (portfolios, brochures, simple business sites)"
-   - **Dynamic**: "Content updates frequently, user interactions, database-driven (e-commerce, booking systems, user accounts)"
-   - **Follow-up**: "Will you need to update content regularly? Do you need user accounts, real-time data, or interactive features?"
+    - **Static**: "Content rarely changes, faster loading, lower cost (portfolios, brochures, simple business sites)"
+    - **Dynamic**: "Content updates frequently, user interactions, database-driven (e-commerce, booking systems, user accounts)"
+    - **Follow-up**: "Will you need to update content regularly? Do you need user accounts, real-time data, or interactive features?"
 
 3. **Target Audience**: "Who are the primary users? Define demographics, technical proficiency, and user goals."
 
@@ -75,10 +75,10 @@ Once answers are collected, the agent should:
 
 - **Logo Creation**: Use tools like Canva, Figma, or Adobe Creative Suite
 - **Color Palette**:
-  - Primary color (brand identity)
-  - Secondary colors (2-3 complementary)
-  - Neutral colors (backgrounds, text)
-  - Accessibility-compliant contrast ratios (WCAG AA: 4.5:1)
+    - Primary color (brand identity)
+    - Secondary colors (2-3 complementary)
+    - Neutral colors (backgrounds, text)
+    - Accessibility-compliant contrast ratios (WCAG AA: 4.5:1)
 
 ### Typography System
 
@@ -100,24 +100,22 @@ Once answers are collected, the agent should:
 ### Technology Stack Selection
 
 - **Frontend Frameworks**:
-
-  - React.js + Next.js (for dynamic applications)
-  - Vue.js + Nuxt.js (progressive enhancement)
-  - Vanilla HTML/CSS/JS (for simple sites)
-  - Static Site Generators: Gatsby, Hugo, Jekyll
+    - React.js + Next.js (for dynamic applications)
+    - Vue.js + Nuxt.js (progressive enhancement)
+    - Vanilla HTML/CSS/JS (for simple sites)
+    - Static Site Generators: Gatsby, Hugo, Jekyll
 
 - **CSS Frameworks**:
-
-  - Tailwind CSS (utility-first)
-  - Bootstrap (component-based)
-  - Bulma (modern CSS framework)
-  - Custom CSS with preprocessors (Sass, Less)
+    - Tailwind CSS (utility-first)
+    - Bootstrap (component-based)
+    - Bulma (modern CSS framework)
+    - Custom CSS with preprocessors (Sass, Less)
 
 - **Backend Solutions**:
-  - Node.js + Express
-  - Python + Django/Flask
-  - PHP + Laravel
-  - Headless CMS: Strapi, Contentful, Sanity
+    - Node.js + Express
+    - Python + Django/Flask
+    - PHP + Laravel
+    - Headless CMS: Strapi, Contentful, Sanity
 
 ### Development Environment Setup
 
@@ -140,11 +138,11 @@ Once answers are collected, the agent should:
 
 - **Keyword Research**: Use Google Keyword Planner, SEMrush, or Ahrefs
 - **On-Page SEO**:
-  - Meta titles (50-60 characters)
-  - Meta descriptions (150-160 characters)
-  - Header tag hierarchy (H1, H2, H3)
-  - Alt text for images
-  - Schema markup implementation
+    - Meta titles (50-60 characters)
+    - Meta descriptions (150-160 characters)
+    - Header tag hierarchy (H1, H2, H3)
+    - Alt text for images
+    - Schema markup implementation
 
 ### Content Management
 
@@ -170,11 +168,11 @@ Once answers are collected, the agent should:
 ### Accessibility Compliance
 
 - **WCAG 2.1 AA Standards**:
-  - Keyboard navigation support
-  - Screen reader compatibility
-  - Color contrast compliance
-  - Focus indicators
-  - Alternative text for images
+    - Keyboard navigation support
+    - Screen reader compatibility
+    - Color contrast compliance
+    - Focus indicators
+    - Alternative text for images
 
 ## 6. Performance Optimization
 

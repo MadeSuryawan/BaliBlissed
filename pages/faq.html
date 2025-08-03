@@ -1,337 +1,433 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Frequently Asked Questions about BaliBlissed travel services. Get answers to common questions about Bali tours, bookings, and travel planning.">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://baliblissed.com/pages/faq.html">
-    <meta property="og:title" content="FAQ | BaliBlissed">
-    <meta property="og:description" content="Get answers to frequently asked questions about BaliBlissed travel services, Bali tours, and booking process.">
-    <meta property="og:image" content="https://baliblissed.com/images/hero/IMG_7508_DxO.webp">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://baliblissed.com/pages/faq.html">
-    <meta property="twitter:title" content="FAQ | BaliBlissed">
-    <meta property="twitter:description" content="Get answers to frequently asked questions about BaliBlissed travel services, Bali tours, and booking process.">
-    <meta property="twitter:image" content="https://baliblissed.com/images/hero/IMG_7508_DxO.webp">
-    
-    <title>Frequently Asked Questions | BaliBlissed</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.min.css">
-    
-    <style>
-        .faq-page {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem var(--container-padding);
-            margin-top: 100px;
-            margin-bottom: 2rem;
-        }
-        
-        .faq-page h1 {
-            color: var(--dark);
-            margin-bottom: 2rem;
-            font-size: var(--text-xxl);
-            text-align: center;
-        }
-        
-        .faq-category {
-            margin-bottom: 3rem;
-        }
-        
-        .faq-category h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: var(--text-xl);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-        }
-        
-        .faq-item {
-            background: var(--white);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            background: var(--gray-100);
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition-fast);
-        }
-        
-        .faq-question:hover {
-            background: var(--gray-200);
-        }
-        
-        .faq-question h3 {
-            color: var(--dark);
-            font-size: var(--text-md);
-            font-weight: 600;
-            margin: 0;
-        }
-        
-        .faq-icon {
-            color: var(--primary);
-            font-size: var(--text-lg);
-            transition: var(--transition-fast);
-        }
-        
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .faq-answer.active {
-            padding: 1.5rem;
-            max-height: 500px;
-        }
-        
-        .faq-answer p {
-            color: var(--gray-700);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        
-        .faq-answer ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .faq-answer li {
-            color: var(--gray-700);
-            margin-bottom: 0.5rem;
-        }
-        
-        .contact-cta {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-            padding: 2rem;
-            border-radius: var(--radius-md);
-            text-align: center;
-            margin-top: 3rem;
-        }
-        
-        .contact-cta h3 {
-            margin-bottom: 1rem;
-            font-size: var(--text-xl);
-        }
-        
-        .contact-cta p {
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-        
-        .contact-cta a {
-            background: var(--white);
-            color: var(--primary);
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-lg);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition-fast);
-            display: inline-block;
-        }
-        
-        .contact-cta a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-    </style>
-</head>
-<body>
-    <!-- Header placeholder -->
-    <div id="header-placeholder"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Frequently Asked Questions about BaliBlissed travel services. Get answers to common questions about Bali tours, bookings, and travel planning."
+        />
+        <meta name="robots" content="index, follow" />
 
-    <main>
-        <div class="faq-page">
-            <h1>Frequently Asked Questions</h1>
-            
-            <div class="faq-category">
-                <h2>General Information</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>What services does BaliBlissed offer?</h3>
-                        <i class="fas fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>BaliBlissed offers a comprehensive range of travel services in Bali, including:</p>
-                        <ul>
-                            <li>Private tours and sightseeing</li>
-                            <li>Car charter services with professional drivers</li>
-                            <li>Adventure activities (Mount Batur sunrise, ATV rides, rafting)</li>
-                            <li>Cultural experiences and temple tours</li>
-                            <li>Snorkeling and diving trips</li>
-                            <li>Custom itinerary planning</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>Are you a local Balinese company?</h3>
-                        <i class="fas fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! BaliBlissed is a locally-owned and operated travel company based in Bali. Our team consists of local Balinese guides and drivers who have extensive knowledge of the island's culture, hidden gems, and best experiences.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>Do you provide services in English?</h3>
-                        <i class="fas fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely! All our guides and staff speak fluent English. We also have team members who speak other languages including Indonesian, Japanese, and basic Mandarin.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="faq-category">
-                <h2>Booking and Payments</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>How do I make a booking?</h3>
-                        <i class="fas fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>You can make a booking through several ways:</p>
-                        <ul>
-                            <li>Fill out our contact form on the website</li>
-                            <li>Send us a WhatsApp message at +62 858 4700 6743</li>
-                            <li>Email us at hello@baliblissed.com</li>
-                            <li>Call us directly</li>
-                        </ul>
-                        <p>We'll respond quickly with availability and pricing information.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>What payment methods do you accept?</h3>
-                        <i class="fas fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We accept various payment methods including:</p>
-                        <ul>
-                            <li>Bank transfers</li>
-                            <li>PayPal</li>
-                            <li>Credit/Debit cards</li>
-                            <li>Cash (for local bookings)</li>
-                        </ul>
-                        <p>Payment details will be provided upon booking confirmation.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>Do I need to pay a deposit?</h3>
-                        <i class="fas fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>For most tours, we require a 30% deposit to secure your booking, with the balance due before the tour starts. For car charter services, full payment is typically required in advance.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="faq-category">
-                <h2>Tours and Activities</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>What's included in your tour packages?</h3>
-                        <i class="fas fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our tour packages typically include:</p>
-                        <ul>
-                            <li>Professional English-speaking guide</li>
-                            <li>Private transportation with air conditioning</li>
-                            <li>Entrance fees to attractions</li>
-                            <li>Bottled water</li>
-                            <li>Hotel pickup and drop-off (within certain areas)</li>
-                        </ul>
-                        <p>Meals and personal expenses are usually not included unless specifically mentioned.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>Can you customize tours according to my preferences?</h3>
-                        <i class="fas fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely! We specialize in creating custom itineraries based on your interests, budget, and time constraints. Just let us know what you'd like to see and do, and we'll create a personalized experience for you.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>What should I bring for the tours?</h3>
-                        <i class="fas fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We recommend bringing:</p>
-                        <ul>
-                            <li>Comfortable walking shoes</li>
-                            <li>Sunscreen and hat</li>
-                            <li>Camera</li>
-                            <li>Light jacket for mountain tours</li>
-                            <li>Swimwear for water activities</li>
-                            <li>Cash for personal expenses</li>
-                        </ul>
-                        <p>Specific requirements will be provided when you book.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="contact-cta">
-                <h3>Still Have Questions?</h3>
-                <p>Our friendly team is here to help you plan the perfect Bali experience.</p>
-                <a href="https://wa.me/6285847006743" target="_blank">Contact Us on WhatsApp</a>
-            </div>
-        </div>
-    </main>
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://baliblissed.com/pages/faq.html"
+        />
+        <meta property="og:title" content="FAQ | BaliBlissed" />
+        <meta
+            property="og:description"
+            content="Get answers to frequently asked questions about BaliBlissed travel services, Bali tours, and booking process."
+        />
+        <meta
+            property="og:image"
+            content="https://baliblissed.com/images/hero/IMG_7508_DxO.webp"
+        />
 
-    <!-- Footer placeholder -->
-    <div id="footer-placeholder"></div>
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:url"
+            content="https://baliblissed.com/pages/faq.html"
+        />
+        <meta property="twitter:title" content="FAQ | BaliBlissed" />
+        <meta
+            property="twitter:description"
+            content="Get answers to frequently asked questions about BaliBlissed travel services, Bali tours, and booking process."
+        />
+        <meta
+            property="twitter:image"
+            content="https://baliblissed.com/images/hero/IMG_7508_DxO.webp"
+        />
 
-    <script src="../js/main.min.js" defer></script>
-    <script>
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const icon = element.querySelector('.faq-icon');
-            
-            // Close all other FAQ items
-            document.querySelectorAll('.faq-answer').forEach(item => {
-                if (item !== answer) {
-                    item.classList.remove('active');
-                    item.previousElementSibling.querySelector('.faq-icon').classList.remove('fa-minus');
-                    item.previousElementSibling.querySelector('.faq-icon').classList.add('fa-plus');
-                }
-            });
-            
-            // Toggle current FAQ item
-            answer.classList.toggle('active');
-            icon.classList.toggle('fa-plus');
-            icon.classList.toggle('fa-minus');
-        }
-    </script>
-</body>
+        <title>Frequently Asked Questions | BaliBlissed</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/style.min.css" />
+
+        <style>
+            .faq-page {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 2rem var(--container-padding);
+                margin-top: 100px;
+                margin-bottom: 2rem;
+            }
+
+            .faq-page h1 {
+                color: var(--dark);
+                margin-bottom: 2rem;
+                font-size: var(--text-xxl);
+                text-align: center;
+            }
+
+            .faq-category {
+                margin-bottom: 3rem;
+            }
+
+            .faq-category h2 {
+                color: var(--primary);
+                margin-bottom: 1.5rem;
+                font-size: var(--text-xl);
+                border-bottom: 2px solid var(--primary);
+                padding-bottom: 0.5rem;
+            }
+
+            .faq-item {
+                background: var(--white);
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+                margin-bottom: 1rem;
+                overflow: hidden;
+            }
+
+            .faq-question {
+                background: var(--gray-100);
+                padding: 1.5rem;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: var(--transition-fast);
+            }
+
+            .faq-question:hover {
+                background: var(--gray-200);
+            }
+
+            .faq-question h3 {
+                color: var(--dark);
+                font-size: var(--text-md);
+                font-weight: 600;
+                margin: 0;
+            }
+
+            .faq-icon {
+                color: var(--primary);
+                font-size: var(--text-lg);
+                transition: var(--transition-fast);
+            }
+
+            .faq-answer {
+                padding: 0 1.5rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .faq-answer.active {
+                padding: 1.5rem;
+                max-height: 500px;
+            }
+
+            .faq-answer p {
+                color: var(--gray-700);
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+
+            .faq-answer ul {
+                margin-left: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .faq-answer li {
+                color: var(--gray-700);
+                margin-bottom: 0.5rem;
+            }
+
+            .contact-cta {
+                background: linear-gradient(
+                    135deg,
+                    var(--primary) 0%,
+                    var(--primary-dark) 100%
+                );
+                color: var(--white);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                text-align: center;
+                margin-top: 3rem;
+            }
+
+            .contact-cta h3 {
+                margin-bottom: 1rem;
+                font-size: var(--text-xl);
+            }
+
+            .contact-cta p {
+                margin-bottom: 1.5rem;
+                opacity: 0.9;
+            }
+
+            .contact-cta a {
+                background: var(--white);
+                color: var(--primary);
+                padding: 0.75rem 1.5rem;
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 600;
+                transition: var(--transition-fast);
+                display: inline-block;
+            }
+
+            .contact-cta a:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header placeholder -->
+        <div id="header-placeholder"></div>
+
+        <main>
+            <div class="faq-page">
+                <h1>Frequently Asked Questions</h1>
+
+                <div class="faq-category">
+                    <h2>General Information</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What services does BaliBlissed offer?</h3>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                BaliBlissed offers a comprehensive range of
+                                travel services in Bali, including:
+                            </p>
+                            <ul>
+                                <li>Private tours and sightseeing</li>
+                                <li>
+                                    Car charter services with professional
+                                    drivers
+                                </li>
+                                <li>
+                                    Adventure activities (Mount Batur sunrise,
+                                    ATV rides, rafting)
+                                </li>
+                                <li>Cultural experiences and temple tours</li>
+                                <li>Snorkeling and diving trips</li>
+                                <li>Custom itinerary planning</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Are you a local Balinese company?</h3>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Yes! BaliBlissed is a locally-owned and operated
+                                travel company based in Bali. Our team consists
+                                of local Balinese guides and drivers who have
+                                extensive knowledge of the island's culture,
+                                hidden gems, and best experiences.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Do you provide services in English?</h3>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Absolutely! All our guides and staff speak
+                                fluent English. We also have team members who
+                                speak other languages including Indonesian,
+                                Japanese, and basic Mandarin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h2>Booking and Payments</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>How do I make a booking?</h3>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can make a booking through several ways:</p>
+                            <ul>
+                                <li>
+                                    Fill out our contact form on the website
+                                </li>
+                                <li>
+                                    Send us a WhatsApp message at +62 858 4700
+                                    6743
+                                </li>
+                                <li>Email us at hello@baliblissed.com</li>
+                                <li>Call us directly</li>
+                            </ul>
+                            <p>
+                                We'll respond quickly with availability and
+                                pricing information.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What payment methods do you accept?</h3>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We accept various payment methods including:</p>
+                            <ul>
+                                <li>Bank transfers</li>
+                                <li>PayPal</li>
+                                <li>Credit/Debit cards</li>
+                                <li>Cash (for local bookings)</li>
+                            </ul>
+                            <p>
+                                Payment details will be provided upon booking
+                                confirmation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Do I need to pay a deposit?</h3>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                For most tours, we require a 30% deposit to
+                                secure your booking, with the balance due before
+                                the tour starts. For car charter services, full
+                                payment is typically required in advance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h2>Tours and Activities</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What's included in your tour packages?</h3>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our tour packages typically include:</p>
+                            <ul>
+                                <li>Professional English-speaking guide</li>
+                                <li>
+                                    Private transportation with air conditioning
+                                </li>
+                                <li>Entrance fees to attractions</li>
+                                <li>Bottled water</li>
+                                <li>
+                                    Hotel pickup and drop-off (within certain
+                                    areas)
+                                </li>
+                            </ul>
+                            <p>
+                                Meals and personal expenses are usually not
+                                included unless specifically mentioned.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>
+                                Can you customize tours according to my
+                                preferences?
+                            </h3>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Absolutely! We specialize in creating custom
+                                itineraries based on your interests, budget, and
+                                time constraints. Just let us know what you'd
+                                like to see and do, and we'll create a
+                                personalized experience for you.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What should I bring for the tours?</h3>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We recommend bringing:</p>
+                            <ul>
+                                <li>Comfortable walking shoes</li>
+                                <li>Sunscreen and hat</li>
+                                <li>Camera</li>
+                                <li>Light jacket for mountain tours</li>
+                                <li>Swimwear for water activities</li>
+                                <li>Cash for personal expenses</li>
+                            </ul>
+                            <p>
+                                Specific requirements will be provided when you
+                                book.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-cta">
+                    <h3>Still Have Questions?</h3>
+                    <p>
+                        Our friendly team is here to help you plan the perfect
+                        Bali experience.
+                    </p>
+                    <a href="https://wa.me/6285847006743" target="_blank"
+                        >Contact Us on WhatsApp</a
+                    >
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <script src="../js/main.min.js" defer></script>
+        <script>
+            function toggleFAQ(element) {
+                const answer = element.nextElementSibling;
+                const icon = element.querySelector('.faq-icon');
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-answer').forEach((item) => {
+                    if (item !== answer) {
+                        item.classList.remove('active');
+                        item.previousElementSibling
+                            .querySelector('.faq-icon')
+                            .classList.remove('fa-minus');
+                        item.previousElementSibling
+                            .querySelector('.faq-icon')
+                            .classList.add('fa-plus');
+                    }
+                });
+
+                // Toggle current FAQ item
+                answer.classList.toggle('active');
+                icon.classList.toggle('fa-plus');
+                icon.classList.toggle('fa-minus');
+            }
+        </script>
+    </body>
 </html>
