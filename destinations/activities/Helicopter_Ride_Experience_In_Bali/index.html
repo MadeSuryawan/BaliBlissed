@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -74,7 +74,7 @@
             }
 
             .highlight-list li::before {
-                content: "•";
+                content: '•';
                 color: var(--primary);
                 font-weight: bold;
                 position: absolute;
@@ -142,7 +142,7 @@
             }
 
             .tour-details ul li::before {
-                content: "✓";
+                content: '✓';
                 color: var(--secondary);
                 font-weight: bold;
                 position: absolute;
@@ -367,47 +367,47 @@
     <script src="../../../js/main.min.js"></script>
     <script>
         // Page-specific script to initialize map with correct location
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener('DOMContentLoaded', function () {
             const locationElement = document.getElementById(
-                "destination-location"
+                'destination-location'
             );
-            const mapModal = document.getElementById("map-modal");
-            const mapClose = document.getElementById("map-close");
-            const mapIframe = document.getElementById("map-iframe");
+            const mapModal = document.getElementById('map-modal');
+            const mapClose = document.getElementById('map-close');
+            const mapIframe = document.getElementById('map-iframe');
 
             if (locationElement && mapModal && mapClose && mapIframe) {
                 // Assuming Bali Heliport is near Benoa/Nusa Dua area
-                const locationName = "Bali Heliport";
+                const locationName = 'Bali Heliport';
                 const addressLocation =
-                    "Benoa Heliport, Pesanggaran, Denpasar Selatan, Denpasar City, Bali"; // Approximate location
+                    'Benoa Heliport, Pesanggaran, Denpasar Selatan, Denpasar City, Bali'; // Approximate location
                 const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.49699712488!2d115.2119443147841!3d-8.73999999376087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2435a4f34a4c7%3A0x7b4b7b0b7b0b7b0b!2s${encodeURIComponent(
                     addressLocation
                 )}!5e0!3m2!1sen!2sid!4v1744616667191!5m2!1sen!2sid`; // Placeholder embed URL - replace if exact location known
 
-                locationElement.addEventListener("click", () => {
+                locationElement.addEventListener('click', () => {
                     mapIframe.src = mapUrl;
-                    mapModal.classList.add("active");
-                    document.body.style.overflow = "hidden";
+                    mapModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 });
 
-                mapClose.addEventListener("click", () => {
-                    mapModal.classList.remove("active");
-                    document.body.style.overflow = "";
+                mapClose.addEventListener('click', () => {
+                    mapModal.classList.remove('active');
+                    document.body.style.overflow = '';
                     setTimeout(() => {
-                        mapIframe.src = "";
+                        mapIframe.src = '';
                     }, 300);
                 });
 
-                mapModal.addEventListener("click", (e) => {
+                mapModal.addEventListener('click', (e) => {
                     if (e.target === mapModal) {
                         mapClose.click();
                     }
                 });
 
-                document.addEventListener("keydown", (e) => {
+                document.addEventListener('keydown', (e) => {
                     if (
-                        e.key === "Escape" &&
-                        mapModal.classList.contains("active")
+                        e.key === 'Escape' &&
+                        mapModal.classList.contains('active')
                     ) {
                         mapClose.click();
                     }

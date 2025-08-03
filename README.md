@@ -46,23 +46,23 @@ A modern, responsive, and professional website for BaliBlissed, a local Balinese
 
 1. **Clone or download the repository**
 
-   ```bash
-   git clone [repository-url]
-   cd BaliBlissed
-   ```
+    ```bash
+    git clone [repository-url]
+    cd BaliBlissed
+    ```
 
 2. **Configure Analytics (Optional)**
-   - Replace `GTM-XXXXXXX` in `index.html` with your Google Tag Manager ID
-   - Replace `GA_MEASUREMENT_ID` with your Google Analytics 4 measurement ID
+    - Replace `GTM-XXXXXXX` in `index.html` with your Google Tag Manager ID
+    - Replace `GA_MEASUREMENT_ID` with your Google Analytics 4 measurement ID
 
 3. **Deploy to web server**
-   - Upload all files to your web server's public directory
-   - Ensure proper file permissions are set
+    - Upload all files to your web server's public directory
+    - Ensure proper file permissions are set
 
 4. **Test the website**
-   - Open the website in a browser
-   - Test all forms and interactive elements
-   - Verify mobile responsiveness
+    - Open the website in a browser
+    - Test all forms and interactive elements
+    - Verify mobile responsiveness
 
 ## 📁 Project Structure
 
