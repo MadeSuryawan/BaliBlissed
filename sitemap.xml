@@ -74,14 +74,14 @@
     </url>
     
     <url>
-        <loc>https://baliblissed.com/destinations/activities/Tulamben_Dive_Escapade:Discover_Scuba_Day_Trip_With_Padi_5*/</loc>
+        <loc>https://baliblissed.com/destinations/activities/Tulamben_Dive_Escapade_Discover_Scuba_Day_Trip_With_Padi_5/</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://baliblissed.com/destinations/activities/Sanur's_Aquatic_Gateway:Open_Water_Diver_With_Padi_5*/</loc>
+        <loc>https://baliblissed.com/destinations/activities/Sanurs_Aquatic_Gateway_Open_Water_Diver_With_Padi_5/</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -197,5 +197,31 @@
         <lastmod>2025-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+    </url>
+
+    <!-- Static Pages -->
+    <url>
+        <loc>https://baliblissed.com/pages/about.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://baliblissed.com/pages/faq.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://baliblissed.com/pages/privacy-policy.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://baliblissed.com/pages/terms-of-service.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
     </url>
 </urlset>

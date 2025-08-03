@@ -25,7 +25,6 @@
             "index.html#destinations",
             "index.html#contact-form",
         ],
-        DEST_IMG_LINK: "js/destinationImages.json",
         MAP_URLS_LINK: "js/mapUrls.json",
     };
 
@@ -86,47 +85,6 @@
             console.error("Could not load mapUrls.json", e);
             mapUrls = {};
         }
-    }
-
-    // Load once at startup
-    async function loadDestinationImages() {
-        try {
-            const res = await fetch(CONFIG.DEST_IMG_LINK);
-            destinationImages = await res.json();
-        } catch (e) {
-            console.error("Could not load destinationImages.json", e);
-            destinationImages = {}; // fallback empty map
-        }
-    }
-
-    // To update destination card images on the main page
-    function setDestCardImgs() {
-        const destinationCards = Utils.getElements(".destination-card");
-
-        if (!destinationCards.length) return; // Exit if no cards found
-
-        destinationCards.forEach((card) => {
-            const titleElement = card.querySelector(".destination-name");
-            const imageElement = card.querySelector(".card-image");
-
-            const cardTitle = titleElement.textContent
-                .replace(/\s+/g, " ")
-                .trim(); // Normalize whitespace (replace multiple spaces with single space)
-            const imageUrl = destinationImages[cardTitle];
-
-            if (!imageUrl) {
-                console.warn(
-                    `Image URL not found in destinationImages map for card title: "${cardTitle}"`
-                );
-                return;
-            }
-
-            imageElement.src = imageUrl;
-            // Optionally update alt text if it's generic or missing
-            if (!imageElement.alt || imageElement.alt === "#") {
-                imageElement.alt = cardTitle;
-            }
-        });
     }
 
     // Function to update hero image on destination pages
@@ -2022,7 +1980,7 @@
     document.addEventListener("DOMContentLoaded", function () {
         async function initializeApp() {
             // await loadDestinationImages(); // 1️⃣ load JSON first
-            await Promise.all([loadDestinationImages(), loadMapUrls()]);
+            await Promise.all([loadMapUrls()]);
             try {
                 // Check if we need to scroll to a specific section after page load
                 const sections = get_sections();
@@ -2062,16 +2020,6 @@
                 // Check if it's a destination page (hero image update)
                 if (currentPagePath.includes("/destinations/")) {
                     setDestHeroImg();
-                }
-                // Check if it's the main index page (card image update)
-                // Adjust the condition if your main page URL is different (e.g., ends with '/' or '/index.html')
-                else if (
-                    currentPagePath.endsWith("/") ||
-                    currentPagePath.endsWith("/index.html") ||
-                    currentPagePath === "/BaliBlissed/"
-                ) {
-                    // Delay image updates slightly to ensure cards exist
-                    setTimeout(setDestCardImgs, 150);
                 }
             } catch (error) {
                 console.error("Error during initialization:", error);
