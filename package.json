@@ -1,33 +1,24 @@
 {
     "name": "baliblissed",
     "version": "1.0.0",
-    "description": "A modern, responsive, and professional website for BaliBlissed, a local Balinese travel agency specializing in authentic cultural experiences, adventure tours, and luxury vacation packages.",
-    "main": "js/main.js",
+    "description": "A web application for Bali tourism",
+    "main": "index.html",
     "scripts": {
         "start": "live-server",
-        "format": "prettier --write .",
-        "lint": "eslint js/main.js",
-        "build:js": "terser js/main.js -o js/main.min.js --compress --mangle",
-        "build:css": "cssnano css/style.css > css/style.min.css",
-        "build": "npm-run-all build:css build:js"
+        "build": "npm run minify-css && npm run minify-js",
+        "minify-css": "cleancss -o css/style.min.css css/style.css",
+        "minify-js": "uglifyjs js/main.js -o js/main.min.js -c -m"
     },
-    "keywords": [
-        "bali",
-        "travel",
-        "tours",
-        "vacation",
-        "html",
-        "css",
-        "javascript"
-    ],
-    "author": "BaliBlissed Travel Agency",
-    "license": "All Rights Reserved",
+    "dependencies": {
+        "bootstrap": "^5.3.0",
+        "jquery": "^3.7.0",
+        "popper.js": "^1.16.1"
+    },
     "devDependencies": {
-        "cssnano-cli": "^1.0.5",
-        "eslint": "^8.57.0",
-        "live-server": "^1.2.2",
-        "npm-run-all": "^4.1.5",
-        "prettier": "^3.3.2",
-        "terser": "^5.31.1"
-    }
+        "clean-css-cli": "^5.6.0",
+        "live-server": "^1.2.0",
+        "uglify-js": "^3.17.4"
+    },
+    "author": "",
+    "license": "ISC"
 }
