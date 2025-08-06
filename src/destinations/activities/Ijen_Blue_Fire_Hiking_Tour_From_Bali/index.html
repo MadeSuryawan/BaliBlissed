@@ -275,27 +275,27 @@
         window.mapInitialized = true;
 
         // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener("DOMContentLoaded", function () {
             // Find location elements on the page
             const locationElement = document.querySelector(
-                '#destination-location'
+                "#destination-location"
             );
-            const mapModal = document.querySelector('#map-modal');
-            const mapClose = document.querySelector('#map-close');
-            const mapIframe = document.querySelector('#map-iframe');
+            const mapModal = document.querySelector("#map-modal");
+            const mapClose = document.querySelector("#map-close");
+            const mapIframe = document.querySelector("#map-iframe");
 
             if (!locationElement || !mapModal || !mapClose || !mapIframe)
                 return;
 
             // Get the location text from the address span
-            const addressSpan = locationElement.querySelector('span');
+            const addressSpan = locationElement.querySelector("span");
             if (!addressSpan) return;
 
             const locationName = addressSpan.textContent.trim();
-            const addressLocation = locationName + ', East Java, Indonesia';
+            const addressLocation = locationName + ", East Java, Indonesia";
 
             // Open map modal when location is clicked
-            locationElement.addEventListener('click', (e) => {
+            locationElement.addEventListener("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -305,43 +305,45 @@
                 )}!5e0!3m2!1sen!2sid!4v1744602655828!5m2!1sen!2sid`;
 
                 // Show the modal
-                mapModal.classList.add('active');
+                mapModal.classList.add("active");
 
                 // Prevent scrolling on the body when modal is open
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = "hidden";
             });
 
             // Close map modal when close button is clicked
-            mapClose.addEventListener('click', () => {
-                mapModal.classList.remove('active');
+            mapClose.addEventListener("click", () => {
+                mapModal.classList.remove("active");
 
                 // Re-enable scrolling on the body
-                document.body.style.overflow = '';
+                document.body.style.overflow = "";
 
                 // Clear the iframe source to stop it from running in the background
                 setTimeout(() => {
-                    mapIframe.src = '';
+                    mapIframe.src = "";
                 }, 300);
             });
 
             // Close map modal when clicking outside the map container
-            mapModal.addEventListener('click', (e) => {
+            mapModal.addEventListener("click", (e) => {
                 if (e.target === mapModal) {
                     mapClose.click();
                 }
             });
 
             // Close map modal when ESC key is pressed
-            document.addEventListener('keydown', (e) => {
+            document.addEventListener("keydown", (e) => {
                 if (
-                    e.key === 'Escape' &&
-                    mapModal.classList.contains('active')
+                    e.key === "Escape" &&
+                    mapModal.classList.contains("active")
                 ) {
                     mapClose.click();
                 }
             });
         });
     </script>
-    <!-- Link to external JavaScript file -->
-    <script src="/js/main.js"></script>
+
+    <!-- build:js /js/main.min.js -->
+    <script type="module" src="/js/main.js" defer></script>
+    <!-- endbuild -->
 </html>

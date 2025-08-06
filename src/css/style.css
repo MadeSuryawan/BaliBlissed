@@ -82,7 +82,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -569,7 +569,7 @@ header.scrolled .menu-toggle {
 }
 
 .hero::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
@@ -595,19 +595,59 @@ header.scrolled .menu-toggle {
     margin-block-start: 4rem;
     z-index: 2;
 }
+.hero-content {
+    max-width: 600px;
+    margin-block-start: 4rem;
+    z-index: 2;
+    /* Animation properties */
+    /* opacity: 0; */
+    /* transform: translateX(-100px); */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.hero-content.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 .hero h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
-    color: var(--white);
     line-height: 1.2;
     margin-block-end: 1.5rem;
+    opacity: 0;
+    transform: translateX(-300px);
+    transition: opacity 1.5s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
 }
 
 .hero p {
-    color: rgba(255, 255, 255, 0.9);
     font-size: clamp(1rem, 2vw, 1.125rem);
     margin-block-end: var(--space-xl);
+    transform: translateX(-900px);
+    opacity: 0;
+    transition: opacity 1.5s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.hero-content h1,
+.hero-content p {
+    color: rgb(224, 224, 224);
+}
+
+.hero-content.slide-in h1,
+.hero-content.slide-in p {
+    transition-delay: 0.3s;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.hero-content.visible h1,
+.hero-content.visible p {
+    transition-delay: 0.3s;
+    transform: translateX(0);
+    opacity: 1;
 }
 
 /* Section Styles */
@@ -1016,11 +1056,11 @@ h3.destination-name {
 }
 
 .highlight-list li::marker {
-    content: '';
+    content: "";
 }
 
 .highlight-list li::before {
-    content: '🌴';
+    content: "🌴";
     color: var(--primary);
     font-weight: bold;
     position: absolute;
@@ -1089,7 +1129,7 @@ h3.destination-name {
 }
 
 .tour-details ul li::before {
-    content: '✅';
+    content: "✅";
     color: var(--primary-dark);
     font-weight: bold;
     position: absolute;
@@ -1129,7 +1169,7 @@ h3.destination-name {
 }
 
 .faq-question::before {
-    content: 'Q:';
+    content: "Q:";
     margin-right: 0.5rem;
     font-weight: 700;
     color: var(--secondary);
@@ -1362,7 +1402,7 @@ h3.destination-name {
 }
 
 .testimonial-text.has-overflow::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1771,7 +1811,7 @@ footer {
 }
 
 .floating-button::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: -10px; /* Larger hit area if needed */
     z-index: -1;
@@ -2608,6 +2648,10 @@ footer {
 .about-hero h1 {
     font-size: var(--text-xxxl);
     margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateX(-300px);
+    transition: opacity 1.5s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
 }
 
 .about-hero p {
@@ -2615,6 +2659,17 @@ footer {
     opacity: 0.9;
     max-width: 600px;
     margin: 0 auto;
+    transform: translateX(-900px);
+    opacity: 0;
+    transition: opacity 1.5s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.about-hero.visible h1,
+.about-hero.visible p {
+    transition-delay: 0.3s;
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .about-content {

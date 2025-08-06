@@ -16,153 +16,6 @@
         <!-- build:css /css/style.min.css -->
         <link rel="stylesheet" href="/css/style.css" />
         <!-- endbuild -->
-        <style>
-            /* Destination-specific styles - Copied from Mount Batur */
-            .destination-content {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 3rem var(--container-padding);
-            }
-
-            .destination-title {
-                font-size: clamp(2rem, 5vw, 3rem);
-                color: var(--dark);
-                margin-bottom: 1.5rem;
-            }
-
-            .destination-title span {
-                color: var(--primary);
-            }
-
-            .destination-info {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 2rem;
-                margin-bottom: 2rem;
-            }
-
-            .info-card {
-                flex: 1;
-                min-width: 200px;
-                background-color: var(--white);
-                padding: 1.5rem;
-                border-radius: var(--radius-md);
-                box-shadow: var(--shadow-sm);
-            }
-
-            .info-card h3 {
-                font-size: 1.2rem;
-                margin-bottom: 0.5rem;
-                color: var(--primary);
-            }
-
-            .destination-description {
-                line-height: 1.8;
-                margin-bottom: 2rem;
-            }
-
-            .destination-description p {
-                margin-bottom: 1.5rem;
-            }
-
-            .highlight-list {
-                margin-bottom: 2rem;
-            }
-
-            .highlight-list li {
-                margin-bottom: 0.5rem;
-                padding-left: 1.5rem;
-                position: relative;
-            }
-
-            .highlight-list li::before {
-                content: '•';
-                color: var(--primary);
-                font-weight: bold;
-                position: absolute;
-                left: 0;
-            }
-
-            .cta-button {
-                display: inline-block;
-                background-color: var(--primary);
-                color: var(--white);
-                padding: 1rem 2rem;
-                border-radius: var(--radius-lg);
-                text-decoration: none;
-                font-weight: 600;
-                transition: all var(--transition-standard);
-                margin-top: 1rem;
-            }
-
-            .cta-button:hover {
-                background-color: var(--primary-dark);
-                transform: translateY(-3px);
-                box-shadow: var(--shadow-md);
-            }
-
-            .gallery {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1.5rem;
-                margin-bottom: 3rem;
-            }
-
-            .gallery-image {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
-                border-radius: var(--radius-md);
-                transition: transform var(--transition-standard);
-            }
-
-            .gallery-image:hover {
-                transform: scale(1.05);
-            }
-
-            .tour-details {
-                background-color: var(--gray-100);
-                padding: 2rem;
-                border-radius: var(--radius-md);
-                margin-bottom: 2rem;
-            }
-
-            .tour-details h3 {
-                margin-bottom: 1rem;
-                color: var(--primary);
-            }
-
-            .tour-details ul {
-                list-style: none;
-                margin-bottom: 1.5rem;
-            }
-
-            .tour-details ul li {
-                margin-bottom: 0.5rem;
-                padding-left: 1.5rem;
-                position: relative;
-            }
-
-            .tour-details ul li::before {
-                content: '✓';
-                color: var(--secondary);
-                font-weight: bold;
-                position: absolute;
-                left: 0;
-            }
-
-            .tour-details .note {
-                font-style: italic;
-                color: var(--gray-700);
-                font-size: 0.9rem;
-            }
-
-            @media (max-width: 767px) {
-                .info-card {
-                    min-width: 100%;
-                }
-            }
-        </style>
     </head>
     <body>
         <!-- Header placeholder -->
@@ -366,47 +219,47 @@
     </body>
     <script>
         // Page-specific script to initialize map with correct location
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener("DOMContentLoaded", function () {
             const locationElement = document.getElementById(
-                'destination-location'
+                "destination-location"
             );
-            const mapModal = document.getElementById('map-modal');
-            const mapClose = document.getElementById('map-close');
-            const mapIframe = document.getElementById('map-iframe');
+            const mapModal = document.getElementById("map-modal");
+            const mapClose = document.getElementById("map-close");
+            const mapIframe = document.getElementById("map-iframe");
 
             if (locationElement && mapModal && mapClose && mapIframe) {
                 // Assuming the location is near Tegalalang Rice Terraces
-                const locationName = 'Tegalalang Rice Terrace Area';
-                const addressLocation = 'Tegalalang, Gianyar Regency, Bali'; // Approximate location
+                const locationName = "Tegalalang Rice Terrace Area";
+                const addressLocation = "Tegalalang, Gianyar Regency, Bali"; // Approximate location
                 // Use coordinates for Tegalalang for better accuracy
                 const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15788.48981818008!2d115.2698341863448!3d-8.40011184013598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd218a7f19a8995%3A0x684a7f9f03d61baf!2s${encodeURIComponent(
                     addressLocation
                 )}!5e0!3m2!1sen!2sid!4v1744617777191!5m2!1sen!2sid`; // Embed URL centered on Tegalalang
 
-                locationElement.addEventListener('click', () => {
+                locationElement.addEventListener("click", () => {
                     mapIframe.src = mapUrl;
-                    mapModal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+                    mapModal.classList.add("active");
+                    document.body.style.overflow = "hidden";
                 });
 
-                mapClose.addEventListener('click', () => {
-                    mapModal.classList.remove('active');
-                    document.body.style.overflow = '';
+                mapClose.addEventListener("click", () => {
+                    mapModal.classList.remove("active");
+                    document.body.style.overflow = "";
                     setTimeout(() => {
-                        mapIframe.src = '';
+                        mapIframe.src = "";
                     }, 300);
                 });
 
-                mapModal.addEventListener('click', (e) => {
+                mapModal.addEventListener("click", (e) => {
                     if (e.target === mapModal) {
                         mapClose.click();
                     }
                 });
 
-                document.addEventListener('keydown', (e) => {
+                document.addEventListener("keydown", (e) => {
                     if (
-                        e.key === 'Escape' &&
-                        mapModal.classList.contains('active')
+                        e.key === "Escape" &&
+                        mapModal.classList.contains("active")
                     ) {
                         mapClose.click();
                     }
@@ -417,6 +270,8 @@
             }
         });
     </script>
-    <!-- Link to external JavaScript file -->
-    <script src="/js/main.js"></script>
+
+    <!-- build:js /js/main.min.js -->
+    <script type="module" src="/js/main.js" defer></script>
+    <!-- endbuild -->
 </html>

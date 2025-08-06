@@ -124,7 +124,6 @@ BaliBlissed/
 │   │   └── terms-of-service.html
 │   ├── robots.txt
 │   ├── services/
-│   │
 │   │   └── private_car_charter/
 │   │       └── index.html
 │   └── sitemap.xml

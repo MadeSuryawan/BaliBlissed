@@ -382,6 +382,10 @@
         SERVICE_THRESHOLD: 0.6, // Trigger when 60% is visible
         SECTION_SELECTOR: "section:not(.hero)",
         SECTION_THRESHOLD: 0.1, // Trigger when 10% is visible
+        HERO_CONTENT: ".hero-content",
+        CONTENT_THRESHOLD: 0.9,
+        ABOUT_SELECTOR: ".about-hero",
+        ABOUT_THRESHOLD: 0.9,
         VISIBLE_CLASS: "visible", // Centralize the class name
 
         // --- State ---
@@ -456,6 +460,14 @@
                 this._sectionObserver = this._createObserver(
                     this.SECTION_SELECTOR,
                     this.SECTION_THRESHOLD
+                );
+                this._sectionObserver = this._createObserver(
+                    this.HERO_CONTENT,
+                    this.CONTENT_THRESHOLD
+                );
+                this._sectionObserver = this._createObserver(
+                    this.ABOUT_SELECTOR,
+                    this.ABOUT_THRESHOLD
                 );
 
                 if (!this._serviceObserver && !this._sectionObserver) {
@@ -690,6 +702,88 @@
             } catch (error) {
                 console.error("Error setting up About modal:", error);
             }
+        },
+    };
+
+    const HeroAnimationController = {
+        init() {
+            this.animateHeroContent();
+            this.setupHomeClickAnimation();
+        },
+
+        animateHeroContent() {
+            const heroContent = Utils.getElement(".hero-content");
+            if (!heroContent) return;
+
+            // Check if we should trigger animation due to cross-page navigation
+            const shouldAnimate = sessionStorage.getItem(
+                "triggerHeroAnimation"
+            );
+            if (shouldAnimate) {
+                sessionStorage.removeItem("triggerHeroAnimation");
+            }
+
+            // Small delay to ensure the page is ready
+            setTimeout(() => {
+                heroContent.classList.add("slide-in");
+            }, 300);
+        },
+
+        setupHomeClickAnimation() {
+            // Handle both navigation and mobile menu home links
+            const homeLinks = Utils.getElements(
+                'a[href*="#home"], a[href="index.html#home"], a[href="index.html"]'
+            );
+
+            homeLinks.forEach((link) => {
+                link.addEventListener("click", (e) => {
+                    const href = link.getAttribute("href");
+
+                    // Check if we're navigating to home from another page
+                    const currentPath = window.location.pathname;
+                    const isHome =
+                        currentPath.endsWith("/") ||
+                        currentPath.endsWith("/index.html") ||
+                        currentPath.includes("/BaliBlissed/index.html");
+
+                    if (
+                        !isHome &&
+                        (href.includes("index.html") || href === "#home")
+                    ) {
+                        // Store animation trigger in session storage for cross-page navigation
+                        sessionStorage.setItem("triggerHeroAnimation", "true");
+                        return;
+                    }
+
+                    // If we're already on the home page, animate immediately
+                    if (isHome && href.includes("#home")) {
+                        e.preventDefault();
+                        this.triggerHeroAnimation();
+
+                        // Scroll to top smoothly
+                        window.scrollTo({
+                            top: 0,
+                            behavior: "smooth",
+                        });
+                    }
+                });
+            });
+        },
+
+        triggerHeroAnimation() {
+            const heroContent = Utils.getElement(".hero-content");
+            if (!heroContent) return;
+
+            // Reset animation
+            heroContent.classList.remove("slide-in");
+
+            // Force reflow
+            heroContent.offsetHeight;
+
+            // Trigger animation again
+            setTimeout(() => {
+                heroContent.classList.add("slide-in");
+            }, 900);
         },
     };
 
@@ -1902,12 +1996,13 @@
                 TestimonialsController.init(); // Assumes testimonial elements are in main HTML
                 MapController.init();
                 ScrollAnimation.init();
+                // HeroAnimationController.init();
 
                 // Load header/footer and initialize dependent controllers
                 // setupBookingButtons is now called inside ComponentLoader.init after await
                 await ComponentLoader.init();
 
-                // *** Determine current page and run appropriate image updates ***
+                // Determine current page and run appropriate image updates ***
                 const currentPagePath = window.location.pathname;
 
                 // Check if it's a destination page (hero image update)

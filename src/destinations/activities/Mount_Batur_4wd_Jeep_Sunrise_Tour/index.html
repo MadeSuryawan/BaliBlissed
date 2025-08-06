@@ -12,11 +12,6 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
-
-        <!-- build:css /css/style.min.css -->
-        <link rel="stylesheet" href="/css/style.css" />
-        <!-- endbuild -->
-
         <!-- Add JSON-LD Structured Data for TouristAttraction -->
         <script type="application/ld+json">
             {
@@ -59,6 +54,10 @@
             }
         </script>
         <!-- End JSON-LD -->
+
+        <!-- build:css /css/style.min.css -->
+        <link rel="stylesheet" href="/css/style.css" />
+        <!-- endbuild -->
     </head>
     <body>
         <!-- Header placeholder -->
@@ -287,7 +286,7 @@
         </div>
 
         <!-- build:js /js/main.min.js -->
-        <script src="/js/main.js" defer></script>
+        <script type="module" src="/js/main.js" defer></script>
         <!-- endbuild -->
     </body>
 </html>

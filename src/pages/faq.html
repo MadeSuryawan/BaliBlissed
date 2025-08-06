@@ -60,7 +60,7 @@
         <div id="header-placeholder"></div>
 
         <main>
-            <div class="faq-page">
+            <div class="faq-page" , id="home">
                 <h1>Frequently Asked Questions</h1>
 
                 <div class="faq-category">
@@ -279,30 +279,30 @@
         <script>
             function toggleFAQ(element) {
                 const answer = element.nextElementSibling;
-                const icon = element.querySelector('.faq-icon');
+                const icon = element.querySelector(".faq-icon");
 
                 // Close all other FAQ items
-                document.querySelectorAll('.faq-answer').forEach((item) => {
+                document.querySelectorAll(".faq-answer").forEach((item) => {
                     if (item !== answer) {
-                        item.classList.remove('active');
+                        item.classList.remove("active");
                         item.previousElementSibling
-                            .querySelector('.faq-icon')
-                            .classList.remove('fa-minus');
+                            .querySelector(".faq-icon")
+                            .classList.remove("fa-minus");
                         item.previousElementSibling
-                            .querySelector('.faq-icon')
-                            .classList.add('fa-plus');
+                            .querySelector(".faq-icon")
+                            .classList.add("fa-plus");
                     }
                 });
 
                 // Toggle current FAQ item
-                answer.classList.toggle('active');
-                icon.classList.toggle('fa-plus');
-                icon.classList.toggle('fa-minus');
+                answer.classList.toggle("active");
+                icon.classList.toggle("fa-plus");
+                icon.classList.toggle("fa-minus");
             }
         </script>
 
         <!-- build:js /js/main.min.js -->
-        <script src="/js/main.js" defer></script>
+        <script type="module" src="/js/main.js" defer></script>
         <!-- endbuild -->
     </body>
 </html>
