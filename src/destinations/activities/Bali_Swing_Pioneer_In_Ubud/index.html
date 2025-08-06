@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Bali Swing Pioneer Experience in Ubud | Bali Paradise Getaway
+        </title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- build:css /css/style.min.css -->
+        <link rel="stylesheet" href="/css/style.css" />
+        <!-- endbuild -->
+        <style>
+            /* Destination-specific styles - Copied from Mount Batur */
+            .destination-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 3rem var(--container-padding);
+            }
+
+            .destination-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+                color: var(--dark);
+                margin-bottom: 1.5rem;
+            }
+
+            .destination-title span {
+                color: var(--primary);
+            }
+
+            .destination-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .info-card {
+                flex: 1;
+                min-width: 200px;
+                background-color: var(--white);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .info-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+
+            .destination-description {
+                line-height: 1.8;
+                margin-bottom: 2rem;
+            }
+
+            .destination-description p {
+                margin-bottom: 1.5rem;
+            }
+
+            .highlight-list {
+                margin-bottom: 2rem;
+            }
+
+            .highlight-list li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .highlight-list li::before {
+                content: '•';
+                color: var(--primary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--primary);
+                color: var(--white);
+                padding: 1rem 2rem;
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 600;
+                transition: all var(--transition-standard);
+                margin-top: 1rem;
+            }
+
+            .cta-button:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                transition: transform var(--transition-standard);
+            }
+
+            .gallery-image:hover {
+                transform: scale(1.05);
+            }
+
+            .tour-details {
+                background-color: var(--gray-100);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                margin-bottom: 2rem;
+            }
+
+            .tour-details h3 {
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+
+            .tour-details ul {
+                list-style: none;
+                margin-bottom: 1.5rem;
+            }
+
+            .tour-details ul li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .tour-details ul li::before {
+                content: '✓';
+                color: var(--secondary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .tour-details .note {
+                font-style: italic;
+                color: var(--gray-700);
+                font-size: 0.9rem;
+                border-left: 3px solid var(--accent);
+                padding-left: 1rem;
+                margin-top: 1.5rem;
+            }
+            .tour-details .warning {
+                font-weight: bold;
+                color: var(--primary-dark);
+            }
+
+            @media (max-width: 767px) {
+                .info-card {
+                    min-width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="hero destination-hero" id="home">
+            <img
+                src="https://images.unsplash.com/photo-1591809859305-1823197a46c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Bali Swing over jungle"
+                class="hero-bg"
+            />
+            <div class="image-credit">Photo credit: Unsplash</div>
+            <div class="hero-content">
+                <h1>Soar Above the Jungle: Bali Swing Pioneer</h1>
+                <p>
+                    Experience the thrill of Ubud's iconic swings and capture
+                    breathtaking photos against a stunning natural backdrop.
+                </p>
+            </div>
+        </section>
+
+        <!-- Destination Content -->
+        <div class="destination-content">
+            <h2 class="destination-title">Swing into <span>Paradise</span></h2>
+
+            <div class="destination-info">
+                <div class="info-card">
+                    <h3>Location</h3>
+                    <address
+                        class="card-location"
+                        id="destination-location"
+                        style="
+                            cursor: pointer;
+                            text-decoration: underline;
+                            color: var(--primary);
+                        "
+                    >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jl. Dewi Saraswati, Ubud Area</span>
+                    </address>
+                </div>
+                <div class="info-card">
+                    <h3>Opening Hours</h3>
+                    <p>Daily: 08:00 - 17:00</p>
+                </div>
+                <div class="info-card">
+                    <h3>Best Time to Visit</h3>
+                    <p>Morning (to avoid queues)</p>
+                </div>
+            </div>
+
+            <div class="destination-description">
+                <p>
+                    No trip to Ubud is truly complete without experiencing the
+                    exhilaration of the famous Bali Swing! Prepare for an
+                    adrenaline rush like no other as you soar high above the
+                    lush jungle canopy, with breathtaking views of the river
+                    valley and cascading waterfalls stretching out before you.
+                    It's more than just a swing; it's a chance to feel truly
+                    free, surrounded by the incredible natural beauty of Bali.
+                </p>
+                <p>
+                    Choose from a variety of swings, ranging in height from a
+                    gentle 10 meters (33 feet) to a heart-pounding 78 meters
+                    (256 feet) above the ground! Whether you ride solo or share
+                    the moment on a tandem swing, the feeling of gliding through
+                    the air against such an epic backdrop is unforgettable.
+                    Beyond the swings, the Bali Swing Pioneer area is an
+                    Instagrammer's dream, filled with unique photo
+                    opportunities.
+                </p>
+                <p>
+                    Pose in whimsical bird nests perched high above the valley,
+                    capture romantic shots on the heart-shaped rock, or simply
+                    relax on the sky bed and soak in the panoramic vistas. Even
+                    if swinging isn't your style, the entrance package allows
+                    you to enjoy the stunning location and capture those perfect
+                    Bali photos.
+                </p>
+            </div>
+
+            <div class="tour-details">
+                <h3>Swing Active Package Highlights</h3>
+                <ul>
+                    <li>
+                        Experience multiple swings (2 Single, 1 Romantic, 1 Bed
+                        Swing).
+                    </li>
+                    <li>
+                        Access unique photo spots like the Sky Bed, Chicken
+                        Nest, and Bird Nest.
+                    </li>
+                    <li>
+                        Enjoy stunning views of the jungle, canyon, and river
+                        waterfall.
+                    </li>
+                    <li>
+                        Create unforgettable memories and envy-inducing photos.
+                    </li>
+                    <li>
+                        Insurance provided by the operator for peace of mind.
+                    </li>
+                    <li>
+                        Optional round-trip hotel transfers available for
+                        convenience.
+                    </li>
+                </ul>
+
+                <h3>Important Information & Tips</h3>
+                <ul>
+                    <li>
+                        Weight limit for all swings: 200 kg (single or tandem).
+                    </li>
+                    <li>
+                        Activity not recommended for pregnant women, seniors, or
+                        those with certain medical conditions (e.g., high blood
+                        pressure, epilepsy).
+                    </li>
+                    <li>
+                        Not suitable for persons with impaired physical mobility
+                        or wheelchairs.
+                    </li>
+                    <li>
+                        Infants (0-2) are not recommended to ride the swings for
+                        safety.
+                    </li>
+                    <li>Outside food and drinks are not permitted.</li>
+                    <li>
+                        Some activities might be temporarily unavailable due to
+                        maintenance or safety reasons.
+                    </li>
+                </ul>
+
+                <div class="note">
+                    <p><strong>Insider Tips:</strong></p>
+                    <ul>
+                        <li>
+                            Visit early in the morning (around opening time) to
+                            avoid the longest queues.
+                        </li>
+                        <li>If one swing has a queue, try others first!</li>
+                        <li>
+                            Bring: Camera, comfortable clothing (great for
+                            photos!), hat, sunglasses, sunblock, cash for
+                            extras.
+                        </li>
+                        <li>
+                            Consider bringing a change of clothes if
+                            participating in any nearby water activities.
+                        </li>
+                        <li>
+                            Download WhatsApp for easy communication with local
+                            operators.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Essential Experiences</h3>
+            <ul class="highlight-list">
+                <li>
+                    Feel the exhilarating freedom of swinging high above the
+                    jungle.
+                </li>
+                <li>
+                    Capture the ultimate Instagram photo against a stunning Bali
+                    backdrop.
+                </li>
+                <li>Admire panoramic views of Ubud's lush river valley.</li>
+                <li>Pose in unique photo spots like giant bird nests.</li>
+                <li>
+                    Experience a different perspective of Bali's natural beauty.
+                </li>
+                <li>Share a romantic moment on the tandem swing.</li>
+                <li>
+                    Overcome your fear of heights in a safe and beautiful
+                    environment.
+                </li>
+            </ul>
+
+            <div class="gallery">
+                <img
+                    src="https://images.unsplash.com/photo-1589818033801-a35b40c83f4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Bali Swing Bird Nest"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="View from Bali Swing area"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1604999333679-b86d54738315?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Scenic spot in Ubud jungle"
+                    class="gallery-image"
+                />
+            </div>
+
+            <a href="#" class="cta-button" id="booking_button"
+                >Book Your Bali Swing Adventure</a
+            >
+        </div>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Google Maps Modal -->
+        <div class="map-modal" id="map-modal">
+            <div class="map-container">
+                <div class="map-close" id="map-close">
+                    <i class="fas fa-times"></i>
+                </div>
+                <iframe
+                    id="map-iframe"
+                    class="map-iframe"
+                    src=""
+                    allowfullscreen=""
+                    loading="lazy"
+                >
+                </iframe>
+            </div>
+        </div>
+    </body>
+    <script>
+        // Page-specific script to initialize map with correct location
+        document.addEventListener('DOMContentLoaded', function () {
+            const locationElement = document.getElementById(
+                'destination-location'
+            );
+            const mapModal = document.getElementById('map-modal');
+            const mapClose = document.getElementById('map-close');
+            const mapIframe = document.getElementById('map-iframe');
+
+            if (!locationElement || !mapModal || !mapClose || !mapIframe)
+                return;
+
+            // Get the location text from the address span
+            const addressSpan = locationElement.querySelector('span');
+            if (!addressSpan) return;
+
+            const locationName = 'Bali Swing Pioneer'; // Specific name for map lookup
+            const addressLocation =
+                'Jl. Dewi Saraswati No.7, Bongkasa Pertiwi, Kec. Abiansemal, Kabupaten Badung, Bali 80352'; // Full address
+
+            // Use the MapController's method (assuming main.js is loaded)
+            const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.069199859886!2d115.2372321744891!3d-8.49058589176171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d2bb78f98e5%3A0xdc87cb5e74348952!2s${encodeURIComponent(
+                addressLocation
+            )}!5e0!3m2!1sen!2sid!4v1744615557191!5m2!1sen!2sid`;
+
+            locationElement.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                mapIframe.src = mapUrl;
+                mapModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            mapClose.addEventListener('click', () => {
+                mapModal.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    mapIframe.src = '';
+                }, 300);
+            });
+
+            mapModal.addEventListener('click', (e) => {
+                if (e.target === mapModal) {
+                    mapClose.click();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (
+                    e.key === 'Escape' &&
+                    mapModal.classList.contains('active')
+                ) {
+                    mapClose.click();
+                }
+            });
+
+            // Indicate that map is initialized by this page
+            window.mapInitialized = true;
+        });
+    </script>
+    <!-- Link to external JavaScript file -->
+    <script src="/js/main.js"></script>
+</html>

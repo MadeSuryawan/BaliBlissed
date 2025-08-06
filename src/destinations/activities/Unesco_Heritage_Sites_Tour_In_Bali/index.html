@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bali UNESCO Heritage Sites Tour | Bali Paradise Getaway</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- build:css /css/style.min.css -->
+        <link rel="stylesheet" href="/css/style.css" />
+        <!-- endbuild -->
+        <style>
+            /* Destination-specific styles - Copied from Mount Batur */
+            .destination-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 3rem var(--container-padding);
+            }
+
+            .destination-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+                color: var(--dark);
+                margin-bottom: 1.5rem;
+            }
+
+            .destination-title span {
+                color: var(--primary);
+            }
+
+            .destination-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .info-card {
+                flex: 1;
+                min-width: 200px;
+                background-color: var(--white);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .info-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+
+            .destination-description {
+                line-height: 1.8;
+                margin-bottom: 2rem;
+            }
+
+            .destination-description p {
+                margin-bottom: 1.5rem;
+            }
+
+            .highlight-list {
+                margin-bottom: 2rem;
+            }
+
+            .highlight-list li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .highlight-list li::before {
+                content: '•';
+                color: var(--primary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--primary);
+                color: var(--white);
+                padding: 1rem 2rem;
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 600;
+                transition: all var(--transition-standard);
+                margin-top: 1rem;
+            }
+
+            .cta-button:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                transition: transform var(--transition-standard);
+            }
+
+            .gallery-image:hover {
+                transform: scale(1.05);
+            }
+
+            .tour-details {
+                background-color: var(--gray-100);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                margin-bottom: 2rem;
+            }
+
+            .tour-details h3 {
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+
+            .tour-details ul {
+                list-style: none;
+                margin-bottom: 1.5rem;
+            }
+
+            .tour-details ul li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .tour-details ul li::before {
+                content: '✓';
+                color: var(--secondary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .tour-details .note {
+                font-style: italic;
+                color: var(--gray-700);
+                font-size: 0.9rem;
+            }
+
+            @media (max-width: 767px) {
+                .info-card {
+                    min-width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="hero destination-hero" id="home">
+            <img
+                src="https://images.unsplash.com/photo-1500382841059-ce9998a2b4f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Jatiluwih Rice Terraces UNESCO Site"
+                class="hero-bg"
+            />
+            <div class="image-credit">Photo credit: Unsplash</div>
+            <div class="hero-content">
+                <h1>Bali's Cultural & Natural Jewels: UNESCO Heritage Tour</h1>
+                <p>
+                    Explore iconic temples like Taman Ayun, Ulun Danu Beratan,
+                    and Tanah Lot, plus the breathtaking Jatiluwih Rice
+                    Terraces.
+                </p>
+            </div>
+        </section>
+
+        <!-- Destination Content -->
+        <div class="destination-content">
+            <h2 class="destination-title">
+                Journey Through Bali's <span>Heritage</span>
+            </h2>
+
+            <div class="destination-info">
+                <div class="info-card">
+                    <h3>Locations</h3>
+                    <address
+                        class="card-location"
+                        id="destination-location"
+                        style="
+                            cursor: pointer;
+                            text-decoration: underline;
+                            color: var(--primary);
+                        "
+                    >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jatiluwih</span>
+                    </address>
+                </div>
+                <div class="info-card">
+                    <h3>Duration</h3>
+                    <p>Full Day (approx. 8-10 hours)</p>
+                </div>
+                <div class="info-card">
+                    <h3>Best Experience</h3>
+                    <p>Daytime (Sunset at Tanah Lot)</p>
+                </div>
+            </div>
+
+            <div class="destination-description">
+                <p>
+                    Immerse yourself in the rich culture and stunning natural
+                    beauty of Bali on this comprehensive tour visiting some of
+                    the island's most significant landmarks, including a UNESCO
+                    World Heritage site. Your journey begins at the magnificent
+                    Taman Ayun Temple in Mengwi, the former Royal Temple,
+                    renowned for its impressive traditional Balinese
+                    architecture, serene moats, and expansive, beautifully
+                    manicured gardens. It's a perfect introduction to Bali's
+                    spiritual heart.
+                </p>
+                <p>
+                    Next, venture north into the cool highlands to Bedugul,
+                    where the iconic Ulun Danu Beratan Temple awaits. Seemingly
+                    floating on the calm waters of Lake Bratan, this picturesque
+                    temple dedicated to the lake goddess Dewi Danu offers truly
+                    breathtaking photo opportunities against a backdrop of misty
+                    mountains. Feel the tranquility of this sacred site.
+                </p>
+                <p>
+                    Continue your exploration to the awe-inspiring Jatiluwih
+                    Rice Terraces, a UNESCO World Heritage site recognized for
+                    its stunningly beautiful, contoured landscapes and the
+                    traditional 'subak' irrigation system. Wander through the
+                    vast expanse of emerald-green paddies and appreciate the
+                    harmonious relationship between nature and Balinese farming
+                    culture. Finally, cap off your cultural journey with a visit
+                    to the legendary Tanah Lot Temple. Perched dramatically on a
+                    rock formation amidst crashing waves, this sea temple is one
+                    of Bali's most photographed icons, especially magical during
+                    sunset.
+                </p>
+            </div>
+
+            <div class="tour-details">
+                <h3>Tour Highlights</h3>
+                <ul>
+                    <li>
+                        Visit the majestic Taman Ayun Royal Temple of Mengwi.
+                    </li>
+                    <li>
+                        Marvel at the iconic Ulun Danu Beratan Temple on Lake
+                        Bratan.
+                    </li>
+                    <li>
+                        Explore the breathtaking Jatiluwih Rice Terraces (UNESCO
+                        World Heritage Site).
+                    </li>
+                    <li>
+                        Witness the stunning Tanah Lot Temple, especially at
+                        sunset (timing dependent).
+                    </li>
+                    <li>
+                        Experience Bali's rich culture, stunning landscapes, and
+                        unique architecture.
+                    </li>
+                    <li>
+                        Enjoy a comfortable private tour with an informative
+                        guide.
+                    </li>
+                    <li>Capture beautiful photos throughout the day.</li>
+                </ul>
+
+                <h3>What's Included</h3>
+                <ul>
+                    <li>Private hotel pickup and drop-off (selected areas)</li>
+                    <li>Private air-conditioned vehicle</li>
+                    <li>English-speaking driver/guide</li>
+                    <li>Entrance fees to all sites visited</li>
+                    <li>Bottled water</li>
+                    <li>Parking fees</li>
+                    <li>Local taxes</li>
+                </ul>
+
+                <p class="note">
+                    <strong>Tip:</strong> Wear comfortable walking shoes. Bring
+                    a sarong and sash for temple visits (often available for
+                    rent if needed). Don't forget your camera to capture the
+                    stunning scenery! Consider bringing a light jacket for the
+                    cooler mountain climate near Bedugul.
+                </p>
+            </div>
+
+            <h3>Essential Experiences</h3>
+            <ul class="highlight-list">
+                <li>Admire the intricate architecture of Taman Ayun Temple.</li>
+                <li>
+                    Experience the serene beauty of the "floating" Ulun Danu
+                    Beratan Temple.
+                </li>
+                <li>
+                    Walk amidst the vast, green expanse of the Jatiluwih Rice
+                    Terraces.
+                </li>
+                <li>
+                    Feel the power of the ocean at the iconic Tanah Lot Temple.
+                </li>
+                <li>
+                    Learn about Balinese Hinduism and the 'subak' irrigation
+                    system.
+                </li>
+                <li>
+                    Enjoy panoramic views of lakes, mountains, and rice fields.
+                </li>
+                <li>
+                    Create lasting memories of Bali's cultural and natural
+                    heritage.
+                </li>
+            </ul>
+
+            <div class="gallery">
+                <img
+                    src="https://images.unsplash.com/photo-1599255099600-b94b4626d9e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Taman Ayun Temple"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Ulun Danu Beratan Temple"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Tanah Lot Temple"
+                    class="gallery-image"
+                />
+            </div>
+
+            <a href="#" class="cta-button" id="booking_button"
+                >Book Your Cultural Heritage Tour</a
+            >
+        </div>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Google Maps Modal -->
+        <div class="map-modal" id="map-modal">
+            <div class="map-container">
+                <div class="map-close" id="map-close">
+                    <i class="fas fa-times"></i>
+                </div>
+                <iframe
+                    id="map-iframe"
+                    class="map-iframe"
+                    src=""
+                    allowfullscreen=""
+                    loading="lazy"
+                >
+                </iframe>
+            </div>
+        </div>
+
+        <!-- build:js /js/main.min.js -->
+        <script src="/js/main.js" defer></script>
+        <!-- endbuild -->
+    </body>
+</html>

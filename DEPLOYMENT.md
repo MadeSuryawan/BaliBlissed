@@ -11,8 +11,8 @@ Before deploying, ensure you have completed the following:
 - [ ] Create Google Analytics 4 property
 - [ ] Create Google Tag Manager container
 - [ ] Replace placeholder IDs in `index.html`:
-    - `GTM-XXXXXXX` → Your GTM container ID
-    - `GA_MEASUREMENT_ID` → Your GA4 measurement ID
+  - `GTM-XXXXXXX` → Your GTM container ID
+  - `GA_MEASUREMENT_ID` → Your GA4 measurement ID
 
 ### 2. Contact Information
 

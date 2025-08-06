@@ -2,23 +2,32 @@
     "name": "baliblissed",
     "version": "1.0.0",
     "description": "A web application for Bali tourism",
-    "main": "index.html",
     "scripts": {
         "start": "live-server",
-        "build": "npm run minify-css && npm run minify-js",
-        "minify-css": "cleancss -o css/style.min.css css/style.css",
-        "minify-js": "uglifyjs js/main.js -o js/main.min.js -c -m"
-    },
-    "dependencies": {
-        "bootstrap": "^5.3.0",
-        "jquery": "^3.7.0",
-        "popper.js": "^1.16.1"
+        "build": "gulp",
+        "watch": "gulp watchOnly",
+        "dev": "gulp dev",
+        "clean": "gulp clean"
     },
     "devDependencies": {
-        "clean-css-cli": "^5.6.0",
-        "live-server": "^1.2.0",
-        "uglify-js": "^3.17.4"
+        "browser-sync": "^3.0.4",
+        "del": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-htmlmin": "^5.0.1",
+        "gulp-rename": "^2.1.0",
+        "gulp-replace": "^1.1.4",
+        "gulp-terser": "^2.1.0"
     },
-    "author": "",
-    "license": "ISC"
+    "author": "Made Suryawan",
+    "license": "MIT",
+    "keywords": [
+        "bali",
+        "travel",
+        "static-site"
+    ],
+    "type": "commonjs",
+    "dependencies": {
+        "gulp": "^5.0.1",
+        "live-server": "^1.2.2"
+    }
 }

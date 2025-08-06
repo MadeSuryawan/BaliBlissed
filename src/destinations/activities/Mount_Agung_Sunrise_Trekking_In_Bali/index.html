@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mount Agung Sunrise Trekking | Bali Paradise Getaway</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- build:css /css/style.min.css -->
+        <link rel="stylesheet" href="/css/style.css" />
+        <!-- endbuild -->
+        <style>
+            /* Destination-specific styles - Copied from Mount Batur */
+            .destination-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 3rem var(--container-padding);
+            }
+
+            .destination-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+                color: var(--dark);
+                margin-bottom: 1.5rem;
+            }
+
+            .destination-title span {
+                color: var(--primary);
+            }
+
+            .destination-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .info-card {
+                flex: 1;
+                min-width: 200px;
+                background-color: var(--white);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .info-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+
+            .destination-description {
+                line-height: 1.8;
+                margin-bottom: 2rem;
+            }
+
+            .destination-description p {
+                margin-bottom: 1.5rem;
+            }
+
+            .highlight-list {
+                margin-bottom: 2rem;
+            }
+
+            .highlight-list li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .highlight-list li::before {
+                content: '•';
+                color: var(--primary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--primary);
+                color: var(--white);
+                padding: 1rem 2rem;
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 600;
+                transition: all var(--transition-standard);
+                margin-top: 1rem;
+            }
+
+            .cta-button:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                transition: transform var(--transition-standard);
+            }
+
+            .gallery-image:hover {
+                transform: scale(1.05);
+            }
+
+            .tour-details {
+                background-color: var(--gray-100);
+                padding: 2rem;
+                border-radius: var(--radius-md);
+                margin-bottom: 2rem;
+            }
+
+            .tour-details h3 {
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+
+            .tour-details ul {
+                list-style: none;
+                margin-bottom: 1.5rem;
+            }
+
+            .tour-details ul li {
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .tour-details ul li::before {
+                content: '✓';
+                color: var(--secondary);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .tour-details .note {
+                font-style: italic;
+                color: var(--gray-700);
+                font-size: 0.9rem;
+                border-left: 3px solid var(--accent);
+                padding-left: 1rem;
+                margin-top: 1.5rem;
+            }
+            .tour-details .warning {
+                font-weight: bold;
+                color: var(--primary-dark);
+            }
+
+            @media (max-width: 767px) {
+                .info-card {
+                    min-width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="hero destination-hero" id="home">
+            <img
+                src="https://images.unsplash.com/photo-1596938399978-1103a9a0a0c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Mount Agung Sunrise View"
+                class="hero-bg"
+            />
+            <div class="image-credit">Photo credit: Unsplash</div>
+            <div class="hero-content">
+                <h1>Conquer Mount Agung: Bali's Ultimate Sunrise Trek</h1>
+                <p>
+                    Challenge yourself on Bali's highest peak (3,142m) and
+                    witness an unforgettable sunrise from the roof of the
+                    island. (For experienced hikers only).
+                </p>
+            </div>
+        </section>
+
+        <!-- Destination Content -->
+        <div class="destination-content">
+            <h2 class="destination-title">
+                Trek to the Summit of <span>Mount Agung</span>
+            </h2>
+
+            <div class="destination-info">
+                <div class="info-card">
+                    <h3>Location</h3>
+                    <address
+                        class="card-location"
+                        id="destination-location"
+                        style="
+                            cursor: pointer;
+                            text-decoration: underline;
+                            color: var(--primary);
+                        "
+                    >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mount Agung</span>
+                    </address>
+                </div>
+                <div class="info-card">
+                    <h3>Difficulty</h3>
+                    <p>Very Challenging (Experienced Hikers)</p>
+                </div>
+                <div class="info-card">
+                    <h3>Duration</h3>
+                    <p>Approx. 10-12 hours (incl. trek & transfers)</p>
+                </div>
+            </div>
+
+            <div class="destination-description">
+                <p>
+                    Are you an experienced hiker seeking the ultimate challenge
+                    in Bali? Look no further than Mount Agung, the island's
+                    highest and most sacred volcano. Standing tall at 3,142
+                    meters (10,308 feet), this demanding trek rewards those who
+                    reach the summit with truly breathtaking, panoramic sunrise
+                    views that stretch across Bali, potentially revealing
+                    neighboring islands like Lombok on clear days.
+                </p>
+                <p>
+                    This is not a leisurely stroll; the ascent involves
+                    significant vertical inclines and requires excellent
+                    physical condition and prior hiking experience. Starting in
+                    the dead of night, you'll navigate challenging terrain under
+                    the stars with our expert local guides. As you climb higher,
+                    feel the air cool and the anticipation build. Reaching the
+                    summit as the first light breaks is an incredibly rewarding
+                    experience, offering unparalleled photo opportunities and a
+                    profound sense of accomplishment.
+                </p>
+                <p>
+                    <strong class="warning">Important Note:</strong> This trek
+                    is significantly more difficult than Mount Batur due to its
+                    steepness and duration. It is strictly recommended for fit
+                    and experienced hikers. If you prefer a less strenuous but
+                    still beautiful sunrise hike, we highly recommend our
+                    <a
+                        href="../Mount_Batur_Sunrise_Trekking_or_Jeep_Private_Tour/index.html"
+                        style="
+                            color: var(--primary);
+                            text-decoration: underline;
+                        "
+                        >Mount Batur Sunrise Trekking Tour</a
+                    >.
+                </p>
+            </div>
+
+            <div class="tour-details">
+                <h3>Tour Highlights</h3>
+                <ul>
+                    <li>
+                        Conquer the summit of Mount Agung, Bali's highest peak
+                        (3,142m).
+                    </li>
+                    <li>
+                        Witness a truly spectacular and expansive sunrise from
+                        above the clouds.
+                    </li>
+                    <li>
+                        Challenge yourself with a demanding yet rewarding trek.
+                    </li>
+                    <li>
+                        Enjoy panoramic views potentially including Mount
+                        Rinjani on Lombok.
+                    </li>
+                    <li>Capture incredible photos from the roof of Bali.</li>
+                    <li>
+                        Experience the spiritual significance of Bali's most
+                        sacred mountain.
+                    </li>
+                    <li>Includes convenient round-trip hotel transfers.</li>
+                </ul>
+
+                <h3>What's Included</h3>
+                <ul>
+                    <li>Hotel pickup and drop-off (selected areas)</li>
+                    <li>Private air-conditioned vehicle</li>
+                    <li>Experienced local trekking guide</li>
+                    <li>Trekking equipment (headlamp, poles if needed)</li>
+                    <li>Entrance fees and permits</li>
+                    <li>Basic breakfast/snacks at the summit</li>
+                    <li>Bottled water</li>
+                    <li>Insurance coverage</li>
+                </ul>
+
+                <div class="note">
+                    <p>
+                        <strong class="warning"
+                            >Important Considerations:</strong
+                        >
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Experience Level:</strong> This trek is
+                            physically demanding with steep inclines and is
+                            suitable only for experienced hikers in good
+                            physical condition.
+                        </li>
+                        <li>
+                            <strong>Alternative:</strong> For a less challenging
+                            sunrise hike, consider the
+                            <a
+                                href="../Mount_Batur_Sunrise_Trekking_or_Jeep_Private_Tour/index.html"
+                                style="
+                                    color: var(--primary);
+                                    text-decoration: underline;
+                                "
+                                >Mount Batur trek</a
+                            >.
+                        </li>
+                        <li>
+                            <strong>Starting Points:</strong> Treks typically
+                            start from either Pasar Agung Temple (shorter,
+                            steeper) or Besakih Temple (longer). Your chosen
+                            route may affect pickup time and duration.
+                        </li>
+                        <li>
+                            <strong>Pickup Time:</strong> Pickup is typically
+                            late the night *before* your chosen participation
+                            date (e.g., pickup on Dec 19th night for a Dec 20th
+                            trek). Please confirm details upon booking.
+                        </li>
+                        <li>
+                            <strong>What to Bring:</strong> Sturdy hiking boots,
+                            warm layers (it gets cold!), windproof jacket, hat,
+                            gloves, sunscreen, camera, personal snacks, and
+                            sufficient water.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Essential Experiences</h3>
+            <ul class="highlight-list">
+                <li>Stand atop Bali's highest and most sacred volcano.</li>
+                <li>
+                    Watch the world awaken from an unparalleled vantage point.
+                </li>
+                <li>
+                    Push your physical limits and achieve a great sense of
+                    accomplishment.
+                </li>
+                <li>
+                    See the silhouettes of Mount Batur and Mount Abang below.
+                </li>
+                <li>
+                    Experience the quiet solitude of the mountain before dawn.
+                </li>
+                <li>Feel the raw power and beauty of an active volcano.</li>
+                <li>Create memories and photos that will last a lifetime.</li>
+            </ul>
+
+            <div class="gallery">
+                <img
+                    src="https://images.unsplash.com/photo-1604608567430-70d48e6d36f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Panoramic view from mountain summit"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Mountain trekking path"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://images.unsplash.com/photo-1587617428892-f6a6c1f8f5b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="View towards other mountains"
+                    class="gallery-image"
+                />
+            </div>
+
+            <a href="#" class="cta-button" id="booking_button"
+                >Book Your Mount Agung Challenge</a
+            >
+        </div>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Google Maps Modal -->
+        <div class="map-modal" id="map-modal">
+            <div class="map-container">
+                <div class="map-close" id="map-close">
+                    <i class="fas fa-times"></i>
+                </div>
+                <iframe
+                    id="map-iframe"
+                    class="map-iframe"
+                    src=""
+                    allowfullscreen=""
+                    loading="lazy"
+                >
+                </iframe>
+            </div>
+        </div>
+
+        <!-- build:js /js/main.min.js -->
+        <script src="/js/main.js" defer></script>
+        <!-- endbuild -->
+    </body>
+</html>
