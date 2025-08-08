@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Google Tag Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    "gtm.start": new Date().getTime(),
+                    event: "gtm.js",
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != "dataLayer" ? "&l=" + l : "";
+                j.async = true;
+                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", "GTM-XXXXXXX");
+        </script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "GA_MEASUREMENT_ID");
+        </script>
+        <!-- End Google Analytics -->
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
@@ -44,6 +77,87 @@
             content="https://baliblissed.com/images/hero/IMG_7508_DxO.webp"
         />
 
+        <!-- Favicon -->
+        <!-- - For old IEs -->
+        <link rel="shortcut icon" href="/icons/Favicons_(logo)/favicon.ico" />
+
+        <!-- For new browsers - multisize ico  -->
+        <link
+            rel="icon"
+            type="image/x-icon"
+            sizes="16x16 32x32"
+            href="/icons/Favicons_(logo)/favicon.ico"
+        />
+
+        <!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/icons/Favicons_(logo)/favicon-152-precomposed.png"
+        />
+
+        <!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/icons/Favicons_(logo)/favicon-144-precomposed.png"
+        />
+
+        <!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/icons/Favicons_(logo)/favicon-120-precomposed.png"
+        />
+
+        <!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="/icons/Favicons_(logo)/favicon-114-precomposed.png"
+        />
+
+        <!-- For iPhone 6+ -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/icons/Favicons_(logo)/favicon-180-precomposed.png"
+        />
+
+        <!-- For first- and second-generation iPad: -->
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="/icons/Favicons_(logo)/favicon-72-precomposed.png"
+        />
+
+        <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="/icons/Favicons_(logo)/favicon-57.png"
+        />
+
+        <!-- For Old Chrome -->
+        <link
+            rel="icon"
+            sizes="32x32"
+            href="/icons/Favicons_(logo)/favicon-32.png"
+        />
+
+        <!-- For IE10 Metro -->
+        <meta name="msapplication-TileColor" content="#FFFFFF" />
+        <meta name="msapplication-TileImage" content="favicon-144.png" />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Chrome for Android -->
+        <link rel="manifest" href="/icons/Favicons_(logo)/manifest.json" />
+        <link
+            rel="icon"
+            sizes="192x192"
+            href="/icons/Favicons_(logo)/favicon-192.png"
+        />
+
         <title>Terms of Service | BaliBlissed</title>
         <link
             rel="stylesheet"
@@ -59,6 +173,17 @@
         <!-- endbuild -->
     </head>
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+                height="0"
+                width="0"
+                style="display: none; visibility: hidden"
+            ></iframe
+        ></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
         <!-- Header placeholder -->
         <div id="header-placeholder"></div>
 

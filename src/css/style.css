@@ -1024,6 +1024,7 @@ h3.destination-name {
 .info-card {
     flex: 1;
     min-width: 200px;
+    max-height: 200px;
     background-color: var(--white);
     padding: 1.5rem;
     border-radius: var(--radius-md);
@@ -1033,6 +1034,19 @@ h3.destination-name {
 .info-card h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+.info-card span {
+    font-size: 1rem;
+    /* margin-bottom: 0.5rem; */
+    font-weight: 600;
+    color: var(--primary);
+}
+.info-card h4 {
+    padding-top: var(--space-md);
+    font-size: 0.9rem;
+    font-weight: 500;
+    /* margin-bottom: 0.5rem; */
     color: var(--primary);
 }
 
@@ -1068,21 +1082,22 @@ h3.destination-name {
 }
 
 .cta-button {
-    display: inline-block;
-    background-color: var(--primary);
-    color: var(--white);
+    background: var(--white);
+    color: var(--secondary-dark);
     padding: 1rem 2rem;
     border-radius: var(--radius-lg);
     text-decoration: none;
     font-weight: 600;
-    transition: all var(--transition-standard);
-    margin-top: 1rem;
+    font-size: var(--text-lg);
+    transition: var(--transition-fast);
+    display: inline-block;
 }
 
 .cta-button:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
+    background-color: var(--primary);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .gallery {
@@ -2800,23 +2815,6 @@ footer {
     font-size: var(--text-lg);
     margin-bottom: 2rem;
     opacity: 0.9;
-}
-
-.cta-button {
-    background: var(--white);
-    color: var(--secondary-dark);
-    padding: 1rem 2rem;
-    border-radius: var(--radius-lg);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: var(--text-lg);
-    transition: var(--transition-fast);
-    display: inline-block;
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* FAQ */

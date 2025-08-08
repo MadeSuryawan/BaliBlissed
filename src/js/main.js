@@ -21,10 +21,11 @@
         PARALLAX_FACTOR: 0.5,
         NAV_LINKS: [
             "index.html#home",
-            "index.html#car-charter",
             "index.html#destinations",
             "index.html#contact-form",
         ],
+        DEST_IMAGES: "/json_data/destination_images.json",
+        MAP_URLS: "/json_data/map_urls.json",
     };
 
     // Utility functions
@@ -69,13 +70,9 @@
         },
     };
 
-    // Data mapping destination titles to their card image URLs (relative to root or absolute)
-    // Populate this object with ALL destinations and their correct image URLs from index.html
-    let destinationImages = {};
+    const destinationImages = {};
 
-    // ---- JSON loaders ----
-
-    // Function to update hero image on destination pages
+    // To update hero image on destination pages
     function setDestHeroImg() {
         // Select the hero image element specifically within a .destination-hero section
         const heroImageElement = document.querySelector(
@@ -110,15 +107,15 @@
                 `Image URL not found in destinationImages map for title derived from document.title: "${cleanedTitle}" (Original: "${fullPageTitle}")`
             );
             // Optional: Set a default hero image if the lookup fails
-            // const defaultBasePath = window.location.pathname.includes("/destinations/activities/") ? "../../../" : "../../";
-            // heroImageElement.src = defaultBasePath + 'images/default-hero.webp';
-            // heroImageElement.alt = 'Bali Paradise Getaway Default Hero';
+            heroImageElement.src = "/images/hero/IMG_7508_DxO.webp";
+            heroImageElement.alt = "Bali Blissed";
             return;
         }
 
         // Determine base path for relative URLs based on current page depth
         const path = window.location.pathname;
         const isActivityPage = path.includes("/destinations/activities/");
+
         let basePath = "";
         // Adjust these paths based on your actual folder structure if needed
         if (isActivityPage) {
@@ -135,7 +132,7 @@
             heroImageElement.src = imageUrl; // Use absolute URL as is
         }
         // Optional: Update alt text using the cleaned title
-        // heroImageElement.alt = cleanedTitle + " hero image";
+        heroImageElement.alt = cleanedTitle;
     }
 
     // add section to sessionStorage
@@ -159,7 +156,7 @@
             // Now that components are loaded, initialize things that depend on them
             this.initializeDependentControllers();
             // Setup all booking buttons AFTER components are loaded
-            setupBookingButtons();
+            setBookingButtons();
         },
 
         loadComponents() {
@@ -169,6 +166,7 @@
             const isActivityPage = path.includes("/destinations/activities/");
             const isServicePage = path.includes("/services/");
             const isPagesPage = path.includes("/pages/");
+
             let basePath = "";
             if (isActivityPage) basePath = "../../../";
             else if (isDestinationPage || isServicePage) basePath = "../../";
@@ -223,7 +221,7 @@
         },
 
         fixComponentPaths(
-            container,
+            placeHolder,
             basePath,
             isDestinationPage,
             isActivityPage,
@@ -236,10 +234,10 @@
                 isServicePage ||
                 isPagesPage
             ) {
-                const links = container.querySelectorAll(
+                const links = placeHolder.querySelectorAll(
                     'a:not([href^="http"]):not([href^="#"]):not([href^="mailto"]):not([href^="tel"])'
                 );
-                const images = container.querySelectorAll(
+                const images = placeHolder.querySelectorAll(
                     'img:not([src^="http"]):not([src^="/"])'
                 ); // Select relative image paths
 
@@ -250,14 +248,14 @@
                     if (CONFIG.NAV_LINKS.includes(href)) {
                         const section = href.split("#")[1];
                         // Convert to absolute path with hash
-                        const absolutePath = basePath + "index.html";
-                        link.setAttribute("href", absolutePath + "#" + section);
+                        const homePage = basePath + "index.html";
+                        link.setAttribute("href", homePage + "#" + section);
 
                         // Add click handler for smooth scroll after navigation
                         link.addEventListener("click", (e) => {
                             e.preventDefault();
                             add_section(section);
-                            window.location.href = absolutePath;
+                            window.location.href = homePage;
                         });
                     }
                     // Adjust relative paths like 'index.html' or 'services/...'
@@ -289,12 +287,12 @@
 
     const ScrollController = {
         init() {
-            // Add multiple attempts to scroll to top
-            window.addEventListener("load", () => {
-                setTimeout(() => {
-                    window.scrollTo(0, 0);
-                }, 0);
-            });
+            // // Add multiple attempts to scroll to top
+            // window.addEventListener("load", () => {
+            //     setTimeout(() => {
+            //         window.scrollTo(0, 0);
+            //     }, 0);
+            // });
 
             document.addEventListener("DOMContentLoaded", () => {
                 window.scrollTo(0, 0);
@@ -333,16 +331,16 @@
                 }
 
                 // Home float button visibility
-                const homeFloat = Utils.getElement("#home-float");
-                if (homeFloat) {
+                const backToTop = Utils.getElement("#home-float");
+                if (backToTop) {
                     const scrollHeight = document.documentElement.scrollHeight;
                     const clientHeight = document.documentElement.clientHeight;
                     const scrollThreshold = (scrollHeight - clientHeight) * 0.8; // 90% threshold
 
                     if (window.scrollY >= scrollThreshold) {
-                        homeFloat.classList.add("visible");
+                        backToTop.classList.add("visible");
                     } else {
-                        homeFloat.classList.remove("visible");
+                        backToTop.classList.remove("visible");
                     }
                 }
             } catch (error) {
@@ -353,50 +351,44 @@
 
     const DelayedService = {
         init() {
-            const serviceButton = document.querySelector(
-                ".service-link-button"
-            );
-            if (!serviceButton) return;
+            const button = document.querySelector(".service-link-button");
+            if (!button) return;
 
-            serviceButton.addEventListener("click", (e) => {
+            button.addEventListener("click", (e) => {
                 // Prevent default navigation immediately
                 e.preventDefault();
-                const targetUrl = serviceButton.href; // Get the URL from the button's href
+                const targetUrl = button.href; // Get the URL from the button's href
 
                 if (Utils.isMobileDevice()) {
                     // Add a delay before navigating on mobile
                     setTimeout(() => {
                         window.location.href = targetUrl; // Redirect after delay
                     }, 600); // 1 second delay
-                } else {
-                    // Navigate immediately on non-mobile devices
-                    window.location.href = targetUrl;
+                    return;
                 }
+                // Navigate immediately on non-mobile devices
+                window.location.href = targetUrl;
             });
         },
     };
 
     const ScrollAnimation = {
         // --- Configuration ---
-        SERVICE_SELECTOR: ".service-link-content",
-        SERVICE_THRESHOLD: 0.6, // Trigger when 60% is visible
-        SECTION_SELECTOR: "section:not(.hero)",
-        SECTION_THRESHOLD: 0.1, // Trigger when 10% is visible
-        HERO_CONTENT: ".hero-content",
-        CONTENT_THRESHOLD: 0.9,
-        ABOUT_SELECTOR: ".about-hero",
-        ABOUT_THRESHOLD: 0.9,
         VISIBLE_CLASS: "visible", // Centralize the class name
+        _observers: {},
 
-        // --- State ---
-        _serviceObserver: null, // Using '_' convention for internal state
-        _sectionObserver: null,
+        // Configuration dictionary for selectors and thresholds
+        _config: {
+            ".service-link-content": 0.6, // Trigger when 60% is visible
+            "section:not(.hero)": 0.1, // Trigger when 10% is visible
+            ".hero-content": 0.9, // Trigger when 90% is visible
+            ".about-hero": 0.9, // Trigger when 90% is visible
+        },
 
         // --- Private Methods ---
         /**
          * Callback function executed when observed elements intersect the viewport.
          * @param {IntersectionObserverEntry[]} entries - Array of intersection entries.
-         * @param {IntersectionObserver} observerInstance - The observer instance.
          */
         _handleIntersection(entries /*, observerInstance */) {
             entries.forEach((entry) => {
@@ -405,7 +397,6 @@
                     // Optional: Uncomment to animate only once per element
                     // observerInstance.unobserve(entry.target);
                 } else {
-                    // Element is leaving the viewport
                     entry.target.classList.remove(this.VISIBLE_CLASS);
                 }
             });
@@ -414,14 +405,13 @@
         /**
          * Creates and initializes an IntersectionObserver instance.
          * @param {string} selector - The CSS selector for elements to observe.
-         * @param {number} threshold - The visibility threshold for triggering the callback.
+         * @param {number} threshold - The visibility threshold.
          * @returns {IntersectionObserver|null} The created observer instance or null if no elements found.
          */
-        _createObserver(selector, threshold) {
+        _startObserver(selector, threshold) {
             // Assume Utils.getElements exists and returns a NodeList or Array
             const elements = Utils.getElements(selector);
             if (!elements || elements.length === 0) {
-                // console.warn(`ScrollAnimation: No elements found for selector "${selector}".`);
                 return null; // No elements to observe
             }
 
@@ -436,8 +426,8 @@
                 this._handleIntersection.bind(this),
                 options
             );
-            elements.forEach((el) => observer.observe(el));
 
+            elements.forEach((el) => observer.observe(el));
             return observer;
         },
 
@@ -446,40 +436,36 @@
          * Initializes the scroll animation observers.
          */
         init() {
-            // Ensure this runs only once or is idempotent if called multiple times
-            if (this._serviceObserver || this._sectionObserver) {
-                // console.log("ScrollAnimation already initialized.");
+            // Skip if already initialized
+            if (Object.keys(this._observers).length > 0) {
                 return;
             }
 
             try {
-                this._serviceObserver = this._createObserver(
-                    this.SERVICE_SELECTOR,
-                    this.SERVICE_THRESHOLD
-                );
-                this._sectionObserver = this._createObserver(
-                    this.SECTION_SELECTOR,
-                    this.SECTION_THRESHOLD
-                );
-                this._sectionObserver = this._createObserver(
-                    this.HERO_CONTENT,
-                    this.CONTENT_THRESHOLD
-                );
-                this._sectionObserver = this._createObserver(
-                    this.ABOUT_SELECTOR,
-                    this.ABOUT_THRESHOLD
-                );
+                // Clear any existing observers
+                this.disconnect();
 
-                if (!this._serviceObserver && !this._sectionObserver) {
+                // Create observers for each config entry
+                for (const [selector, threshold] of Object.entries(
+                    this._config
+                )) {
+                    this._observers[selector] = this._startObserver(
+                        selector,
+                        threshold
+                    );
+                }
+
+                // Check if any observers were created
+                const hasObservers = Object.values(this._observers).some(
+                    (observer) => observer !== null
+                );
+                if (!hasObservers) {
                     console.log(
                         "ScrollAnimation: No elements found to observe for any selector."
                     );
-                } else {
-                    // console.log("ScrollAnimation initialized."); // Optional success log
                 }
             } catch (error) {
                 console.error("Error initializing scroll animations:", error);
-                // Attempt cleanup if initialization failed
                 this.disconnect();
             }
         },
@@ -488,15 +474,12 @@
          * Disconnects all observers and cleans up resources.
          */
         disconnect() {
-            if (this._serviceObserver) {
-                this._serviceObserver.disconnect();
-                this._serviceObserver = null;
+            for (const observer in Object.values(this._observers)) {
+                if (observer) {
+                    observer.disconnect();
+                    observer = null;
+                }
             }
-            if (this._sectionObserver) {
-                this._sectionObserver.disconnect();
-                this._sectionObserver = null;
-            }
-            // console.log("ScrollAnimation observers disconnected."); // Optional log
         },
     };
 
@@ -924,7 +907,7 @@
         }
     }
 
-    const setupBookingButtons = () => {
+    function setBookingButtons() {
         // Track which buttons have already been initialized within this scope
         const initializedButtons = new Set();
 
@@ -932,46 +915,46 @@
             // Find all relevant booking buttons
             const bookingButtons = Utils.getElements(".cta-button, .book-now");
 
-            if (bookingButtons.length > 0) {
-                bookingButtons.forEach((button) => {
-                    // Skip if this button has already been initialized
-                    if (initializedButtons.has(button)) {
-                        return;
+            if (bookingButtons.length === 0) return;
+
+            bookingButtons.forEach((button) => {
+                // Skip if this button has already been initialized
+                if (initializedButtons.has(button)) return;
+
+                // Mark this button as initialized
+                initializedButtons.add(button);
+
+                // Add event listener
+                button.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent event bubbling
+
+                    let customMessage = null;
+                    const path = window.location.pathname;
+                    const isAboutPage = path.includes("/pages/");
+                    // Check if it's a page-specific CTA button
+                    if (
+                        button.classList.contains("cta-button") &&
+                        !isAboutPage
+                    ) {
+                        // Extract the page title from the document title
+                        const pageTitle = document.title.split("|")[0].trim();
+                        // Create a custom message with the page title
+                        customMessage = `Hello BaliParadise! I'm interested in booking the ${pageTitle}. Can you provide more information?`;
                     }
+                    // Otherwise, it's a general .book-now button, use the default message (null will trigger default in openWhatsAppChat)
 
-                    // Mark this button as initialized
-                    initializedButtons.add(button);
-
-                    // Add event listener
-                    button.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        e.stopPropagation(); // Prevent event bubbling
-
-                        let customMessage = null;
-
-                        // Check if it's a page-specific CTA button
-                        if (button.classList.contains("cta-button")) {
-                            // Extract the page title from the document title
-                            const pageTitle = document.title
-                                .split("|")[0]
-                                .trim();
-                            // Create a custom message with the page title
-                            customMessage = `Hello BaliParadise! I'm interested in booking the ${pageTitle}. Can you provide more information?`;
-                        }
-                        // Otherwise, it's a general .book-now button, use the default message (null will trigger default in openWhatsAppChat)
-
-                        // Use the standalone function to open chat
-                        openWhatsAppChat(customMessage);
-                    });
-
-                    // Remove any inline onclick attributes that might be causing duplicates
-                    button.removeAttribute("onclick");
+                    // Use the standalone function to open chat
+                    openWhatsAppChat(customMessage);
                 });
-            }
+
+                // Remove any inline onclick attributes that might be causing duplicates
+                button.removeAttribute("onclick");
+            });
         } catch (error) {
             console.error("Error setting up booking buttons:", error);
         }
-    };
+    }
 
     const FloatingButtonsController = {
         buttonTimeouts: new Map(), // Stores timeout IDs for collapsing buttons
@@ -1782,16 +1765,28 @@
         },
     };
 
+    const mapUrls = {};
+
+    function getMapUrl(locationName) {
+        let addressLocation = `${locationName}, Bali, Indonesia`;
+        if (locationName === "Ijen Volcano") {
+            addressLocation = `${locationName}, East Java, Indonesia`;
+        }
+        const encodedAddress = encodeURIComponent(addressLocation);
+        const template = mapUrls[locationName] || mapUrls["default"];
+        return `${template[0]}${encodedAddress}${template[1]}`;
+    }
+
     const MapController = {
         init() {
             try {
                 // Check if map is already initialized by page-specific script
                 if (window.mapInitialized) return;
 
-                const locationId = "#destination-location";
-
                 // Find location elements on the page
-                const locationElement = Utils.getElement(locationId);
+                const locationElement = Utils.getElement(
+                    "#destination-location"
+                );
                 if (!locationElement) return; // Exit if not on a page with location element
 
                 const mapModal = Utils.getElement("#map-modal");
@@ -1804,23 +1799,10 @@
                 const addressSpan = locationElement.querySelector("span");
                 if (!addressSpan) return;
 
-                const locationName = addressSpan.textContent.trim();
-                const addressLocation = `${locationName}, Bali, Indonesia`;
-
                 // Open map modal when location is clicked
                 locationElement.addEventListener("click", () => {
-                    // Generate the appropriate map URL based on the location
-                    const mapUrl = this.getMapUrlForLocation(
-                        locationName,
-                        addressLocation
-                    );
-                    // const mapUrl = getMapUrlForLocation(
-                    //     locationName,
-                    //     addressLocation
-                    // );
-
                     // Set the iframe source
-                    mapIframe.src = mapUrl;
+                    mapIframe.src = getMapUrl(addressSpan.textContent.trim());
 
                     // Show the modal
                     mapModal.classList.add("active");
@@ -1862,112 +1844,27 @@
                 console.error("Error initializing map functionality:", error);
             }
         },
-
-        getMapUrlForLocation(locationName, addressLocation) {
-            // Create a base URL with the encoded address
-            const encodedAddress = encodeURIComponent(addressLocation);
-
-            // Set specific parameters based on the location name
-            switch (locationName) {
-                case "Mount Batur":
-                    // Parameters for Mount Batur
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63178.05870769603!2d115.3363808779767!3d-8.240042711826508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd1f403c8e8ee3f%3A0xd38045afa18670b4!2s${encodedAddress}!5e0!3m2!1sen!2sid!4v1744546957191!5m2!1sen!2sid`;
-
-                case "Nusa Lembongan":
-                    // Parameters for Nusa Lembongan
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63106.150796702204!2d115.4089464791813!3d-8.678764450453224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd26d9f537b69f3%3A0xdc1b94bd6c67a033!2s${encodedAddress}!5e0!3m2!1sen!2sid!4v1744546715537!5m2!1sen!2sid`;
-
-                case "Nusa Penida":
-                    // Parameters for Nusa Penida
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252382.39858815237!2d115.3639201795288!3d-8.741299893904245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd271194d1319d3%3A0x5c3a3706b2197b7b!2s${encodedAddress}!5e0!3m2!1sen!2sid!4v1744547957195!5m2!1sen!2sid`;
-
-                case "Brasela, Ubud":
-                    // Parameters for ATV, Ubud
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31573.890523321686!2d115.24793634509159!3d-8.42753551311218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2226c4e8c42bd%3A0xd37acdbc9b64ffd!2s${encodedAddress}!5e0!3m2!1sen!2sid!4v1744547593251!5m2!1sen!2sid`;
-
-                case "Lovina Beach":
-                    // Lovina Beach
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63190.69600463299!2d114.98880157776235!3d-8.160521814474285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd19b3dcc0765ab%3A0xab6c47770c720750!2s${encodedAddress}!5e0!3m2!1sen!2sid!4v1744601225502!5m2!1sen!2sid`;
-
-                case "Tirta Empul Temple":
-                    // Tirta Empul Temple
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15787.413436995239!2d115.3048108863503!3d-8.416059239840411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd218f4e06131b5%3A0x53a25a017714ecc1!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744605441753!5m2!1sen!2sid`;
-
-                case "Tulamben":
-                    // Parameters Tulamben
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126339.04149923936!2d115.50661864873565!3d-8.29333965650206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd1ff5d1e36e1ff%3A0x5030bfbca831720!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744606067197!5m2!1sen!2sid`;
-
-                case "Sanur":
-                    // Parameters Sanur
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31551.73079253046!2d115.23896984527451!3d-8.694745476471368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd241b7d35f0b21%3A0x5030bfbca830e40!2sS${addressLocation}!5e0!3m2!1sen!2sid!4v1744606533614!5m2!1sen!2sid`;
-
-                case "Amed":
-                    // Parameters Amed
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15790.063337163447!2d115.6720538363393!3d-8.35080773728279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdff7c26aea48b%3A0xe814e752fd17550!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744606803481!5m2!1sen!2sid`;
-
-                case "Nusa Dua":
-                    // Parameters Nusa Dua
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7885.791988177492!2d115.22864797787398!3d-8.795841312492135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd243213c2ea8df%3A0xfe9b8fbae7a12e8f!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744607715630!5m2!1sen!2sid`;
-
-                case "Uluwatu Temple":
-                    // Parameters Uluwatu Temple
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15770.15467254223!2d115.07489383642097!3d-8.829335306694784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24ffc20cb8191%3A0xcb98d1ba7db0495!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744608023535!5m2!1sen!2sid`;
-
-                case "Kuta Beach":
-                    // Parameters Kuta Beach
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7887.441994270617!2d115.16289542787064!3d-8.718021910572162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246bc2ab70d43%3A0x82feaae12f4ab48e!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744608773712!5m2!1sen!2sid`;
-
-                case "Kedonganan Beach":
-                    // Parameters Kedonganan Beach
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7886.5156615647065!2d115.16335807787247!3d-8.761795061649702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24468f30f174b%3A0xdd70159dc4cd2d8e!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744609124882!5m2!1sen!2sid`;
-
-                case "Ayung River":
-                    // Parameters Ayung River
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63110.82095510031!2d115.21597317910378!3d-8.650941751011633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24077b11b836f%3A0xb1b754b869a54a2f!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744609435663!5m2!1sen!2sid`;
-
-                case "Lempuyang Temple":
-                    // Parameters Lempuyang Temple
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.112944503302!2d115.62778021321411!3d-8.390551020077789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2074650566bad%3A0x9d09f3f6b34b8ffb!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744610442383!5m2!1sen!2sid`;
-
-                case "Seminyak Beach":
-                    // Parameters Seminyak Beach
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31552.13568548977!2d115.13572904527119!3d-8.689936276222365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2471c804bfd05%3A0xdcc2b5ae63dc9082!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744610733822!5m2!1sen!2sid`;
-
-                case "Padangbai":
-                    // Parameters Seminyak Beach
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31565.353429010596!2d115.48756034516235!3d-8.531462568192737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd20e6888a52347%3A0x5030bfbca831910!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744613119477!5m2!1sen!2sid`;
-
-                case "Tanah Lot":
-                    // Parameters Tanah Lot
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15778.949543094966!2d115.0765287363851!3d-8.621191648064672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd237824f71deab%3A0xcaabe270f7e34d69!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744613787067!5m2!1sen!2sid`;
-
-                case "Mount Agung":
-                    // Parameters Mount Agung
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63161.480058266956!2d115.46594397825662!3d-8.343223358658886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd202e428b2eac7%3A0xa7d7d26cb3a3a7ad!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744614122191!5m2!1sen!2sid`;
-
-                case "Tanjung Benoa":
-                    // Parameters Tanjung Benoa
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.292705736749!2d115.21222549135064!3d-8.758506639460656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd243bda5edd505%3A0x5aa7f8daba33bb29!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744614669466!5m2!1sen!2sid`;
-
-                case "Timbis Beach":
-                    // Parameters Timbis Beach
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63078.426114755406!2d115.1528596796394!3d-8.842146997619915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd25c9c97ba2f09%3A0x57528e822ace6831!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744617568277!5m2!1sen!2sid`;
-
-                case "Jatiluwih":
-                    // Parameters Jatiluwih
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126318.69814771487!2d115.03657164943495!3d-8.356394221643434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd227bedf45cc29%3A0x5030bfbca831a80!2s${addressLocation}!5e0!3m2!1sen!2sid!4v1744618265632!5m2!1sen!2sid`;
-
-                default:
-                    // Generic map URL with the location
-                    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126180.25308523745!2d115.1171446871789!3d-8.650645903152404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd22f7520fca7d3%3A0x2872b62cc456cd84!2s${encodedAddress}!5e0!3m2!1sen!2sid!4v1744548957195!5m2!1sen!2sid`;
-            }
-        },
     };
+
+    async function loadJsonData(filePath, dictObj) {
+        try {
+            const response = await fetch(filePath);
+            if (!response.ok) {
+                throw new Error(`Failed to load ${filePath}`);
+            }
+            const data = await response.json();
+            Object.assign(dictObj, data);
+        } catch (error) {
+            console.error(`Error loading JSON from ${filePath}:`, error);
+        }
+    }
 
     // Initialize all controllers when DOM is ready
     document.addEventListener("DOMContentLoaded", function () {
         async function initializeApp() {
-            // await loadDestinationImages(); // 1️⃣ load JSON first
+            await loadJsonData(CONFIG.DEST_IMAGES, destinationImages); // 1️⃣ load JSON first
+            await loadJsonData(CONFIG.MAP_URLS, mapUrls); // 1️⃣ load JSON first
+
             try {
                 // Check if we need to scroll to a specific section after page load
                 const sections = get_sections();
@@ -1985,7 +1882,7 @@
                                     behavior: "smooth",
                                 });
                             }
-                        }, 300);
+                        }, 500);
                     });
                 }
 
@@ -2006,7 +1903,7 @@
                 const currentPagePath = window.location.pathname;
 
                 // Check if it's a destination page (hero image update)
-                if (currentPagePath.includes("/destinations/")) {
+                if (currentPagePath.includes("/destinations/activities")) {
                     setDestHeroImg();
                 }
             } catch (error) {
@@ -2229,42 +2126,42 @@
     }
 
     // Add CSS for notifications
-    if (!document.querySelector("#notification-styles")) {
-        const style = document.createElement("style");
-        style.id = "notification-styles";
-        style.textContent = `
-            @keyframes slideInRight {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
+    if (document.querySelector("#notification-styles")) return;
 
-            .notification-content {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
+    const style = document.createElement("style");
+    style.id = "notification-styles";
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
             }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
 
-            .notification-close {
-                background: none;
-                border: none;
-                color: white;
-                font-size: 1.2rem;
-                cursor: pointer;
-                margin-left: auto;
-                padding: 0;
-                width: 20px;
-                height: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        `;
-        document.head.appendChild(style);
-    }
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: auto;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    `;
+    document.head.appendChild(style);
 })();
