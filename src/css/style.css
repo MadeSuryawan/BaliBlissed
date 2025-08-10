@@ -2320,6 +2320,11 @@ footer {
     text-align: center;
 }
 
+input.is-invalid,
+textarea.is-invalid {
+    border-color: #e74c3c;
+}
+
 /* Newsletter Modal Styles */
 .newsletter-modal {
     display: none;

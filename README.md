@@ -15,7 +15,7 @@ A modern, responsive, and professional website for BaliBlissed, a local Balinese
 
 - **Interactive Destination Gallery**: Paginated destination cards with dynamic image loading
 - **Contact Form**: Professional contact form with WhatsApp integration
-- **Newsletter Signup**: Modal-based newsletter subscription
+- **Newsletter Signup**: Modal-based newsletter subscription (disabled)
 - **Testimonials Carousel**: Customer reviews with smooth navigation
 - **Mobile-First Navigation**: Responsive header with mobile menu
 

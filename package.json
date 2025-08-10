@@ -2,21 +2,23 @@
     "name": "baliblissed",
     "version": "1.0.0",
     "description": "A web application for Bali tourism",
+    "type": "module",
+    "main": "server.js",
     "scripts": {
-        "start": "live-server",
-        "build": "gulp",
-        "watch": "gulp watchOnly",
-        "dev": "gulp dev",
-        "clean": "gulp clean"
+        "dev": "vite --open --port 3000",
+        "build": "vite build",
+        "preview": "vite preview --open --port 3000",
+        "clean": "rimraf dist",
+        "start": "node server.js"
     },
     "devDependencies": {
-        "browser-sync": "^3.0.4",
-        "del": "^8.0.0",
-        "gulp-clean-css": "^4.3.0",
-        "gulp-htmlmin": "^5.0.1",
-        "gulp-rename": "^2.1.0",
-        "gulp-replace": "^1.1.4",
-        "gulp-terser": "^2.1.0"
+        "@eslint/js": "^9.33.0",
+        "eslint": "^9.33.0",
+        "globals": "^16.3.0",
+        "rimraf": "^6.0.1",
+        "vite": "^6.3.5",
+        "vite-plugin-clean": "^2.0.1",
+        "vite-plugin-html-minify": "^1.0.0"
     },
     "author": "Made Suryawan",
     "license": "MIT",
@@ -25,9 +27,12 @@
         "travel",
         "static-site"
     ],
-    "type": "commonjs",
     "dependencies": {
-        "gulp": "^5.0.1",
-        "live-server": "^1.2.2"
+        "body-parser": "^2.2.0",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.1",
+        "express": "^5.1.0",
+        "glob": "^11.0.3",
+        "nodemailer": "^7.0.5"
     }
 }
