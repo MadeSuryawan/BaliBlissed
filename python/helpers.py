@@ -113,8 +113,9 @@ def get_act_dirs() -> list[Path]:
 
 
 def add_idxs() -> list[Path]:
-    """Return the list of activity directories with index added in case of adding new activities."""
+    """Return the list of activity directories with index added."""
 
+    # in case of adding new activities, remove all old indexes first.
     act_dirs = remove_idx(get_act_dirs())
     padding = max(2, len(str(len(act_dirs))))
 
@@ -131,30 +132,28 @@ def add_idxs() -> list[Path]:
     return indexed_dirs
 
 
-def get_data() -> dict[str, list[str]]:
+def get_data() -> dict[str, str]:
     """Return the data from the JSON file."""
 
-    _dict: dict[str, list[str]] = {}
+    _dict: dict[str, str] = {}
 
     for act_dir in add_idxs():
         dir_name = act_dir.name
-        idx = idx_pattern.match(dir_name).group(1)
-        title = dir_name.replace(idx, "", 1)
         if not (hero_img := get_hero_img(act_dir)):
-            _dict[title] = [idx, logo_icon]
+            _dict[dir_name] = logo_icon
             continue
         file_name = hero_img.name
         hero_img = f"destinations/activities/{dir_name}/images/hero/{file_name}"
-        _dict[title] = [idx, hero_img]
+        _dict[dir_name] = hero_img
 
     write_json(_dict, cwd / "img_links.json")
     return _dict
 
 
-def get_hero_img(root: Path) -> Path | None:
+def get_hero_img(dir_path: Path) -> Path | None:
     """Return the path to the hero image."""
 
-    if not (hero_dir := root / "images" / "hero").exists():
+    if not (hero_dir := dir_path / "images" / "hero").exists():
         hero_dir.mkdir(parents=True, exist_ok=True)
         return
 

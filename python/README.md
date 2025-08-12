@@ -60,7 +60,6 @@ The package provides the following main functions:
 
 - `update_img_src()`: Main function that processes and updates all images
 - `update_dest_cards()`: Updates image sources in destination cards
-- `sort_dest_cards()`: Sorts destination cards alphabetically
 - `update_dest_pages()`: Updates hero images in destination pages
 
 ## 🧰 Helper Functions

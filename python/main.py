@@ -11,63 +11,49 @@ The script
 """
 
 from bs4 import BeautifulSoup as Bsoup
+from bs4 import Comment
 from bs4.element import Tag
 from helpers import (
     Path,
     get_data,
+    idx_pattern,
     minimize_boolean_attrs,
     richp,
     src_dir,
-    sub,
     write_html,
 )
 
 
-def update_img_src(mapping: dict[str, list[str]]) -> None:
-    """Update every <img> tag in articles and destination pages hero <img> tag and persist the change."""
+def update_img_src(mapping: dict[str, str]) -> None:
+    """Update every <img> tag in articles and destination pages hero <img> tag."""
 
     file = src_dir / "index.html"
-
-    if not (articles := update_dest_cards(mapping, file)):
-        return
-    sort_dest_cards(file, articles)
-    update_dest_pages(mapping, articles)
+    articles = update_dest_cards(mapping, file)
+    update_dest_pages(mapping, articles, gallery=False)
 
 
-def update_dest_cards(mapping: dict[str, list[str]], file: Path) -> list[Tag] | None:
-    """Update every destination card <img> tag in main index.html and persist the change."""
+def update_dest_cards(mapping: dict[str, str], file: Path) -> list[str, str]:
+    """Update every destination card <img> tag in main index.html."""
 
-    articles: list[str, Tag] = []
+    articles: list[str, str] = []
     soup = Bsoup(file.read_text(encoding="utf-8"), "html.parser")
+    art_tags = soup.find_all("article", class_="destination-card")
 
-    for article in soup.find_all("article", class_="destination-card"):
-        img = article.find("img")
-        h3 = article.find("h3", class_="destination-name")
-        title_text = sub(r"\s+", " ", h3.get_text()).strip()
+    if (tags_count := len(art_tags)) != (maps_count := len(mapping)):
+        err = f"\nMismatch: {tags_count} articles,\n{maps_count} mapping data."
+        raise ValueError(err)
 
-        if not (value := get_img(mapping, title_text)):
-            continue
-
-        idx, new_src = value
-        new_alt = title_text
+    for article, (dir_name, img_path) in zip(art_tags, mapping.items()):
+        clean_name = idx_pattern.sub("", dir_name)
         link = article.find("a")
-        link["href"] = f"destinations/activities/{idx}{title_text}/index.html"
+        html_path = f"destinations/activities/{dir_name}/index.html"
+        link["href"] = html_path
 
-        assign_img_attrs(img, new_src, new_alt)
-        articles.append([title_text, article])
+        assign_img_attrs(article.find("img"), img_path, clean_name)
+        articles.append([clean_name, html_path])
 
-    if articles:
-        return [tag for _, tag in sorted(articles, key=lambda x: x[0])]
-
-
-def get_img(mapping: dict[str, list[str]], title_text: str) -> list[str]:
-    """Return the new src for the image."""
-
-    try:
-        return mapping[title_text]
-    except KeyError:
-        richp(f"\n[red]Missing key:[/red] '{title_text}'")
-        return []
+    write_html(file, minimize_boolean_attrs(soup.prettify()))
+    return articles
 
 
 def assign_img_attrs(img: Tag, img_path: str, alt: str, *, hero: bool = False) -> None:
@@ -79,45 +65,107 @@ def assign_img_attrs(img: Tag, img_path: str, alt: str, *, hero: bool = False) -
     img["decoding"] = "auto" if hero else "async"
 
 
-def sort_dest_cards(file: Path, _list: list[Tag]) -> None:
-    """Sort the destination cards by title."""
+# # not yet implemented, for future use when adding new destinations(more than current 30 destinations)
+def new_data_page(file: Path, mapping: dict[str, str], count: int) -> None:
+    """Add new destination cards block to the main index.html."""
 
-    # Important: update the original html data
     soup = Bsoup(file.read_text(encoding="utf-8"), "html.parser")
 
-    old_articles: list[Tag] = [
-        article
-        for page in soup.find_all("div", class_="destinations-page")
-        for article in page.find_all("article", class_="destination-card")
-    ]
+    # Find all destinations-page divs and get the highest data-page value
+    page_divs = soup.find_all("div", class_="destinations-page")
+    last_page_num = max(int(div.get("data-page", 0)) for div in page_divs)
+    new_page_num = last_page_num + 1
 
-    if (count_olds := len(old_articles)) != (count_sorted := len(_list)):
-        err = f"\nMismatch: {count_olds} old articles,\n{count_sorted} sorted articles."
-        raise ValueError(err)
+    # Create the new page div with the incremented data-page value
+    new_page_div = soup.new_tag(
+        "div",
+        **{"class": "destinations-page", "data-page": str(new_page_num)},
+    )
+    grid_div = soup.new_tag("div", **{"class": "destinations-grid"})
 
-    for old_article, new_article in zip(old_articles, _list):
-        old_article.insert_before(new_article)
-        old_article.decompose()
+    new_destinations: list[dict[str, str]] = []
+    for dir_name, img_path in list(mapping.items())[count:]:
+        new_destinations.append(
+            {
+                "name": dir_name,
+                "img_src": img_path,
+                "href": f"destinations/activities/{dir_name}/index.html",
+            },
+        )
+
+    # Create and append each article
+    for dest in new_destinations:
+        article = soup.new_tag("article", **{"class": "destination-card"})
+        image_container = soup.new_tag("div", **{"class": "card-image-container"})
+        img = soup.new_tag("img")
+
+        assign_img_attrs(img, dest["img_src"], dest["name"])
+
+        image_container.append(img)
+        article.append(image_container)
+
+        content_div = soup.new_tag("div", **{"class": "card-content"})
+        header = soup.new_tag("header", **{"class": "card-title"})
+        h3 = soup.new_tag("h3", **{"class": "destination-name"})
+        h3.string = dest["name"]
+        header.append(h3)
+        content_div.append(header)
+
+        a = soup.new_tag("a", **{"class": "card-button", "href": dest["href"]})
+        a.string = "View Details"
+        content_div.append(a)
+
+        article.append(content_div)
+        grid_div.append(article)
+
+    # Add the grid to the new page div
+    new_page_div.append(grid_div)
+    # Append the new page after the last .destinations-page
+    page_divs[-1].insert_after(new_page_div)
 
     write_html(file, minimize_boolean_attrs(soup.prettify()))
 
 
-def update_dest_pages(mapping: dict[str, list[str]], articles: list[Tag]) -> None:
-    """Update every destination page hero <img> tag and persist the change."""
+def update_dest_pages(
+    mapping: dict[str, str],
+    articles: list[str, str],
+    *,
+    gallery: bool = False,
+) -> None:
+    """Update every destination page hero <img> tag."""
 
-    for article in articles:
-        alt = article.find("img")["alt"]
-        file = src_dir / f"{article.find('a')['href']}"
+    for (clean_name, html_path), img_path in zip(articles, mapping.values()):
+        file = src_dir / f"{html_path}"
         soup = Bsoup(file.read_text(encoding="utf-8"), "html.parser")
+        activate_gallery(soup) if gallery else deactivate_gallery(soup)
         title = soup.find("title")
-        title.string = f"{alt} | Bali Blissed Getaway"
+        title.string = f"{clean_name} | Bali Blissed Getaway"
         hero = soup.find("section", class_="hero")
-        hero_img = hero.find("img")
-        if not (value := get_img(mapping, alt)):
-            continue
         # Since it will be accessed from sub-directories, make img_path relative to the root
-        assign_img_attrs(hero_img, f"/{value[1]}", alt, hero=True)
+        assign_img_attrs(hero.find("img"), f"/{img_path}", clean_name, hero=True)
         write_html(file, minimize_boolean_attrs(soup.prettify()))
+
+
+def deactivate_gallery(soup: Bsoup) -> None:
+    """Deactivate the destination image gallery."""
+
+    if gallery := soup.find("div", class_="gallery"):
+        # Convert the tag (including its contents) to a string and wrap it in a Comment
+        comment = soup.new_string(str(gallery), Comment)
+        # Replace the tag with the comment
+        gallery.replace_with(comment)
+
+
+def activate_gallery(soup: Bsoup) -> None:
+    """Activate the destination image gallery."""
+
+    for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
+        if 'class="gallery"' not in comment:
+            continue
+        # Parse the comment's content as HTML
+        uncommented = Bsoup(comment, "html.parser")
+        # Replace the comment with the parsed tag(s)
+        comment.replace_with(uncommented)
 
 
 def main() -> None:
