@@ -11,6 +11,5 @@ export const CONFIG = {
         "index.html#destinations",
         "index.html#contact-form",
     ],
-    DEST_IMAGES: "/json_data/destination_images.json",
     MAP_URLS: "/json_data/map_urls.json",
 };

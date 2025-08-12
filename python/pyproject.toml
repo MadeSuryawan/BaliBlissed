@@ -1,0 +1,10 @@
+[project]
+name = "dest-hero-imgs"
+version = "0.1.0"
+description = "Update the hero-image <img> tags for every destination page."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.13.4",
+    "rich>=14.1.0",
+]

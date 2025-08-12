@@ -1,4 +1,4 @@
-# BaliBlissed - Professional Travel Agency Website
+# BaliBlissed - Professional Travel Agency Website 🏖️
 
 A modern, responsive, and professional website for BaliBlissed, a local Balinese travel agency specializing in authentic cultural experiences, adventure tours, and luxury vacation packages.
 

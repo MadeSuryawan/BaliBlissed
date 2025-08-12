@@ -70,7 +70,7 @@
 
     /* Component-specific variables */
     --header-height-scrolled: 54px;
-    --card-height: 370px;
+    --card-height: 330px;
     --card-image-height: 70%;
     --social-icon-size: 35px;
     --floating-button-desktop: 60px;
@@ -574,8 +574,8 @@ header.scrolled .menu-toggle {
     inset: 0;
     background: linear-gradient(
         to right,
-        rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 0.3)
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.2)
     );
     z-index: 1;
 }
@@ -890,36 +890,25 @@ h3.destination-name {
     font-weight: 650;
     margin-bottom: 0.5rem;
     padding-left: 0.6rem;
+    padding-bottom: 0.6rem;
+    padding-top: 0.3rem;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-}
-
-.card-location {
-    align-items: center;
-    width: auto;
-    gap: 0.5rem;
-    color: var(--gray-700);
-    font-size: 0.9rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-block-start: 1.2rem;
-    padding-bottom: 3.3rem;
 }
 
 .card-button {
     display: inline-block;
     background-color: var(--secondary-dark);
     color: var(--white);
-    padding: 0.6rem 1.25rem;
+    padding: 0.3rem 1.25rem;
     border-radius: var(--radius-sm);
     text-decoration: none;
     font-weight: 500;
     transition: background-color var(--transition-standard);
     font-size: 0.9rem;
     position: absolute;
-    bottom: 1.5rem;
+    bottom: 1.2rem;
     left: 1.5rem;
 }
 

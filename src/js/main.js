@@ -8,7 +8,6 @@ import { ContactForm } from "/js/modules/contactForm.js";
 import { ScrollAnimation } from "/js/modules/scrollAnimation.js";
 import { ScrollController } from "/js/modules/scrollController.js";
 import { MapController } from "/js/modules/mapController.js";
-import { DestHeroImages } from "/js/modules/destHeroImages.js";
 import { DelayedService } from "/js/modules/delayedService.js";
 
 // Immediately Invoked Function Expression (IIFE) for initialization
@@ -41,7 +40,6 @@ import { DelayedService } from "/js/modules/delayedService.js";
     // Initialize all controllers when DOM is ready
     document.addEventListener("DOMContentLoaded", function () {
         async function initializeApp() {
-            const destImages = await loadJsonData(CONFIG.DEST_IMAGES); // 1️⃣ load JSON first
             const mapUrls = await loadJsonData(CONFIG.MAP_URLS); // 1️⃣ load JSON first
 
             try {
@@ -61,7 +59,7 @@ import { DelayedService } from "/js/modules/delayedService.js";
                                     behavior: "smooth",
                                 });
                             }
-                        }, 500);
+                        }, 900);
                     });
                 }
 
@@ -77,7 +75,6 @@ import { DelayedService } from "/js/modules/delayedService.js";
 
                 // Load header/footer and initialize dependent controllers
                 await ComponentLoader.init();
-                DestHeroImages.init(destImages);
             } catch (error) {
                 console.error("Error during initialization:", error);
             }

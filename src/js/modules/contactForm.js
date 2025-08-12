@@ -10,7 +10,6 @@ export const ContactForm = {
         const contactForm = Utils.getElement("#contact-form");
         if (!contactForm) return;
 
-        this._form = contactForm;
         this._submitBtn = contactForm.querySelector(".contact-submit-btn");
         contactForm.addEventListener("submit", this._handleSubmit.bind(this));
     },

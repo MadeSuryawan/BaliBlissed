@@ -17,6 +17,7 @@ $RECYCLE.BIN/
 # Linux
 *~
 
+
 # VS Code
 .vscode/
 !.vscode/settings.json
@@ -82,3 +83,31 @@ temp/
 
 # Live Server
 .live-server/
+
+## project specific
+
+# Images
+src/destinations/**/*.jpg
+src/destinations/**/*.JPG
+src/destinations/**/*.jpeg
+src/destinations/**/*.JPEG
+src/destinations/**/*.png
+src/destinations/**/*.PNG
+src/destinations/**/*.gif
+src/destinations/**/*.GIF
+src/destinations/**/*.svg
+src/destinations/**/*.SVG
+src/destinations/**/*.webp
+
+# Python files
+/python/__pycache__/
+/python/*.pyc
+/python/*.pyo
+/python/*.swp
+/python/*.swo
+/python/*.pyd
+/python/*.egg-info/
+/python/*.egg
+/python/*.pyw
+/python/*.pyi
+/python/.venv/
