@@ -16,7 +16,8 @@ export const ComponentLoader = {
     },
 
     loadComponents() {
-        // ... (determine basePath logic remains the same) ...
+        // Determine the base path to correctly locate included files (header.html, footer.html)
+        // from nested page directories.
         const path = window.location.pathname;
         const isDestinationPage = path.includes("/destinations/");
         const isActivityPage = path.includes("/destinations/activities/");
@@ -31,6 +32,7 @@ export const ComponentLoader = {
         const headerPlaceholder = Utils.getElement("#header-placeholder");
         const footerPlaceholder = Utils.getElement("#footer-placeholder");
 
+        // Fetch and inject the header HTML
         const loadHeaderPromise = headerPlaceholder
             ? fetch(basePath + "includes/header.html")
                   .then((response) => response.text())
@@ -53,6 +55,7 @@ export const ComponentLoader = {
                   )
             : Promise.resolve(); // Resolve immediately if no placeholder
 
+        // Fetch and inject the footer HTML
         const loadFooterPromise = footerPlaceholder
             ? fetch(basePath + "includes/footer.html")
                   .then((response) => response.text())
@@ -100,7 +103,7 @@ export const ComponentLoader = {
             links.forEach((link) => {
                 const href = link.getAttribute("href");
 
-                // Special handling for section links
+                // For links that point to sections on the homepage (e.g., #destinations)
                 if (CONFIG.NAV_LINKS.includes(href)) {
                     const section = href.split("#")[1];
                     // Convert to absolute path with hash
@@ -124,6 +127,7 @@ export const ComponentLoader = {
                     link.setAttribute("href", basePath + href);
                 }
             });
+
             images.forEach((img) => {
                 const src = img.getAttribute("src");
                 if (src && !src.startsWith("../")) {
@@ -145,9 +149,9 @@ export const ComponentLoader = {
         const initializedButtons = new Set();
 
         try {
-            // Find all relevant booking buttons
-            const bookingButtons = Utils.getElements(".cta-button, .book-now");
-
+            const bookingButtons = Utils.getElements(
+                ".cta-button:not(.secondary), .book-now, .whatsapp-button-modal",
+            );
             if (bookingButtons.length === 0) return;
 
             bookingButtons.forEach((button) => {
@@ -157,27 +161,22 @@ export const ComponentLoader = {
                 // Mark this button as initialized
                 initializedButtons.add(button);
 
-                // Add event listener
                 button.addEventListener("click", (e) => {
                     e.preventDefault();
                     e.stopPropagation(); // Prevent event bubbling
 
                     let customMessage = null;
                     const path = window.location.pathname;
-                    const isAboutPage = path.includes("/pages/");
-                    // Check if it's a page-specific CTA button
+                    const isAboutPage = path.includes("/pages/about.html");
+
                     if (
                         button.classList.contains("cta-button") &&
                         !isAboutPage
                     ) {
-                        // Extract the page title from the document title
                         const pageTitle = document.title.split("|")[0].trim();
-                        // Create a custom message with the page title
-                        customMessage = `Hello BaliParadise! I'm interested in booking the ${pageTitle}. Can you provide more information?`;
+                        customMessage = `Hello BaliBlissed! I'm interested in booking the ${pageTitle}. Can you provide more information?`;
                     }
-                    // Otherwise, it's a general .book-now button, use the default message (null will trigger default in openWhatsApp)
 
-                    // Use the standalone function to open chat
                     openWhatsApp(customMessage);
                 });
 

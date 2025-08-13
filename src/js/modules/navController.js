@@ -39,23 +39,16 @@ export const NavigationController = {
     setupCrossPageNavigation() {
         try {
             // Handle destinations links specifically
-            const carCharterLink = Utils.getElement(".car-charter-link");
             const destinationLink = Utils.getElement(".destinations-link");
-            const contactLink = Utils.getElement(".contact-link");
 
-            const allLinks = [carCharterLink, destinationLink, contactLink];
+            const allLinks = [destinationLink];
 
             allLinks.forEach((link) => {
                 link.addEventListener("click", (e) => {
                     const href = link.getAttribute("href");
-                    const currentPath = window.location.pathname;
-                    const isHome =
-                        currentPath.endsWith("/") ||
-                        currentPath.endsWith("/index.html") ||
-                        currentPath.includes("/BaliBlissed/index.html");
 
                     // Check if we're not on the main page
-                    if (!isHome && CONFIG.NAV_LINKS.includes(href)) {
+                    if (!Utils.isHome() && CONFIG.NAV_LINKS.includes(href)) {
                         e.preventDefault();
                         Utils.add_section(href.split("#")[1]);
 
@@ -86,25 +79,16 @@ export const NavigationController = {
                             { once: true },
                         );
 
-                        // dim the page
-                        // document.documentElement.classList.add("dimmed");
-
                         setTimeout(() => {
                             link.scrollIntoView({
                                 behavior: "smooth",
                                 block: "start",
                             });
-                            // after scroll,
-
-                            // remove dim
-                            // document.documentElement.classList.remove(
-                            //     "dimmed"
-                            // );
-
+                            // after scroll
                             // remove overlay
                             overlay.remove();
                             document.body.classList.remove("overlay-active");
-                        }, 1500);
+                        }, 300);
                     }
                 });
             });
@@ -120,6 +104,16 @@ export const NavigationController = {
 
             Utils.getElements('a[href^="#"]').forEach((anchor) => {
                 anchor.addEventListener("click", function (e) {
+                    // On sub-pages, the contact link is special and should be handled by the modal controller.
+                    // This guard clause tells the smooth-scroll function to ignore the contact link
+                    // if we are not on the homepage, preventing a conflict.
+                    if (
+                        !Utils.isHome() &&
+                        this.classList.contains("contact-link")
+                    ) {
+                        // Let the contactModalController handle the click event.
+                        return;
+                    }
                     e.preventDefault();
 
                     // Close mobile menu if open

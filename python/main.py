@@ -180,7 +180,7 @@ def activate_gallery(soup: Bsoup) -> None:
 def prettier() -> None:
     """Format the files in src/."""
 
-    richp("\n[b i blue]Running Prettier[/b i blue]")
+    richp("\n[b i blue]Running Prettier...[/b i blue]")
     try:
         result: CompletedProcess[str] = run(  # noqa: S603
             [f"{npx_path}", "prettier", "--write", "."],
@@ -196,7 +196,7 @@ def prettier() -> None:
             richp(f"[b i red]Prettier errors:\n{error}[/b i red]")
     except CalledProcessError as e:
         richp(f"[b i red]\nPrettier failed, exit code: {e.returncode}[/b i red]")
-        richp(f"[b i red]\nError output:\n{e.stderr}")
+        richp(f"[b i red]\nError output:\n{e.stderr}[/b i red]")
     except SYSTEM_EXCEPTIONS as e:
         error_var("\nPrettier failed: ", e, trace=True)
 

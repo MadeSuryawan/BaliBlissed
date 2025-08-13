@@ -51,11 +51,16 @@
         <div class="footer-links-col">
             <h3 class="footer-title">Support</h3>
             <ul class="footer-links">
-                <li><a href="pages/faq.html">FAQs</a></li>
-                <li><a href="index.html#contact-form">Contact Us</a></li>
-                <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="/pages/blogs.html">Travel Guides</a></li>
+                <li><a href="/pages/faq.html">FAQs</a></li>
                 <li>
-                    <a href="pages/terms-of-service.html">Terms of Service</a>
+                    <a href="index.html#contact-form" class="contact-link"
+                        >Contact Us</a
+                    >
+                </li>
+                <li><a href="/pages/privacy-policy.html">Privacy Policy</a></li>
+                <li>
+                    <a href="/pages/terms-of-service.html">Terms of Service</a>
                 </li>
             </ul>
         </div>
@@ -116,4 +121,182 @@
         </div>
     </div>
     <div class="modal-overlay about-modal-overlay"></div>
+
+    <!-- Contact Form Modal (for sub-pages) -->
+    <div class="modal contact-modal" id="contact-modal">
+        <div class="modal-content contact-modal-content">
+            <span class="modal-close" id="contact-modal-close">&times;</span>
+            <div class="contact-modal-body">
+                <!-- The contact form is placed inside the modal -->
+                <div class="contact-content-modal">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>
+                                    <a href="tel:+6285847006743"
+                                        >+62 858 4700 6743</a
+                                    >
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>
+                                    <a href="mailto:hello@baliblissed.com"
+                                        >hello@baliblissed.com</a
+                                    >
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Response Time</h4>
+                                <p>
+                                    WhatsApp: Instant (24/7)<br />Email: Within
+                                    2 hours
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="modal-contact-form">
+                        <h2 class="section-title">Get In <span>Touch</span></h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-contact-name"
+                                    >Full Name *</label
+                                >
+                                <input
+                                    type="text"
+                                    id="modal-contact-name"
+                                    name="name"
+                                    required
+                                    autocomplete="name"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-contact-email"
+                                    >Email Address *</label
+                                >
+                                <input
+                                    type="email"
+                                    id="modal-contact-email"
+                                    name="email"
+                                    required
+                                    autocomplete="email"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-contact-phone"
+                                    >Phone Number</label
+                                >
+                                <input
+                                    type="tel"
+                                    id="modal-contact-phone"
+                                    name="phone"
+                                    autocomplete="tel"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-contact-travelers"
+                                    >Number of Travelers</label
+                                >
+                                <select
+                                    id="modal-contact-travelers"
+                                    name="travelers"
+                                >
+                                    <option value="">Select...</option>
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3-5">3-5 People</option>
+                                    <option value="6-10">6-10 People</option>
+                                    <option value="10+">10+ People</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-contact-service"
+                                    >Service Interest</label
+                                >
+                                <select
+                                    id="modal-contact-service"
+                                    name="service"
+                                >
+                                    <option value="">
+                                        Select a service...
+                                    </option>
+                                    <option value="private-tour">
+                                        Private Tours
+                                    </option>
+                                    <option value="car-charter">
+                                        Car Charter
+                                    </option>
+                                    <option value="mount-batur">
+                                        Mount Batur Tours
+                                    </option>
+                                    <option value="nusa-penida">
+                                        Nusa Penida Tours
+                                    </option>
+                                    <option value="snorkeling">
+                                        Snorkeling &amp; Diving
+                                    </option>
+                                    <option value="cultural">
+                                        Cultural Experiences
+                                    </option>
+                                    <option value="adventure">
+                                        Adventure Activities
+                                    </option>
+                                    <option value="custom">
+                                        Custom Package
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-contact-dates"
+                                    >Preferred Travel Dates</label
+                                >
+                                <input
+                                    type="text"
+                                    id="modal-contact-dates"
+                                    name="dates"
+                                    placeholder="e.g., March 15-22, 2025"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-contact-message">Message *</label>
+                            <textarea
+                                id="modal-contact-message"
+                                name="message"
+                                rows="5"
+                                required
+                                placeholder="Tell us about your dream Bali experience..."
+                            ></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <a
+                                href="#"
+                                class="whatsapp-button-modal"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                            </a>
+                            <button type="submit" class="contact-submit-btn">
+                                <i class="fas fa-paper-plane"></i> Send Email
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>

@@ -41,7 +41,7 @@ app.post("/send-contact", async (req, res) => {
         from: `"${name} via BaliBlissed" <${process.env.EMAIL_USER}>`,
         to: process.env.EMAIL_USER,
         replyTo: email,
-        subject: "New Contact Form Submission",
+        subject: "New Email from BaliBlissed",
         text: `
         Name: ${name}
         Email: ${email}
@@ -55,11 +55,13 @@ app.post("/send-contact", async (req, res) => {
 
     try {
         await transporter.sendMail(mailOptions);
-        res.status(200).json({ message: "Message sent successfully!" });
+        res.status(200).json({
+            message: "Thank you! Your email has been sent.",
+        });
     } catch (error) {
         console.error("Error sending email:", error);
         res.status(500).json({
-            message: "Failed to send message.",
+            message: "Failed to send email.",
             error: error.toString(),
         });
     }

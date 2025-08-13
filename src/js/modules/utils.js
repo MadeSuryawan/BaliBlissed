@@ -97,11 +97,21 @@ export const Utils = {
         const closeBtn = notification.querySelector(".notification-close");
         closeBtn.addEventListener("click", () => notification.remove());
 
-        // // Auto remove after 5 seconds
-        // setTimeout(() => {
-        //     if (notification.parentNode) {
-        //         notification.remove();
-        //     }
-        // }, 5000);
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 3000);
+    },
+
+    isHome() {
+        const path = window.location.pathname;
+        return (
+            path === "/" ||
+            path === "/index.html" ||
+            (path.endsWith("/index.html") &&
+                (path.match(/\//g) || []).length <= 1)
+        );
     },
 };

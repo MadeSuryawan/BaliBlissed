@@ -153,6 +153,9 @@ def get_data() -> dict[str, str]:
 def get_hero_img(dir_path: Path) -> Path | None:
     """Return the path to the hero image."""
 
+    gallery_dir = dir_path / "images" / "gallery"
+    gallery_dir.mkdir(parents=True, exist_ok=True)
+
     if not (hero_dir := dir_path / "images" / "hero").exists():
         hero_dir.mkdir(parents=True, exist_ok=True)
         return

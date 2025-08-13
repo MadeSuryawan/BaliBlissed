@@ -9,19 +9,31 @@ import { ScrollAnimation } from "/js/modules/scrollAnimation.js";
 import { ScrollController } from "/js/modules/scrollController.js";
 import { MapController } from "/js/modules/mapController.js";
 import { DelayedService } from "/js/modules/delayedService.js";
+import { ThemeController } from "/js/modules/themeController.js";
+import { ContactModalController } from "/js/modules/contactModalController.js";
+// import { RippleEffect } from "/js/modules/rippleEffect.js";
 
-// Immediately Invoked Function Expression (IIFE) for initialization
+/**
+ * Main application entry point.
+ * This IIFE (Immediately Invoked Function Expression) ensures our code runs
+ * in its own scope and doesn't pollute the global namespace.
+ */
 (function () {
     "use strict";
 
-    // Force scroll to top immediately
+    // Force scroll to top on page load to prevent inconsistent browser behavior.
     window.scrollTo(0, 0);
 
-    // Set scroll position in session history
+    // Manually control scroll restoration to handle cross-page anchor links.
     if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
     }
 
+    /**
+     * Asynchronously loads JSON data from a file.
+     * @param {string} jsonFile - The path to the JSON file.
+     * @returns {Promise<Object>} A promise that resolves to the parsed JSON object.
+     */
     async function loadJsonData(jsonFile) {
         const dataDict = {};
         try {
@@ -40,7 +52,8 @@ import { DelayedService } from "/js/modules/delayedService.js";
     // Initialize all controllers when DOM is ready
     document.addEventListener("DOMContentLoaded", function () {
         async function initializeApp() {
-            const mapUrls = await loadJsonData(CONFIG.MAP_URLS); // 1️⃣ load JSON first
+            // 1. Load necessary data first (e.g., map URLs).
+            const mapUrls = await loadJsonData(CONFIG.MAP_URLS);
 
             try {
                 // Check if we need to scroll to a specific section after page load
@@ -62,21 +75,26 @@ import { DelayedService } from "/js/modules/delayedService.js";
                         }, 900);
                     });
                 }
-
-                // Initialize controllers that don't depend on fetched components first
+                // 2. Initialize core modules that don't depend on header/footer.
                 ScrollController.init();
                 DelayedService.init();
                 PaginationController.init();
                 TestimonialsController.init();
-                ContactForm.init();
                 // Newsletter.init();
                 MapController.init(mapUrls);
                 ScrollAnimation.init();
 
-                // Load header/footer and initialize dependent controllers
+                // 4. Load shared components (header/footer) and then initialize modules that depend on them.
                 await ComponentLoader.init();
+                ContactForm.init();
+                ThemeController.init(); // Depends on theme switcher in header/footer.
+                ContactModalController.init(); // Initialize the new contact modal logic.
+                // RippleEffect.init(); // Initialize the button ripple effect.
             } catch (error) {
-                console.error("Error during initialization:", error);
+                console.error(
+                    "Error during application initialization:",
+                    error,
+                );
             }
         }
 

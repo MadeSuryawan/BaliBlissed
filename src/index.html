@@ -34,6 +34,25 @@
         <!-- End Google Analytics -->
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <!-- Theme Initializer Script -->
+        <script>
+            (function () {
+                var theme = localStorage.getItem("theme");
+                if (
+                    theme === "dark" ||
+                    (theme === "system" &&
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches)
+                ) {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                } else {
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        "light",
+                    );
+                }
+            })();
+        </script>
         <meta
             content="Experience the authentic heart of Bali with BaliBlissed, your local Balinese travel partner. Luxury vacation packages, private tours, car charters, and unique experiences like Mount Batur sunrise treks, snorkeling, and cultural tours."
             name="description"
@@ -1241,6 +1260,20 @@
                     </div>
                 </div>
             </section>
+            <!-- Partners Section -->
+            <section class="section partners-section" id="partners">
+                <h2 class="section-title">
+                    Trusted By
+                    <span> Travellers Worldwide </span>
+                </h2>
+                <div class="partners-grid">
+                    <div class="partner-logo-text">TripAdvisor</div>
+                    <div class="partner-logo-text">Booking.com</div>
+                    <div class="partner-logo-text">Agoda</div>
+                    <div class="partner-logo-text">Klook</div>
+                    <div class="partner-logo-text">Viator</div>
+                </div>
+            </section>
             <!-- Testimonials Section -->
             <section class="section testimonials">
                 <h2 class="section-title">
@@ -1510,6 +1543,54 @@
                     <div class="testimonial-modal-author"></div>
                 </div>
             </div>
+            <!-- Blog Preview Section -->
+            <section class="section blog-preview-section">
+                <h2 class="section-title">
+                    From Our
+                    <span> Travel Journal </span>
+                </h2>
+                <div class="blog-preview-grid">
+                    <article class="blog-card">
+                        <a href="pages/blogs.html">
+                            <img
+                                alt="Balinese Temple"
+                                src="images/hero/ruben-hutabarat-VvJ0DL_PLR8-unsplash.webp"
+                            />
+                            <div class="blog-card-content">
+                                <span class="blog-category"> Culture </span>
+                                <h3>A Guide to Temple Etiquette in Bali</h3>
+                                <p>
+                                    Learn the do's and don'ts of visiting Bali's
+                                    sacred temples...
+                                </p>
+                                <span class="read-more"> Read More → </span>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="blog-card">
+                        <a href="pages/blogs.html">
+                            <img
+                                alt="Balinese cultural offering"
+                                src="images/hero/IMG_7508_DxO.webp"
+                            />
+                            <div class="blog-card-content">
+                                <span class="blog-category"> Food </span>
+                                <h3>Top 10 Balinese Dishes You Must Try</h3>
+                                <p>
+                                    From Babi Guling to Sate Lilit, embark on a
+                                    culinary journey...
+                                </p>
+                                <span class="read-more"> Read More → </span>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+                <div class="view-all-blog">
+                    <a class="cta-button secondary" href="pages/blogs.html">
+                        View All Guides
+                    </a>
+                </div>
+            </section>
             <!-- Contact Form Section -->
             <section class="section contact-section" id="contact-form">
                 <div class="container">
@@ -1627,50 +1708,52 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="contact-service">
-                                    Service Interest
-                                </label>
-                                <select id="contact-service" name="service">
-                                    <option value="">
-                                        Select a service...
-                                    </option>
-                                    <option value="private-tour">
-                                        Private Tours
-                                    </option>
-                                    <option value="car-charter">
-                                        Car Charter
-                                    </option>
-                                    <option value="mount-batur">
-                                        Mount Batur Tours
-                                    </option>
-                                    <option value="nusa-penida">
-                                        Nusa Penida Tours
-                                    </option>
-                                    <option value="snorkeling">
-                                        Snorkeling &amp; Diving
-                                    </option>
-                                    <option value="cultural">
-                                        Cultural Experiences
-                                    </option>
-                                    <option value="adventure">
-                                        Adventure Activities
-                                    </option>
-                                    <option value="custom">
-                                        Custom Package
-                                    </option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="contact-dates">
-                                    Preferred Travel Dates
-                                </label>
-                                <input
-                                    id="contact-dates"
-                                    name="dates"
-                                    placeholder="e.g., March 15-22, 2025"
-                                    type="text"
-                                />
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-service">
+                                        Service Interest
+                                    </label>
+                                    <select id="contact-service" name="service">
+                                        <option value="">
+                                            Select a service...
+                                        </option>
+                                        <option value="private-tour">
+                                            Private Tours
+                                        </option>
+                                        <option value="car-charter">
+                                            Car Charter
+                                        </option>
+                                        <option value="mount-batur">
+                                            Mount Batur Tours
+                                        </option>
+                                        <option value="nusa-penida">
+                                            Nusa Penida Tours
+                                        </option>
+                                        <option value="snorkeling">
+                                            Snorkeling &amp; Diving
+                                        </option>
+                                        <option value="cultural">
+                                            Cultural Experiences
+                                        </option>
+                                        <option value="adventure">
+                                            Adventure Activities
+                                        </option>
+                                        <option value="custom">
+                                            Custom Package
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-dates">
+                                        Preferred Travel Dates
+                                    </label>
+                                    <input
+                                        id="contact-dates"
+                                        name="dates"
+                                        placeholder="e.g., March 15-22, 2025"
+                                        type="text"
+                                    />
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="contact-message"> Message * </label>
@@ -1684,7 +1767,7 @@
                             </div>
                             <button class="contact-submit-btn" type="submit">
                                 <i class="fas fa-paper-plane"> </i>
-                                Send Message
+                                Send Email
                             </button>
                             <p class="form-disclaimer">
                                 We'll respond within 2 hours during business

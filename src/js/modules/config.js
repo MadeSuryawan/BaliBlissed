@@ -6,10 +6,6 @@ export const CONFIG = {
     BUTTON_COLLAPSE_TIMEOUT: 1000,
     HOVER_DELAY: 600,
     PARALLAX_FACTOR: 0.5,
-    NAV_LINKS: [
-        "index.html#home",
-        "index.html#destinations",
-        "index.html#contact-form",
-    ],
+    NAV_LINKS: ["index.html#destinations"],
     MAP_URLS: "/json_data/map_urls.json",
 };

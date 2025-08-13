@@ -34,6 +34,25 @@
         <!-- End Google Analytics -->
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <!-- Theme Initializer Script -->
+        <script>
+            (function () {
+                var theme = localStorage.getItem("theme");
+                if (
+                    theme === "dark" ||
+                    (theme === "system" &&
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches)
+                ) {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                } else {
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        "light",
+                    );
+                }
+            })();
+        </script>
         <meta
             content="Experience the authentic heart of Bali with BaliBlissed, your local Balinese travel partner. Luxury vacation packages, private tours, car charters, and unique experiences like Mount Batur sunrise treks, snorkeling, and cultural tours."
             name="description"

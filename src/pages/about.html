@@ -41,6 +41,25 @@
             content="Learn about BaliBlissed - Your authentic local Balinese travel partner. Discover our story, mission, and commitment to providing unforgettable Bali experiences."
         />
         <meta name="robots" content="index, follow" />
+        <!-- Theme Initializer Script -->
+        <script>
+            (function () {
+                var theme = localStorage.getItem("theme");
+                if (
+                    theme === "dark" ||
+                    (theme === "system" &&
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches)
+                ) {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                } else {
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        "light",
+                    );
+                }
+            })();
+        </script>
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
