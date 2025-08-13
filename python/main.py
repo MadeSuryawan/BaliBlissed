@@ -10,11 +10,16 @@ The script
 4. Saves the updated HTML back to disk
 """
 
+from shutil import which
+from subprocess import CalledProcessError, CompletedProcess, run
+
 from bs4 import BeautifulSoup as Bsoup
 from bs4 import Comment
 from bs4.element import Tag
 from helpers import (
+    SYSTEM_EXCEPTIONS,
     Path,
+    error_var,
     get_data,
     idx_pattern,
     minimize_boolean_attrs,
@@ -23,12 +28,16 @@ from helpers import (
     write_html,
 )
 
+npx_path = which("npx")
+
 
 def update_img_src(mapping: dict[str, str]) -> None:
     """Update every <img> tag in articles and destination pages hero <img> tag."""
 
     file = src_dir / "index.html"
+    richp("\n[b i blue]Updating main index.html[/b i blue]")
     articles = update_dest_cards(mapping, file)
+    richp("\n[b i blue]Updating destination pages[/b i blue]")
     update_dest_pages(mapping, articles, gallery=False)
 
 
@@ -168,11 +177,36 @@ def activate_gallery(soup: Bsoup) -> None:
         comment.replace_with(uncommented)
 
 
+def prettier() -> None:
+    """Format the files in src/."""
+
+    richp("\n[b i blue]Running Prettier[/b i blue]")
+    try:
+        result: CompletedProcess[str] = run(  # noqa: S603
+            [f"{npx_path}", "prettier", "--write", "."],
+            cwd=f"{src_dir}",  # Run in this directory
+            capture_output=True,  # Capture stdout and stderr
+            text=True,  # Return output as string, not bytes
+            check=True,  # Raise CalledProcessError if command fails
+            shell=False,  # Don't run in shell mode
+        )
+
+        richp(f"\n[i green]{result.stdout}[/i green]")
+        if error := result.stderr:
+            richp(f"[b i red]Prettier errors:\n{error}[/b i red]")
+    except CalledProcessError as e:
+        richp(f"[b i red]\nPrettier failed, exit code: {e.returncode}[/b i red]")
+        richp(f"[b i red]\nError output:\n{e.stderr}")
+    except SYSTEM_EXCEPTIONS as e:
+        error_var("\nPrettier failed: ", e, trace=True)
+
+
 def main() -> None:
     if not (mapping := get_data()):
         richp("\n[b i red]Updating images aborted.[/b i red]")
         return
     update_img_src(mapping)
+    prettier()
     richp("\n[b i green]All files updated successfully.[/b i green]")
 
 

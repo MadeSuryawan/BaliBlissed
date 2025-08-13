@@ -9,7 +9,7 @@ export const FloatingButtonsController = {
         try {
             // Cache element lookups
             const floatingButtons = Array.from(
-                Utils.getElements(".floating-button")
+                Utils.getElements(".floating-button"),
             ); // Convert NodeList to Array
             const whatsappFloat = Utils.getElement("#whatsapp-float");
 
@@ -135,7 +135,7 @@ export const FloatingButtonsController = {
                 if (!clickedButton) {
                     // Find any currently expanded floating button
                     const expandedButton = document.querySelector(
-                        ".floating-button.expanded"
+                        ".floating-button.expanded",
                     );
                     if (expandedButton) {
                         this.collapseButton(expandedButton);
@@ -143,7 +143,7 @@ export const FloatingButtonsController = {
                 }
                 // If the click was ON a button, the button's own handler manages expand/collapse
             },
-            { passive: isMobile }
+            { passive: isMobile },
         ); // Use passive: true only for touchstart for performance
     },
 };

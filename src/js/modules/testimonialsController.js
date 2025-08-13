@@ -59,7 +59,7 @@ export const TestimonialsController = {
 
                 // Make sure buttons and indicators are visible on mobile
                 this.ensureMobileControlsVisibility();
-            }, 200)
+            }, 200),
         );
 
         // Ensure mobile controls are visible on initial load
@@ -150,14 +150,14 @@ export const TestimonialsController = {
             text.addEventListener("click", () => {
                 const card = text.closest(".testimonial-card");
                 const authorContent = card.querySelector(
-                    ".testimonial-author"
+                    ".testimonial-author",
                 ).innerHTML;
 
                 // Populate and show modal
                 const modal = Utils.getElement(".testimonial-modal");
                 const modalText = Utils.getElement(".testimonial-modal-text");
                 const modalAuthor = Utils.getElement(
-                    ".testimonial-modal-author"
+                    ".testimonial-modal-author",
                 );
 
                 modalText.textContent = text.textContent;
@@ -180,7 +180,7 @@ export const TestimonialsController = {
 
                     // Make sure modal content is scrollable
                     const modalContent = Utils.getElement(
-                        ".testimonial-modal-content"
+                        ".testimonial-modal-content",
                     );
                     if (modalContent) {
                         modalContent.style.overflowY = "auto";
@@ -225,7 +225,7 @@ export const TestimonialsController = {
                     // Allow scrolling within the modal content
                     e.stopPropagation();
                 },
-                { passive: true }
+                { passive: true },
             );
 
             modalContent.addEventListener(
@@ -234,7 +234,7 @@ export const TestimonialsController = {
                     // Allow scrolling within the modal content
                     e.stopPropagation();
                 },
-                { passive: true }
+                { passive: true },
             );
         }
     },
@@ -263,7 +263,7 @@ export const TestimonialsController = {
         if (direction === "next") {
             this.currentIndex = Math.min(
                 this.currentIndex + 1,
-                this.testimonialCount - this.visibleCount
+                this.testimonialCount - this.visibleCount,
             );
         } else if (direction === "prev") {
             this.currentIndex = Math.max(this.currentIndex - 1, 0);
@@ -314,7 +314,7 @@ export const TestimonialsController = {
         // Calculate number of indicators needed
         const totalIndicators = Math.max(
             1,
-            this.testimonialCount - this.visibleCount + 1
+            this.testimonialCount - this.visibleCount + 1,
         );
 
         // Limit to maximum 10 visible indicators
@@ -371,17 +371,17 @@ export const TestimonialsController = {
         let step = 1;
         if (indicators.length >= 2) {
             const firstIndex = parseInt(
-                indicators[0].getAttribute("data-slide") || "0"
+                indicators[0].getAttribute("data-slide") || "0",
             );
             const secondIndex = parseInt(
-                indicators[1].getAttribute("data-slide") || "1"
+                indicators[1].getAttribute("data-slide") || "1",
             );
             step = secondIndex - firstIndex;
         }
 
         indicators.forEach((indicator) => {
             const slideIndex = parseInt(
-                indicator.getAttribute("data-slide") || "0"
+                indicator.getAttribute("data-slide") || "0",
             );
 
             // Check if current index falls within this indicator's range
@@ -390,8 +390,8 @@ export const TestimonialsController = {
                 (slideIndex ===
                     parseInt(
                         indicators[indicators.length - 1].getAttribute(
-                            "data-slide"
-                        ) || "0"
+                            "data-slide",
+                        ) || "0",
                     ) ||
                     this.currentIndex < slideIndex + step)
             ) {
@@ -417,7 +417,7 @@ export const TestimonialsController = {
             (e) => {
                 this.touchStartX = e.changedTouches[0].screenX;
             },
-            { passive: true }
+            { passive: true },
         );
 
         container.addEventListener(
@@ -426,7 +426,7 @@ export const TestimonialsController = {
                 this.touchEndX = e.changedTouches[0].screenX;
                 this.handleSwipe();
             },
-            { passive: true }
+            { passive: true },
         );
 
         // Mouse events for desktop (simulating swipe)

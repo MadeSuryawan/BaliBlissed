@@ -445,7 +445,8 @@ header.scrolled .menu-toggle {
     z-index: 1499; /* Below modal, above other content */
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition-standard),
+    transition:
+        opacity var(--transition-standard),
         visibility var(--transition-standard);
 }
 
@@ -483,7 +484,8 @@ header.scrolled .menu-toggle {
 
 .about-modal-body .social-link {
     background-color: var(--gray-200);
-    transition: background-color var(--transition-standard),
+    transition:
+        background-color var(--transition-standard),
         transform var(--transition-standard);
     display: flex;
     align-items: center;
@@ -503,7 +505,8 @@ header.scrolled .menu-toggle {
     display: block; /* Ensure image behaves as a block */
     border-radius: 20%;
     box-shadow: 0 6px 5px rgba(0, 0, 0, 0.2); /* Add shadow to the image */
-    transition: box-shadow var(--transition-standard),
+    transition:
+        box-shadow var(--transition-standard),
         transform var(--transition-standard); /* Add transition for shadow/transform */
 }
 
@@ -526,7 +529,8 @@ header.scrolled .menu-toggle {
     z-index: var(--z-overlay);
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition-standard),
+    transition:
+        opacity var(--transition-standard),
         visibility var(--transition-standard);
 }
 
@@ -602,7 +606,9 @@ header.scrolled .menu-toggle {
     /* Animation properties */
     /* opacity: 0; */
     /* transform: translateX(-100px); */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition:
+        opacity 0.8s ease-out,
+        transform 0.8s ease-out;
     will-change: opacity, transform;
 }
 
@@ -618,7 +624,9 @@ header.scrolled .menu-toggle {
     margin-block-end: 1.5rem;
     opacity: 0;
     transform: translateX(-300px);
-    transition: opacity 1.5s ease-out, transform 0.6s ease-out;
+    transition:
+        opacity 1.5s ease-out,
+        transform 0.6s ease-out;
     will-change: opacity, transform;
 }
 
@@ -627,7 +635,9 @@ header.scrolled .menu-toggle {
     margin-block-end: var(--space-xl);
     transform: translateX(-900px);
     opacity: 0;
-    transition: opacity 1.5s ease-out, transform 0.6s ease-out;
+    transition:
+        opacity 1.5s ease-out,
+        transform 0.6s ease-out;
     will-change: opacity, transform;
 }
 
@@ -655,7 +665,9 @@ header.scrolled .menu-toggle {
     padding: 5rem var(--container-padding);
     opacity: 0.3; /* Initially hidden */
     transform: translateY(50px); /* Start slightly below */
-    transition: opacity 0.9s ease-out, transform 0.9s ease-out; /* Smooth transition */
+    transition:
+        opacity 0.9s ease-out,
+        transform 0.9s ease-out; /* Smooth transition */
     will-change: opacity, transform; /* Optimize animation */
 }
 
@@ -788,7 +800,9 @@ html.dimmed {
 .service-link-content a span {
     opacity: 0;
     transform: translateX(-100px); /* Start from the left */
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transition:
+        opacity 0.4s ease-out,
+        transform 0.4s ease-out;
     will-change: opacity, transform;
 }
 
@@ -841,7 +855,8 @@ html.dimmed {
     border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-md);
-    transition: transform var(--transition-standard),
+    transition:
+        transform var(--transition-standard),
         box-shadow var(--transition-standard);
     height: var(--card-height);
     flex-direction: column;
@@ -1625,7 +1640,8 @@ footer {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     color: var(--white);
-    transition: background-color var(--transition-standard),
+    transition:
+        background-color var(--transition-standard),
         transform var(--transition-standard);
     font-size: 0.9rem;
 }
@@ -1754,7 +1770,8 @@ footer {
     display: inline-block; /* Keep home button as a simple block */
     width: var(--floating-button-mobile); /* Explicit size */
     height: var(--floating-button-mobile); /* Explicit size */
-    transition: transform var(--transition-standard),
+    transition:
+        transform var(--transition-standard),
         opacity var(--transition-standard),
         visibility var(--transition-standard);
     padding: 0;
@@ -1807,7 +1824,8 @@ footer {
     justify-content: center;
     overflow: hidden;
     position: relative;
-    will-change: transform, width, background-color, padding; /* Optimize transitions */
+    will-change:
+        transform, width, background-color, padding; /* Optimize transitions */
     /* Set initial size */
     width: var(--floating-button-desktop);
     height: var(--floating-button-desktop);
@@ -1839,7 +1857,8 @@ footer {
     opacity: 0;
     max-width: 0;
     white-space: nowrap;
-    transition: opacity var(--transition-standard),
+    transition:
+        opacity var(--transition-standard),
         max-width var(--transition-standard); /* Animate text visibility */
     font-weight: 600;
     font-size: 1rem;
@@ -2659,7 +2678,9 @@ textarea.is-invalid {
     margin-bottom: 1rem;
     opacity: 0;
     transform: translateX(-300px);
-    transition: opacity 1.5s ease-out, transform 0.6s ease-out;
+    transition:
+        opacity 1.5s ease-out,
+        transform 0.6s ease-out;
     will-change: opacity, transform;
 }
 
@@ -2670,7 +2691,9 @@ textarea.is-invalid {
     margin: 0 auto;
     transform: translateX(-900px);
     opacity: 0;
-    transition: opacity 1.5s ease-out, transform 0.6s ease-out;
+    transition:
+        opacity 1.5s ease-out,
+        transform 0.6s ease-out;
     will-change: opacity, transform;
 }
 

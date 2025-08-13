@@ -84,6 +84,20 @@ temp/
 # Live Server
 .live-server/
 
+# Backup files
+**/*.bak
+**/*.bkp
+**/*.tmp
+**/*.old
+**/*.orig
+**/*.rej
+**/*.swo
+**/*.swp
+**/*.swn
+**/*.~*
+**/*~
+
+
 ## project specific
 
 # Images

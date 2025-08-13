@@ -52,7 +52,7 @@ import { DelayedService } from "/js/modules/delayedService.js";
                         // Wait for page to fully load, then scroll
                         setTimeout(() => {
                             const targetElement = Utils.getElement(
-                                `#${section}`
+                                `#${section}`,
                             );
                             if (targetElement) {
                                 targetElement.scrollIntoView({

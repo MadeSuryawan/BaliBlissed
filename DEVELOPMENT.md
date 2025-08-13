@@ -28,7 +28,7 @@ npm install
 | dev   | `npm run dev`   | Build + BrowserSync + live reload |
 | build | `npm run build` | Production build (`dist/`)        |
 | clean | `npm run clean` | Delete `dist/`                    |
-| watch | `npm run watch` | WATCH-ONLY (no build)                    |
+| watch | `npm run watch` | WATCH-ONLY (no build)             |
 
 ---
 
@@ -53,12 +53,12 @@ Auto-reload on every save.
 
 ## 5. Asset Flow
 
-| Source          | Destination | What Happens                            |
-| --------------- | ----------- | ------------------------------------    |
-| `src/**/*.html` | `dist/`     | minified; links rewritten to `.min.*`    |
-| `src/**/*.css`  | `dist/`     | minified → `.min.css`                    |
-| `src/**/*.js`   | `dist/`     | minified → `.min.js`                     |
-| everything else | `dist/`     | byte-for-byte copy                      |
+| Source          | Destination | What Happens                          |
+| --------------- | ----------- | ------------------------------------- |
+| `src/**/*.html` | `dist/`     | minified; links rewritten to `.min.*` |
+| `src/**/*.css`  | `dist/`     | minified → `.min.css`                 |
+| `src/**/*.js`   | `dist/`     | minified → `.min.js`                  |
+| everything else | `dist/`     | byte-for-byte copy                    |
 
 ---
 
@@ -74,8 +74,8 @@ Dot-files (.htaccess) are copied automatically.
 | Problem                   | Fix                                                      |
 | ------------------------- | -------------------------------------------------------- |
 | `gulp: command not found` | `npm install -g gulp-cli` or use `npx gulp …`            |
-| Images bigger after copy  | The copy task is binary-safe; clear browser cache first.  |
-| `.htaccess` not copied    | Ensure file exists in `src/`; task uses `dot: true`.      |
+| Images bigger after copy  | The copy task is binary-safe; clear browser cache first. |
+| `.htaccess` not copied    | Ensure file exists in `src/`; task uses `dot: true`.     |
 
 ## 8. Project Strucure
 
@@ -88,43 +88,43 @@ BaliBlissed/
 ├── MAINTENANCE.md
 ├── package-lock.json
 ├── package.json
-├── dist/                # (empty directory, for project build)
+├── dist/ # (empty directory, for project build)
 ├── src/
-│   ├── .htaccess
-│   ├── 404.html
-│   ├── css/
-│   │   └── style.css
-│   ├── destinations/
-│   │   └── activities/
-│   │       ├── Ayung_River_Rafting_In_Bali_With_Activities_And_Sightseeing_Tour/
-│   │       ├── Bali_Atv_Ride_In_Ubud/
-│   │       ├── ... (many more destination folders)
-│   ├── icons/
-│   │   ├── Favicons_(Arrow)/
-│   │   ├── Favicons_(Facebook)/
-│   │   ├── Favicons_(Instagram)/
-│   │   ├── Favicons_(WhatsApp)/
-│   │   └── Favicons_(logo)/
-│   ├── images/
-│   │   ├── destinations/
-│   │   ├── hero/
-│   │   └── testimonials/
-│   ├── includes/
-│   │   ├── footer.html
-│   │   └── header.html
-│   ├── index.html
-│   ├── js/
-│   │   ├── destinationImages.json
-│   │   ├── main.js
-│   │   └── mapUrls.json
-│   ├── pages/
-│   │   ├── about.html
-│   │   ├── faq.html
-│   │   ├── privacy-policy.html
-│   │   └── terms-of-service.html
-│   ├── robots.txt
-│   ├── services/
-│   │   └── private_car_charter/
-│   │       └── index.html
-│   └── sitemap.xml
+│ ├── .htaccess
+│ ├── 404.html
+│ ├── css/
+│ │ └── style.css
+│ ├── destinations/
+│ │ └── activities/
+│ │ ├── Ayung*River_Rafting_In_Bali_With_Activities_And_Sightseeing_Tour/
+│ │ ├── Bali_Atv_Ride_In_Ubud/
+│ │ ├── ... (many more destination folders)
+│ ├── icons/
+│ │ ├── Favicons*(Arrow)/
+│ │ ├── Favicons*(Facebook)/
+│ │ ├── Favicons*(Instagram)/
+│ │ ├── Favicons*(WhatsApp)/
+│ │ └── Favicons*(logo)/
+│ ├── images/
+│ │ ├── destinations/
+│ │ ├── hero/
+│ │ └── testimonials/
+│ ├── includes/
+│ │ ├── footer.html
+│ │ └── header.html
+│ ├── index.html
+│ ├── js/
+│ │ ├── destinationImages.json
+│ │ ├── main.js
+│ │ └── mapUrls.json
+│ ├── pages/
+│ │ ├── about.html
+│ │ ├── faq.html
+│ │ ├── privacy-policy.html
+│ │ └── terms-of-service.html
+│ ├── robots.txt
+│ ├── services/
+│ │ └── private_car_charter/
+│ │ └── index.html
+│ └── sitemap.xml
 └── ... (node_modules and other config folders)

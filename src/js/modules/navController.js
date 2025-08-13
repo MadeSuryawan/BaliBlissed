@@ -80,10 +80,10 @@ export const NavigationController = {
                             () => {
                                 overlay.remove();
                                 document.body.classList.remove(
-                                    "overlay-active"
+                                    "overlay-active",
                                 );
                             },
-                            { once: true }
+                            { once: true },
                         );
 
                         // dim the page

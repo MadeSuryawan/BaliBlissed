@@ -42,14 +42,14 @@ export const ComponentLoader = {
                           isDestinationPage,
                           isActivityPage,
                           isServicePage,
-                          isPagesPage
+                          isPagesPage,
                       );
                       // Initialize header-specific JS immediately after loading
                       NavigationController.init(); // Depends on header elements
                       FloatingButtonsController.init(); // Depends on header elements (#whatsapp-float)
                   })
                   .catch((error) =>
-                      console.error("Error loading header:", error)
+                      console.error("Error loading header:", error),
                   )
             : Promise.resolve(); // Resolve immediately if no placeholder
 
@@ -64,12 +64,12 @@ export const ComponentLoader = {
                           isDestinationPage,
                           isActivityPage,
                           isServicePage,
-                          isPagesPage
+                          isPagesPage,
                       );
                       // Footer specific JS initialization could go here if needed
                   })
                   .catch((error) =>
-                      console.error("Error loading footer:", error)
+                      console.error("Error loading footer:", error),
                   )
             : Promise.resolve(); // Resolve immediately if no placeholder
 
@@ -82,7 +82,7 @@ export const ComponentLoader = {
         isDestinationPage,
         isActivityPage,
         isServicePage,
-        isPagesPage
+        isPagesPage,
     ) {
         if (
             isDestinationPage ||
@@ -91,10 +91,10 @@ export const ComponentLoader = {
             isPagesPage
         ) {
             const links = placeHolder.querySelectorAll(
-                'a:not([href^="http"]):not([href^="#"]):not([href^="mailto"]):not([href^="tel"])'
+                'a:not([href^="http"]):not([href^="#"]):not([href^="mailto"]):not([href^="tel"])',
             );
             const images = placeHolder.querySelectorAll(
-                'img:not([src^="http"]):not([src^="/"])'
+                'img:not([src^="http"]):not([src^="/"])',
             ); // Select relative image paths
 
             links.forEach((link) => {

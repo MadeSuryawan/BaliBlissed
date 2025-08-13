@@ -50,7 +50,7 @@ The `destination_images.json` file contains image data in the following format:
 
 ```json
 {
-  "Destination Name": "path/to/image.webp"
+    "Destination Name": "path/to/image.webp"
 }
 ```
 

@@ -21,7 +21,7 @@ export const MapController = {
 
             // Find location elements on the page
             const locationElement = document.querySelector(
-                "#destination-location"
+                "#destination-location",
             );
             if (!locationElement) return; // Exit if not on a page with location element
 

@@ -9,7 +9,7 @@ export const PaginationController = {
             const prevButton = Utils.getElement(".prev-page");
             const nextButton = Utils.getElement(".next-page");
             const paginationNumbersContainer = Utils.getElement(
-                ".pagination-numbers"
+                ".pagination-numbers",
             );
             const destinationPages = Utils.getElements(".destinations-page");
 
@@ -34,7 +34,7 @@ export const PaginationController = {
             this.paginationNumbersContainer.addEventListener("click", (e) => {
                 if (e.target.classList.contains("pagination-number")) {
                     const pageNumber = parseInt(
-                        e.target.getAttribute("data-page")
+                        e.target.getAttribute("data-page"),
                     );
                     if (!isNaN(pageNumber)) {
                         this.showPage(pageNumber, true);
@@ -73,7 +73,7 @@ export const PaginationController = {
 
             // Show the selected page
             const pageToShow = Utils.getElement(
-                `.destinations-page[data-page="${pageNumber}"]`
+                `.destinations-page[data-page="${pageNumber}"]`,
             );
             if (pageToShow) {
                 pageToShow.classList.add("active");
@@ -112,7 +112,7 @@ export const PaginationController = {
             // Calculate which buttons to show
             let startPage = Math.max(
                 1,
-                this.currentPage - Math.floor(this.maxVisibleButtons / 2)
+                this.currentPage - Math.floor(this.maxVisibleButtons / 2),
             );
             let endPage = startPage + this.maxVisibleButtons - 1;
 

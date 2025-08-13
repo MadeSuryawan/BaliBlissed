@@ -43,7 +43,7 @@ export const ModalController = {
                     aboutModal,
                     aboutBody,
                     mobileMenu,
-                    mobileOverlay
+                    mobileOverlay,
                 );
             };
 
@@ -92,7 +92,7 @@ export const ModalController = {
 
         // Get the footer 'About' content
         const footerAbout = Utils.getElement(
-            "#footer-placeholder .footer-about"
+            "#footer-placeholder .footer-about",
         );
 
         if (!footerAbout) {

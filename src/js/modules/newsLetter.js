@@ -13,7 +13,7 @@ export const Newsletter = {
         if (newsletterForm) {
             newsletterForm.addEventListener(
                 "submit",
-                this.handleNewsletterSubmit
+                this.handleNewsletterSubmit,
             );
         }
 
@@ -48,7 +48,7 @@ export const Newsletter = {
         if (!emailRegex.test(email)) {
             Utils.showNotification(
                 "Please enter a valid email address.",
-                "error"
+                "error",
             );
             return;
         }
@@ -72,7 +72,7 @@ export const Newsletter = {
             // Show success message
             Utils.showNotification(
                 "Thank you for subscribing! You'll receive our latest updates and exclusive offers.",
-                "success"
+                "success",
             );
         }, 1500);
     },

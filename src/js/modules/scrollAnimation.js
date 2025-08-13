@@ -50,7 +50,7 @@ export const ScrollAnimation = {
         // Bind 'this' to ensure VISIBLE_CLASS is accessible in _handleIntersection
         const observer = new IntersectionObserver(
             this._handleIntersection.bind(this),
-            options
+            options,
         );
 
         elements.forEach((el) => observer.observe(el));
@@ -75,17 +75,17 @@ export const ScrollAnimation = {
             for (const [selector, threshold] of Object.entries(this._config)) {
                 this._observers[selector] = this._startObserver(
                     selector,
-                    threshold
+                    threshold,
                 );
             }
 
             // Check if any observers were created
             const hasObservers = Object.values(this._observers).some(
-                (observer) => observer !== null
+                (observer) => observer !== null,
             );
             if (!hasObservers) {
                 console.log(
-                    "ScrollAnimation: No elements found to observe for any selector."
+                    "ScrollAnimation: No elements found to observe for any selector.",
                 );
             }
         } catch (error) {

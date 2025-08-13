@@ -37,7 +37,7 @@ export const Utils = {
 
     add_section(section) {
         const arr = JSON.parse(
-            sessionStorage.getItem("scrollToSection") || "[]"
+            sessionStorage.getItem("scrollToSection") || "[]",
         );
         arr.push(section);
         sessionStorage.setItem("scrollToSection", JSON.stringify(arr));
@@ -61,8 +61,8 @@ export const Utils = {
                     type === "success"
                         ? "fa-check-circle"
                         : type === "error"
-                        ? "fa-exclamation-circle"
-                        : "fa-info-circle"
+                          ? "fa-exclamation-circle"
+                          : "fa-info-circle"
                 }"></i>
                 <span>${message}</span>
                 <button class="notification-close">&times;</button>
@@ -79,8 +79,8 @@ export const Utils = {
                 type === "success"
                     ? "#4CAF50"
                     : type === "error"
-                    ? "#f44336"
-                    : "#2196F3"
+                      ? "#f44336"
+                      : "#2196F3"
             };
             color: white;
             padding: 1rem 1.5rem;

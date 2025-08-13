@@ -22,7 +22,7 @@ export const ScrollController = {
         // Attach throttled scroll handler
         window.addEventListener(
             "scroll",
-            Utils.throttle(this.handleScroll, 12)
+            Utils.throttle(this.handleScroll, 12),
         );
     },
 

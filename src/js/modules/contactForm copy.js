@@ -23,7 +23,7 @@ export const ContactForm = {
         if (!data.name || !data.email || !data.message) {
             Utils.showNotification(
                 "Please fill in all required fields.",
-                "error"
+                "error",
             );
             return;
         }
@@ -33,7 +33,7 @@ export const ContactForm = {
         if (!emailRegex.test(data.email)) {
             Utils.showNotification(
                 "Please enter a valid email address.",
-                "error"
+                "error",
             );
             return;
         }
@@ -63,7 +63,7 @@ export const ContactForm = {
 
             Utils.showNotification(
                 "Thank you! Your message has been sent.",
-                "success"
+                "success",
             );
 
             // setTimeout(() => {

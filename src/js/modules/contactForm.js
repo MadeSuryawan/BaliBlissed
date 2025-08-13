@@ -29,7 +29,7 @@ export const ContactForm = {
             this._showFieldErrors(e, missing);
             Utils.showNotification(
                 "Please fill in all required fields.",
-                "error"
+                "error",
             );
             this._lock = false;
             return;
@@ -41,7 +41,7 @@ export const ContactForm = {
             this._showFieldErrors(e, ["email"]);
             Utils.showNotification(
                 "Please enter a valid email address.",
-                "error"
+                "error",
             );
             this._lock = false;
             return;
@@ -65,12 +65,12 @@ export const ContactForm = {
             e.target.reset();
             Utils.showNotification(
                 "Thank you! Your message has been sent.",
-                "success"
+                "success",
             );
         } catch (err) {
             Utils.showNotification(
                 err.message || "Unable to send message.",
-                "error"
+                "error",
             );
         } finally {
             this._setLoading(false);
@@ -109,7 +109,7 @@ export const ContactForm = {
             el.addEventListener(
                 "input",
                 () => el.classList.remove("is-invalid"),
-                { once: true }
+                { once: true },
             );
         });
     },
