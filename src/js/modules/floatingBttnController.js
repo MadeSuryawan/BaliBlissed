@@ -2,7 +2,7 @@ import { Utils } from "/js/modules/utils.js";
 import { CONFIG } from "/js/modules/config.js";
 import { openWhatsApp } from "/js/modules/openWA.js";
 
-export const FloatingButtonsController = {
+export const FloatBttnsController = {
     buttonTimeouts: new Map(), // Stores timeout IDs for collapsing buttons
 
     init() {

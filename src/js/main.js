@@ -6,12 +6,16 @@ import { TestimonialsController } from "/js/modules/testimonialsController.js";
 import { ContactForm } from "/js/modules/contactForm.js";
 // import { Newsletter } from "/js/modules/newsLetter.js";
 import { ScrollAnimation } from "/js/modules/scrollAnimation.js";
+import { MobileMenu } from "/js/modules/mobileMenu.js";
 import { ScrollController } from "/js/modules/scrollController.js";
 import { MapController } from "/js/modules/mapController.js";
 import { DelayedService } from "/js/modules/delayedService.js";
+import { BookingButtons } from "/js/modules/bookingButtons.js";
+import { FloatBttnsController } from "/js/modules/floatingBttnController.js";
 import { ThemeController } from "/js/modules/themeController.js";
 import { ContactModalController } from "/js/modules/contactModalController.js";
-// import { RippleEffect } from "/js/modules/rippleEffect.js";
+import { ModalController } from "/js/modules/modalController.js";
+import { RippleEffect } from "/js/modules/rippleEffect.js";
 
 /**
  * Main application entry point.
@@ -29,67 +33,46 @@ import { ContactModalController } from "/js/modules/contactModalController.js";
         history.scrollRestoration = "manual";
     }
 
-    /**
-     * Asynchronously loads JSON data from a file.
-     * @param {string} jsonFile - The path to the JSON file.
-     * @returns {Promise<Object>} A promise that resolves to the parsed JSON object.
-     */
-    async function loadJsonData(jsonFile) {
-        const dataDict = {};
-        try {
-            const response = await fetch(jsonFile);
-            if (!response.ok) {
-                throw new Error(`Failed to load ${jsonFile}`);
-            }
-            const data = await response.json();
-            Object.assign(dataDict, data);
-        } catch (error) {
-            console.error(`Error loading JSON from ${jsonFile}:`, error);
-        }
-        return dataDict;
-    }
-
-    // Initialize all controllers when DOM is ready
     document.addEventListener("DOMContentLoaded", function () {
         async function initializeApp() {
             // 1. Load necessary data first (e.g., map URLs).
-            const mapUrls = await loadJsonData(CONFIG.MAP_URLS);
+            const mapUrls = await (
+                typeof CONFIG !== "undefined" && CONFIG.MAP_URLS
+                    ? Utils.loadJsonData(CONFIG.MAP_URLS)
+                    : Promise.resolve({})
+            ).catch((err) => {
+                console.error("Failed to load map URLs:", err);
+                return {};
+            });
 
             try {
-                // Check if we need to scroll to a specific section after page load
-                const sections = Utils.get_sections();
-                if (sections) {
-                    // Clear the stored section
-                    sessionStorage.removeItem("scrollToSection");
-                    sections.forEach((section) => {
-                        // Wait for page to fully load, then scroll
-                        setTimeout(() => {
-                            const targetElement = Utils.getElement(
-                                `#${section}`,
-                            );
-                            if (targetElement) {
-                                targetElement.scrollIntoView({
-                                    behavior: "smooth",
-                                });
-                            }
-                        }, 900);
-                    });
-                }
                 // 2. Initialize core modules that don't depend on header/footer.
                 ScrollController.init();
                 DelayedService.init();
                 PaginationController.init();
                 TestimonialsController.init();
                 // Newsletter.init();
+                RippleEffect.init();
                 MapController.init(mapUrls);
                 ScrollAnimation.init();
 
-                // 4. Load shared components (header/footer) and then initialize modules that depend on them.
+                // 3. Load shared components (header/footer) and then initialize modules that depend on them.
                 await ComponentLoader.init();
-                ContactForm.init();
-                ThemeController.init(); // Depends on theme switcher in header/footer.
-                ContactModalController.init(); // Initialize the new contact modal logic.
-                // RippleEffect.init(); // Initialize the button ripple effect.
+
+                // 4. Initialize independent modules in parallel; failures won't block others
+                await Promise.allSettled([
+                    Promise.resolve().then(() => ThemeController.init()),
+                    Promise.resolve().then(() => MobileMenu.init()),
+                    Promise.resolve().then(() => BookingButtons.init()),
+                    Promise.resolve().then(() => FloatBttnsController.init()),
+                    Promise.resolve().then(() => ModalController.init()),
+                    Promise.resolve().then(() => ContactModalController.init()),
+                    Promise.resolve().then(() => ContactForm.init()),
+                ]);
+
+                // 5. Check if we need to scroll to a specific section after page load
+                const section = Utils.get_section();
+                if (section) Utils.scrollToSection(section);
             } catch (error) {
                 console.error(
                     "Error during application initialization:",

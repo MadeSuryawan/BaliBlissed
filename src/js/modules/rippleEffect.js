@@ -4,7 +4,7 @@ export const RippleEffect = {
     init() {
         // Apply ripple effect to a wide range of buttons across the site
         const rippleButtons = Utils.getElements(
-            ".card-button, .contact-submit-btn, .cta-button, .service-link-button, .error-button, .whatsapp-button-modal, .pagination-arrow, .pagination-number",
+            ".pagination-arrow, .pagination-number, .carousel-arrow",
         );
 
         rippleButtons.forEach((button) => {

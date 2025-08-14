@@ -36,15 +36,16 @@ export const Utils = {
     },
 
     add_section(section) {
-        const arr = JSON.parse(
-            sessionStorage.getItem("scrollToSection") || "[]",
-        );
-        arr.push(section);
-        sessionStorage.setItem("scrollToSection", JSON.stringify(arr));
+        // const secStr = JSON.parse(
+        //     sessionStorage.getItem("scrollToSection") || "",
+        // );
+        // arr.push(section);
+        // sessionStorage.setItem("scrollToSection", JSON.stringify(arr));
+        sessionStorage.setItem("scrollToSection", section);
     },
 
-    get_sections() {
-        return JSON.parse(sessionStorage.getItem("scrollToSection") || "[]");
+    get_section() {
+        return sessionStorage.getItem("scrollToSection");
     },
 
     showNotification(message, type = "info") {
@@ -113,5 +114,57 @@ export const Utils = {
             (path.endsWith("/index.html") &&
                 (path.match(/\//g) || []).length <= 1)
         );
+    },
+
+    /**
+     * Asynchronously loads JSON data from a file.
+     * @param {string} jsonFile - The path to the JSON file.
+     * @returns {Promise<Object>} A promise that resolves to the parsed JSON object.
+     */
+    async loadJsonData(jsonFile) {
+        try {
+            const response = await fetch(jsonFile, {
+                headers: { Accept: "application/json" },
+            });
+            if (!response.ok) {
+                const errMssg = `Failed to load ${jsonFile}: ${response.status} ${response.statusText}`;
+                throw new Error(errMssg);
+            }
+            const contentType = response.headers.get("content-type") || "";
+            if (!contentType.includes("application/json")) {
+                const errMssg = `Unexpected content type for ${jsonFile}: ${contentType}`;
+                throw new Error(errMssg);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error(`Error loading JSON from ${jsonFile}:`, error);
+            return null;
+        }
+    },
+
+    scrollToSection(section) {
+        // Validate input
+        if (typeof section !== "string" || !section.trim()) return;
+
+        const doScroll = () => {
+            // Normalize the selector to handle inputs that may already include a leading '#',
+            // to avoid invalid selectors like '##id'. This is a safeguard.
+            const selector = section.startsWith("#") ? section : `#${section}`;
+            const targetElement = Utils.getElement(selector);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+                sessionStorage.removeItem("scrollToSection");
+            }
+        };
+        if (
+            document.readyState === "complete" ||
+            document.readyState === "interactive"
+        ) {
+            requestAnimationFrame(doScroll);
+        } else {
+            window.addEventListener("DOMContentLoaded", doScroll, {
+                once: true,
+            });
+        }
     },
 };

@@ -10,14 +10,14 @@ export const ScrollController = {
         //     }, 0);
         // });
 
-        document.addEventListener("DOMContentLoaded", () => {
-            window.scrollTo(0, 0);
+        // document.addEventListener("DOMContentLoaded", () => {
+        //     window.scrollTo(0, 0);
 
-            // One more attempt after a slight delay
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 100);
-        });
+        //     // One more attempt after a slight delay
+        //     setTimeout(() => {
+        //         window.scrollTo(0, 0);
+        //     }, 100);
+        // });
 
         // Attach throttled scroll handler
         window.addEventListener(
@@ -50,7 +50,7 @@ export const ScrollController = {
             if (backToTop) {
                 const scrollHeight = document.documentElement.scrollHeight;
                 const clientHeight = document.documentElement.clientHeight;
-                const scrollThreshold = (scrollHeight - clientHeight) * 0.8; // 90% threshold
+                const scrollThreshold = (scrollHeight - clientHeight) * 0.7; // 70% threshold
 
                 if (window.scrollY >= scrollThreshold) {
                     backToTop.classList.add("visible");
