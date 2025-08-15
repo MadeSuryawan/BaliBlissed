@@ -1,0 +1,322 @@
+/* ==========================================================================
+   Media Queries (Mobile-First Approach)
+   ========================================================================== */
+
+/* Large Desktops */
+@media (min-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1.5fr;
+    }
+}
+
+/* Tablets & Small Desktops */
+@media (min-width: 768px) {
+    .testimonials-track {
+        align-items: stretch;
+        min-height: 250px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+    .hero-content {
+        margin-block-start: 6rem;
+    }
+    .testimonial-card {
+        flex: 0 0 calc(50% - 2rem);
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: var(--space-lg);
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        padding-block-start: 6rem;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .service-link-banner {
+        margin-top: -2rem;
+        padding: 2rem var(--container-padding);
+    }
+
+    .service-link-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .service-link-content p {
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 4rem var(--container-padding);
+    }
+
+    .floating-container {
+        right: 15px;
+        bottom: 15px;
+        gap: 0.75rem;
+    }
+
+    .whatsapp-float,
+    .whatsapp-icon {
+        width: var(--floating-button-mobile);
+        height: var(--floating-button-mobile);
+    }
+    .floating-home {
+        right: 27px;
+        bottom: 80px;
+    }
+    .home-icon,
+    .home-float {
+        width: 40x;
+        height: 40px;
+    }
+
+    .floating-button span {
+        font-size: 0.9rem;
+    }
+
+    .testimonials {
+        padding: 2.5rem var(--container-padding);
+    }
+
+    .testimonials-carousel-container {
+        padding: 0;
+    }
+
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+    .prev-testimonial {
+        left: 5px;
+    }
+
+    .next-testimonial {
+        right: 5px;
+    }
+
+    .testimonial-card {
+        flex: 0 0 calc(100% - 2rem);
+        margin: 0 1rem;
+        padding: 1.5rem;
+        max-height: 260px;
+    }
+
+    .testimonials-grid {
+        display: none;
+    }
+
+    .info-card {
+        min-width: 100%;
+    }
+
+    .vehicle-cards,
+    .service-features {
+        grid-template-columns: 1fr;
+    }
+
+    .surcharge-table {
+        font-size: 0.9rem;
+    }
+
+    .surcharge-table th,
+    .surcharge-table td {
+        padding: 0.75rem;
+    }
+
+    .contact-content-modal {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse; /* Stack buttons, with submit on top */
+        align-items: stretch; /* Make buttons full-width */
+    }
+
+    .form-actions .contact-submit-btn,
+    .form-actions .whatsapp-button-modal {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .carousel-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+
+    .service-link-button {
+        padding: 0.5rem 0.6rem;
+    }
+
+    .service-link-button i {
+        margin-left: 0.1rem;
+    }
+
+    .welcome-modal-body {
+        display: grid;
+    }
+
+    .whatsapp-float,
+    .whatsapp-icon {
+        width: var(--floating-button-mobile);
+        height: var(--floating-button-mobile);
+    }
+    .floating-home {
+        right: 21px;
+        bottom: 80px;
+    }
+
+    .home-icon,
+    .home-float {
+        width: 39px;
+        height: 39px;
+    }
+}
+
+@media (max-width: 360px) {
+    .floating-container {
+        right: 10px;
+        bottom: 10px;
+        gap: 0.5rem;
+    }
+
+    .whatsapp-float,
+    .whatsapp-icon {
+        width: var(--floating-button-mobile);
+        height: var(--floating-button-mobile);
+    }
+
+    .home-icon,
+    .home-float {
+        width: 30px;
+        height: 30px;
+    }
+    .floating-home {
+        right: 27px;
+        bottom: 80px;
+    }
+
+    .service-link-button {
+        padding: 0.8rem 0.5rem;
+    }
+
+    .service-link-button i {
+        margin-left: 0.1rem;
+    }
+}
+
+/* Responsive Contact Form */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact-form {
+        padding: var(--space-lg);
+    }
+
+    .contact-info {
+        padding: var(--space-md);
+    }
+
+    .newsletter-form .form-group {
+        flex-direction: column;
+    }
+
+    .newsletter-submit-btn {
+        width: 100%;
+    }
+
+    .error-code {
+        font-size: 6rem;
+    }
+
+    .error-title {
+        font-size: 2rem;
+    }
+
+    .error-description {
+        font-size: 1rem;
+    }
+
+    .error-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .error-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: var(--space-xl) 0;
+    }
+
+    .contact-section .container {
+        padding: 0 var(--space-md);
+    }
+
+    .contact-form {
+        padding: var(--space-md);
+    }
+
+    .contact-info {
+        padding: var(--space-sm);
+    }
+
+    .newsletter-modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+
+    .newsletter-modal-body {
+        padding: var(--space-lg);
+    }
+}

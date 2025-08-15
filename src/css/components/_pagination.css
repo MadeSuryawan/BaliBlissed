@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Component: Pagination
+   ========================================================================== */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-start: 2rem;
+}
+.pagination-arrow {
+    background: none;
+    border: 1px solid var(--gray-300);
+    border-radius: 10%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    transition: all var(--transition-standard);
+}
+[data-theme="dark"] .pagination-arrow {
+    background-color: var(--gray-100);
+}
+.pagination-arrow:hover:not(.disabled) {
+    background-color: var(--gray-200);
+}
+.pagination-arrow.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.pagination-numbers {
+    display: flex;
+    margin: 0 0.5rem;
+}
+.pagination-number {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 10%;
+    transition: all var(--transition-standard);
+}
+.pagination-number:hover {
+    background-color: var(--gray-200);
+}
+.pagination-number.active {
+    background-color: var(--accent);
+    color: var(--white);
+}
+.destinations-page {
+    display: none;
+}
+
+.destinations-page.active {
+    display: block;
+}

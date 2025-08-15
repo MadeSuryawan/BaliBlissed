@@ -1,0 +1,173 @@
+/* ==========================================================================
+   Destination Page Styles
+   ========================================================================== */
+
+#destinations {
+    margin-top: -3rem;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+}
+
+.destination-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem var(--container-padding);
+    background-color: var(--body-lighter);
+}
+
+.destination-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+}
+
+.destination-title span {
+    color: var(--primary);
+}
+
+.destination-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-card {
+    flex: 1;
+    min-width: 200px;
+    max-height: 200px;
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+.info-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.info-card span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.info-card h4 {
+    padding-top: var(--space-md);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.destination-description {
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.destination-description p {
+    margin-bottom: 1.5rem;
+}
+
+.highlight-list {
+    margin-bottom: 2rem;
+}
+
+.highlight-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.highlight-list li::marker {
+    content: "";
+}
+
+.highlight-list li::before {
+    content: "🌴";
+    color: var(--primary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.cta-button {
+    background: var(--white);
+    color: var(--secondary-dark);
+    padding: 1rem 2rem;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--text-lg);
+    transition: var(--transition-fast);
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    transition: transform var(--transition-standard);
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+.tour-details {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.tour-details h3 {
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.tour-details ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.tour-details ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.tour-details ul li::before {
+    content: "✅";
+    color: var(--primary-dark);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.tour-details .note {
+    font-style: italic;
+    color: var(--gray-700);
+    font-size: 0.9rem;
+}
+
+.destination-hero .image-credit {
+    visibility: hidden;
+}

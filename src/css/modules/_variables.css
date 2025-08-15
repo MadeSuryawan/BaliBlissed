@@ -1,0 +1,121 @@
+:root {
+    /* ==========================================================================
+   Design Tokens - Centralized variables for styling
+   ========================================================================== */
+
+    /* 1. Colors */
+    --primary: #ff8f6b;
+    --primary-dark: #ff7c52;
+    --secondary: #c2edeb;
+    --secondary-dark: #3db1a9;
+    --secondary-darker: #379892;
+    --secondary-darkest: #044843;
+    --secondary-light: #00ff6a;
+    --accent: #fdcb6e;
+
+    /* 2. Neutrals */
+    --dark: #2d3436;
+    --body: #e1ecef;
+    --body-lighter: #eef9fc;
+    --mobile-menu-bg: #f2efe9;
+    --white: #ffffff;
+    --black: #000000;
+
+    /* 3. Grays */
+    --gray-100: #f5f6fa;
+    --gray-200: #eeeeee;
+    --gray-300: #dddddd;
+    --gray-400: #cccccc;
+    --gray-500: #aaaaaa;
+    --gray-600: #888888;
+    --gray-700: #464646;
+    --gray-800: #292828;
+    --gray-900: #1a1a1a;
+
+    /* 4. Spacing System */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-xxl: 3rem;
+    --space-xxxl: 5rem;
+    --container-padding: 5%;
+
+    /* 5. Typography */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-md: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.75rem;
+    --text-xxl: 2rem;
+    --text-xxxl: 3.5rem;
+
+    /* 6. UI Elements */
+    --radius-xs: 3px;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 50px;
+    --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
+    --shadow-primary: 0 10px 20px rgba(255, 107, 107, 0.3);
+
+    /* 7. Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-standard: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* 8. Z-index Layers (Stacking Order) */
+    --z-base: 1;
+    --z-header: 100;
+    --z-overlay: 999;
+    --z-floating: 999;
+    --z-mobile-menu: 1000;
+    --z-preloader: 99999;
+
+    /* 9. Component-specific variables */
+    --header-height-scrolled: 54px;
+    --card-height: 330px;
+    --card-image-height: 70%;
+    --social-icon-size: 35px;
+    --floating-button-desktop: 60px;
+    --floating-button-mobile: 50px;
+    --card-bg-rgb: 255, 255, 255; /* Used for dynamic gradients */
+}
+
+/* ==========================================================================
+   Dark Theme Overrides
+   ========================================================================== */
+[data-theme="dark"] {
+    --primary: #ffad99;
+    --primary-dark: #ff9880;
+    --secondary: #2a3f3e;
+    --secondary-dark: #4db1a9;
+    --secondary-darker: #57c4bd;
+    --secondary-darkest: #b2fcf6;
+    --accent: #fddc8e;
+
+    --dark: #e5e7eb;
+    --body: #111827;
+    --body-lighter: #1f2937;
+    --mobile-menu-bg: #1f2937;
+    --white: #111827;
+    --black: #ffffff;
+
+    --gray-100: #374151;
+    --gray-200: #4b5563;
+    --gray-300: #6b7280;
+    --gray-400: #9ca3af;
+    --gray-500: #d1d5db;
+    --gray-600: #e5e7eb;
+    --gray-700: #f3f4f6;
+    --gray-800: #f9fafb;
+    --gray-900: #ffffff;
+
+    --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.3);
+    --shadow-primary: 0 10px 20px rgba(255, 138, 128, 0.1);
+    --card-bg-rgb: 31, 41, 55; /* Corresponds to #1f2937 */
+}

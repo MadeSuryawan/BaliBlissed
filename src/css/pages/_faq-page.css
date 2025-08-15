@@ -1,0 +1,132 @@
+/* ==========================================================================
+   FAQ Page Styles
+   ========================================================================== */
+
+.faq-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem var(--container-padding);
+    margin-top: 100px;
+    margin-bottom: 2rem;
+}
+
+.faq-page h1 {
+    color: var(--dark);
+    margin-bottom: 2rem;
+    font-size: var(--text-xxl);
+    text-align: center;
+}
+
+.faq-category {
+    margin-bottom: 3rem;
+}
+
+.faq-category h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: var(--text-xl);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.5rem;
+}
+
+.faq-item {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.faq-question {
+    background: var(--gray-100);
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-fast);
+}
+
+.faq-question:hover {
+    background: var(--gray-200);
+}
+
+.faq-question h3 {
+    color: var(--dark);
+    font-size: var(--text-md);
+    font-weight: 600;
+    margin: 0;
+}
+
+.faq-icon {
+    color: var(--primary);
+    font-size: var(--text-lg);
+    transition: var(--transition-fast);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-answer.active {
+    padding: 1.5rem;
+    max-height: 500px;
+}
+
+.faq-answer p {
+    color: var(--gray-700);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.faq-answer ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.faq-answer li {
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+}
+
+.contact-cta {
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--primary-dark) 100%
+    );
+    color: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.contact-cta h3 {
+    margin-bottom: 1rem;
+    font-size: var(--text-xl);
+}
+
+.contact-cta p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.contact-cta a {
+    background: var(--white);
+    color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-fast);
+    display: inline-block;
+}
+
+.contact-cta a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}

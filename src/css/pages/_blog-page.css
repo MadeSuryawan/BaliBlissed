@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Blog Page Styles
+   ========================================================================== */
+
+.blog-preview-section {
+    padding-bottom: 4rem;
+}
+
+.blog-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: 2rem;
+}
+
+.blog-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: transform var(--transition-standard),
+        box-shadow var(--transition-standard);
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.blog-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-card-content {
+    padding: var(--space-lg);
+}
+
+.blog-category {
+    display: inline-block;
+    background: var(--secondary);
+    color: var(--secondary-darkest);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-lg);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+}
+
+.blog-card-content h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-sm);
+}
+
+.blog-card-content p {
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+    margin-bottom: var(--space-md);
+}
+
+.read-more {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.view-all-blog {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: var(--radius-md);
+    max-width: 210px;
+    padding: 1rem;
+}
+
+.cta-button.secondary:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.blog-page {
+    margin-top: 100px;
+}
+
+.blog-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem var(--container-padding);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+}

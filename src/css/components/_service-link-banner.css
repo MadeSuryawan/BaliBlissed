@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Component: Service Link Banner
+   ========================================================================== */
+.service-link-banner {
+    padding: 2rem var(--container-padding);
+    background-color: var(--secondary);
+    position: relative;
+    z-index: 2;
+    margin-top: -3rem;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    text-align: center;
+}
+.service-link-banner .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.service-link-content {
+    padding: 2rem;
+    background: linear-gradient(145deg, #f1ca8b 0%, #ff5252 100%);
+    border-radius: var(--radius-sm);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+}
+.service-link-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+.service-link-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+.service-link-button {
+    display: inline-block;
+    background-color: var(--body-lighter);
+    color: var(--gray-700);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-standard);
+    font-size: 1rem;
+    white-space: nowrap;
+}
+.service-link-button i {
+    margin-left: 0.3rem;
+    transition: transform var(--transition-fast);
+}
+.service-link-button:hover i {
+    transform: translateX(5px);
+    transition: transform var(--transition-standard);
+}
+.service-link-button {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.6s ease-out transform 0.3s ease-out;
+    will-change: opacity, transform;
+}
+.service-link-content p,
+.service-link-content a span {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    will-change: opacity, transform;
+}
+.service-link-content.visible p,
+.service-link-content.visible .service-link-button span {
+    opacity: 1;
+    transform: translateX(0);
+}
+.service-link-content.visible .service-link-button {
+    opacity: 1;
+    transform: translateX(0);
+}
+.service-link-content.visible .service-link-button:hover {
+    transform: translateY(-3px);
+    color: var(--primary);
+}
+.service-link-content.visible p {
+    transition-delay: 0.2s;
+}
+.service-link-content.visible .service-link-button span {
+    transition-delay: 0.4s;
+}
+.service-link-content.visible .service-link-button {
+    transition-delay: 0.1s;
+}

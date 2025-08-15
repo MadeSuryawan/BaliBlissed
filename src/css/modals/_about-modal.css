@@ -1,0 +1,63 @@
+/* ==========================================================================
+   About Modal
+   ========================================================================== */
+
+.about-modal-body {
+    color: var(--dark);
+    line-height: 1.7;
+}
+
+.about-modal-body .footer-logo {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.about-modal-body .footer-logo span {
+    color: var(--primary);
+}
+
+.about-modal-body p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-align: left;
+    opacity: 1;
+}
+
+.about-modal-body .social-links {
+    margin-top: 1.5rem;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.about-modal-body .social-link {
+    background-color: var(--gray-200);
+    transition: background-color var(--transition-standard),
+        transform var(--transition-standard);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--social-icon-size);
+    height: var(--social-icon-size);
+}
+
+.about-modal-body .social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.about-modal-body .social-link img {
+    display: block;
+    border-radius: 20%;
+    box-shadow: 0 6px 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow var(--transition-standard),
+        transform var(--transition-standard);
+}
+
+.about-modal-body .social-links h5 {
+    margin-right: 0.5rem;
+    font-weight: 500;
+    color: var(--gray-700);
+}

@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Component: Theme Switcher
+   ========================================================================== */
+.navigation .theme-switcher-container {
+    display: flex;
+    align-items: center;
+}
+.mobile-menu .theme-switcher-container {
+    margin: var(--space-md) 0;
+}
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background-color: transparent;
+    padding: 0.3rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    position: relative;
+    color: var(--white);
+    font-size: var(--text-sm);
+}
+
+[data-theme="dark"] .theme-switcher {
+    color: rgba(247, 250, 255, 0.85);
+}
+
+header.scrolled .theme-switcher {
+    color: var(--dark);
+}
+[data-theme="dark"] header.scrolled .theme-switcher {
+    color: var(--dark);
+}
+.mobile-menu .theme-switcher {
+    color: var(--dark);
+    background-color: var(--gray-200);
+}
+.theme-switcher select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    padding: 0 1.2rem 0 0.3rem;
+    cursor: pointer;
+}
+.theme-switcher .select-arrow {
+    position: absolute;
+    right: 0.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: inherit;
+}
+.theme-switcher select:focus {
+    outline: none;
+}
+.theme-switcher select option {
+    background-color: var(--white);
+    color: var(--black);
+}
+[data-theme="dark"] .theme-switcher select option {
+    background-color: var(--body-lighter);
+    color: var(--dark);
+}

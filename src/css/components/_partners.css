@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Component: Partners Section
+   ========================================================================== */
+.partners-section {
+    background-color: var(--body-lighter);
+    padding: 3rem var(--container-padding);
+}
+.partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xxl);
+    margin-top: var(--space-xl);
+}
+.partner-logo-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-400);
+    transition: color var(--transition-standard), opacity var(--transition-standard);
+    opacity: 0.6;
+}
+.partner-logo-text:hover {
+    color: var(--gray-600);
+    opacity: 1;
+}

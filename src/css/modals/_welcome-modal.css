@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Welcome Modal
+   ========================================================================== */
+
+.welcome-modal-content {
+    text-align: center;
+    padding: var(--space-xl) var(--space-lg);
+}
+
+.welcome-modal-body {
+    display: grid;
+    background-color: var(--body);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    box-shadow: #f584b9 0px 0px 10px 2px;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.welcome-modal-body h2 {
+    color: var(--primary);
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-xl);
+    line-height: 1.3;
+}
+
+.welcome-modal-body p {
+    font-size: var(--text-md);
+    color: var(--gray-700);
+    line-height: 1.7;
+    justify-content: space-between;
+}
+
+.welcome-modal-button {
+    display: flex;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 0.1rem 0.6rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-standard);
+    box-shadow: #fceecb 0px 0px 3px 2px;
+    justify-self: center;
+    will-change: transform, box-shadow, padding;
+}
+
+.welcome-modal-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: #5e5e5e 0px 3px 4px 0px;
+    padding: 0.1rem 1rem;
+}
+
+.welcome-modal-button:hover span {
+    transform: scale(2.5) translateY(-3px) translateX(3px);
+}
+
+.welcome-modal-button:hover p {
+    transform: scale(1.2) translateY(-6px);
+}
+
+.welcome-modal-button span {
+    display: inline-block;
+    font-size: 30px;
+    position: relative;
+    transition: transform var(--transition-standard);
+    will-change: transform;
+}
+
+.welcome-modal-button p {
+    display: inline-block;
+    font-size: 20px;
+    position: relative;
+    transition: transform var(--transition-standard);
+    color: var(--white);
+    margin-top: 0.5rem;
+    will-change: transform;
+}
+
+.welcome-modal-button span {
+    transition-delay: 0.2s;
+}
+
+.welcome-modal-button p {
+    transition-delay: 0.1s;
+}
+
+.welcome-modal-button.hover-trigger {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    padding: 0.1rem 1rem;
+}
+
+.welcome-modal-button.hover-trigger span {
+    transform: scale(2.5) translateY(-3px) translateX(3px);
+    transition: transform var(--transition-standard);
+}
+
+.welcome-modal-button.hover-trigger p {
+    transform: scale(1.2) translateY(-6px);
+    transition: all var(--transition-standard);
+}
+
+.welcome-modal-close {
+    visibility: hidden;
+}

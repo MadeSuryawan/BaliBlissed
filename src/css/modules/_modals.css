@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Modal Styles - Main Entrance
+   ========================================================================== */
+
+/* Import all modal module files */
+@import url("../modals/_base-modal.css");
+@import url("../modals/_welcome-modal.css");
+@import url("../modals/_about-modal.css");
+@import url("../modals/_contact-modal.css");
+@import url("../modals/_testimonial-modal.css");
+@import url("../modals/_map-modal.css");
+@import url("../modals/_newsletter-modal.css");

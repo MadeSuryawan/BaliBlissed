@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Contact Modal
+   ========================================================================== */
+
+.contact-modal-content {
+    max-width: 800px;
+    padding: 0;
+    background-color: var(--body);
+}
+
+.contact-modal-body {
+    padding: var(--space-md);
+}
+
+.contact-content-modal {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-sm);
+}
+
+.contact-content-modal .contact-info {
+    background-color: var(--body-lighter);
+    padding: var(--space-md);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* [data-theme="dark"] .contact-content-modal .contact-info {
+    background-color: var(--gray-50);
+} */
+
+.contact-content-modal .section-title {
+    text-align: left;
+    left: 0;
+    transform: none;
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-lg);
+}

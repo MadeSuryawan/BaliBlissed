@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Legal Pages Styles
+   ========================================================================== */
+
+.legal-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem var(--container-padding);
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    margin-top: 100px;
+    margin-bottom: 2rem;
+}
+
+.legal-page h1 {
+    color: var(--dark);
+    margin-bottom: 1rem;
+    font-size: var(--text-xxl);
+}
+
+.legal-page h2 {
+    color: var(--primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: var(--text-xl);
+}
+
+.legal-page h3 {
+    color: var(--dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: var(--text-lg);
+}
+
+.legal-page p,
+.legal-page li {
+    color: var(--gray-700);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.legal-page ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.legal-page a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.legal-page a:hover {
+    text-decoration: underline;
+}
+
+.last-updated {
+    background: var(--gray-100);
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 2rem;
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+}
